@@ -124,7 +124,7 @@
 			<ul class="icons">
                     
                     <li>
-                        <a title="github" href="https://github.com/ecloudsam" target="_blank" rel="noopener">
+                        <a title="github" href="https://github.com/sunrisejade" target="_blank" rel="noopener">
                             <i class="icon fa fa-github"></i>
                         </a>
                     </li>
@@ -134,11 +134,38 @@
 
         <div id="main" >
             <div class ="post_page_title_img" style="height: 25rem;background-image: url();background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
-                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >Graphical-explaratory</h2></a>
+                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >搭建Hexo博客</h2></a>
             </div>
             <!-- Post -->
             <div class="typo" style="padding: 3rem;">
-                
+                <h2 id="1-系统环境配置"><a href="#1-系统环境配置" class="headerlink" title="1.系统环境配置"></a>1.系统环境配置</h2><p>要使用Hexo，需要在你的系统中支持Nodejs以及Git，如果还没有，那就先安装吧<br><a id="more"></a></p>
+<h2 id="2-本地搭建Hexo静态博客"><a href="#2-本地搭建Hexo静态博客" class="headerlink" title="2.本地搭建Hexo静态博客"></a>2.本地搭建Hexo静态博客</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> d:/hexo  </span><br><span class="line">npm install hexo-cli -g</span><br><span class="line">hexo init blog</span><br><span class="line"><span class="built_in">cd</span> blog</span><br><span class="line">npm install</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+<ul>
+<li>新建一个文件夹Hexo</li>
+<li>全局安装hexo-cli模块（由此可以在cmd命令行中使用hexo命令）</li>
+<li>进入Hexo文件夹，shift+右击运行Powershell，输入：hexo init blog（生成hexo模版到blog文件夹）</li>
+<li>生成完模板，运行npm install（安装模块到node_modules目录。会生成package-lock.json文件）</li>
+<li>运行：hexo g （本地生成静态文件，会在当前目录下生成一个新的叫做public的文件夹）</li>
+<li>最后运行：hexo server （访问本地localhost:4000可以看到博客已经搭建成功）</li>
+</ul>
+<h2 id="3-将博客与Github关联"><a href="#3-将博客与Github关联" class="headerlink" title="3.将博客与Github关联"></a>3.将博客与Github关联</h2><h3 id="什么是Github-Pages"><a href="#什么是Github-Pages" class="headerlink" title="什么是Github Pages"></a>什么是Github Pages</h3><p>GitHub Pages 本用于介绍托管在GitHub的项目，不过，由于他的空间免费稳定，用来做搭建一个博客再好不过了。</p>
+<h3 id="创建Github-Page"><a href="#创建Github-Page" class="headerlink" title="创建Github Page"></a>创建Github Page</h3><ul>
+<li>创建一个Git repository:<br>在Repository name下填写yourname.github.io，Description (optional)下填写一些简单的描述（不写也没有关系），如图所示：</li>
+</ul>
+<p><img src="搭建Hexo博客/newrepo.png" alt=""></p>
+<ul>
+<li>开启gh-pages功能:<br>点击界面右侧的Settings，你将会打开这个库的setting页面，向下拖动，直到看见GitHub Pages，点击生成gitpage<br><img src="搭建Hexo博客/gitsetting.png" alt=""></li>
+</ul>
+<h3 id="修改-config-yml配置文件"><a href="#修改-config-yml配置文件" class="headerlink" title="修改_config.yml配置文件"></a>修改_config.yml配置文件</h3><ul>
+<li>将Hexo部署到github需修改_config.yml配置文件。打开本地的blog文件夹项目内的_config.yml配置文件，将deploy的内容修改为以下：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo: git@github.com:yourname/yourname.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+<ul>
+<li>然后回到Powershell在命令行中执行</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deploy d （将本地静态文件推送至Github）</span><br></pre></td></tr></table></figure>
+<p>参考：<br>关于npm install和package.json文件可参考:<br><a href="http://www.ruanyifeng.com/blog/2016/01/npm-install.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2016/01/npm-install.html</a><br><a href="http://javascript.ruanyifeng.com/nodejs/packagejson.html" target="_blank" rel="noopener">http://javascript.ruanyifeng.com/nodejs/packagejson.html</a><br>关于hexo-cli命令可参考:<br>Hexo命令行入口：<a href="http://linest.github.io/2016/12/15/hexo-cli/" target="_blank" rel="noopener">http://linest.github.io/2016/12/15/hexo-cli/</a></p>
+
             </div>
 
             <!-- Post Comments -->
