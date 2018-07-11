@@ -1,0 +1,379 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<link rel="bookmark"  type="image/x-icon"  href="/img/logo.png"/>
+	<link rel="shortcut icon" href="/img/logo.png">
+	
+			    <title>
+    Rock
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/css/mic_main.css" />
+    <link rel="stylesheet" href="/css/dropdownMenu.css" />
+    <meta name="keywords" content="Rock sunrisejade" />
+    
+    	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	 
+    <noscript>
+        <link rel="stylesheet" href="/css/noscript.css" />
+    </noscript>
+    <style type="text/css">
+        body:before {
+          content: ' ';
+          position: fixed;
+          top: 0;
+          background: url('/img/bg.jpg') center 0 no-repeat;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background-size: cover; 
+        }
+    </style>
+
+			    
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script async type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.scrollex.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+    <script src="/js/main.js"></script>
+	
+</head>
+    
+		
+<!-- Layouts -->
+
+
+
+<!--  代码渲染  -->
+<link rel="stylesheet" href="/css/prism_coy.css" />
+<link rel="stylesheet" href="/css/typo.css" />
+<!-- 文章页 -->
+<body class="is-loading">
+    <!-- Wrapper 外包 s-->
+    <div id="wrapper" class="fade-in">
+        <!-- Intro 头部显示 s -->
+        <!-- Intro 头部显示 e -->
+        <!-- Header 头部logo start -->
+        <header id="header">
+    <a href="/" class="logo">Rock</a>
+</header>
+        <!-- Nav 导航条 start -->
+        <nav id="nav" class="special" >
+            <ul class="menu links" >
+			<!-- Homepage  主页  --> 
+			<li >
+	            <a href="/" rel="nofollow">主页</a>
+	        </li>
+			<!-- categories_name  分类   --> 
+	        
+	        <li class="active">
+	            <a href="#s1">分类</a>
+	                    <ul class="submenu">
+	                        <li>
+	                        
+	                    </ul>
+	        </li>
+	        
+	        <!-- archives  归档   --> 
+	        
+	        
+		        <!-- Pages 自定义   -->
+		        
+		        <li>
+		            <a href="/tags/" title="标签">
+		                标签
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/about/" title="简历">
+		                简历
+		            </a>
+		        </li>
+		        
+
+
+            </ul>
+            <!-- icons 图标   -->
+			<ul class="icons">
+                    
+                    <li>
+                        <a title="github" href="https://github.com/ecloudsam" target="_blank" rel="noopener">
+                            <i class="icon fa fa-github"></i>
+                        </a>
+                    </li>
+                    
+			</ul>
+</nav>
+
+        <div id="main" >
+            <div class ="post_page_title_img" style="height: 25rem;background-image: url();background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >Tensorflow(California_Housing_Data)</h2></a>
+            </div>
+            <!-- Post -->
+            <div class="typo" style="padding: 3rem;">
+                <h2 id="将问题构建为二元分类问题"><a href="#将问题构建为二元分类问题" class="headerlink" title="将问题构建为二元分类问题"></a>将问题构建为二元分类问题</h2><p>数据集的目标是 median_house_value，它是一个数值（连续值）特征。我们可以通过向此连续值使用阈值来创建一个布尔值标签。<br>通过某个城市街区的特征预测该街区的住房成本是否高昂。为了给训练数据和评估数据准备目标，我们针对房屋价值中位数定义了分类阈值 - 第 75 百分位数（约为 265000）。所有高于此阈值的房屋价值标记为 1，其他值标记为 0。<br><a id="more"></a></p>
+<h2 id="读入数据，数据预处理"><a href="#读入数据，数据预处理" class="headerlink" title="读入数据，数据预处理"></a>读入数据，数据预处理</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#读入数据</span></span><br><span class="line">df = pd.read_csv(<span class="string">"https://storage.googleapis.com/mledu-datasets/california_housing_train.csv"</span>, sep=<span class="string">","</span>)</span><br><span class="line"><span class="comment">#将数据集序列打乱</span></span><br><span class="line">df = df.reindex(np.random.permutation(df.index))</span><br><span class="line"><span class="comment">#在使用数据前，对数据有个大致的了解</span></span><br><span class="line"><span class="built_in">print</span>(df.describe())</span><br></pre></td></tr></table></figure>
+<h2 id="设置特征，特征列，目标，分配测试、验证数据"><a href="#设置特征，特征列，目标，分配测试、验证数据" class="headerlink" title="设置特征，特征列，目标，分配测试、验证数据"></a>设置特征，特征列，目标，分配测试、验证数据</h2><ul>
+<li><p>特征</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">def preprocess_features(df):</span><br><span class="line"></span><br><span class="line">    selected_features = df[</span><br><span class="line">            [<span class="string">"latitude"</span>,</span><br><span class="line">             <span class="string">"longitude"</span>,</span><br><span class="line">             <span class="string">"housing_median_age"</span>,</span><br><span class="line">             <span class="string">"total_rooms"</span>,</span><br><span class="line">             <span class="string">"total_bedrooms"</span>,</span><br><span class="line">             <span class="string">"population"</span>,</span><br><span class="line">             <span class="string">"households"</span>,</span><br><span class="line">             <span class="string">"median_income"</span>]]</span><br><span class="line">    processed_features = selected_features.copy()</span><br><span class="line"></span><br><span class="line">    processed_features[<span class="string">"rooms_per_person"</span>] = (df[<span class="string">"total_rooms"</span>] /df[<span class="string">"population"</span>])</span><br><span class="line">    <span class="built_in">return</span> processed_features</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>特征列</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">def construct_feature_columns(input_features):</span><br><span class="line">    <span class="built_in">return</span> <span class="built_in">set</span>([tf.feature_column.numeric_column(my_feature) <span class="keyword">for</span> my_feature <span class="keyword">in</span> input_features])</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>目标</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">def preprocess_targets(df):</span><br><span class="line">    output_targets = pd.DataFrame()</span><br><span class="line">    output_targets[<span class="string">'median_house_value_is_high'</span>] = (df[<span class="string">'median_house_value'</span>]&gt;265000).astype(float32)</span><br><span class="line">    <span class="built_in">return</span> output_targets</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>分配测试数据</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">train_x = preprocess_features(df.head(12000))</span><br><span class="line">train_y = preprocess_targets(df.head(12000))</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>分配验证数据</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">validation_x = preprocess_features(df.tail(3000))</span><br><span class="line">validation_y = preprocess_targets(df.tail(3000))</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="定义输入函数"><a href="#定义输入函数" class="headerlink" title="定义输入函数"></a>定义输入函数</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">def my_input_fn(x, y, batch_size=1, shuffle=True, num_epochs=None):</span><br><span class="line"></span><br><span class="line">    x = &#123;key:np.array(value) <span class="keyword">for</span> key,value <span class="keyword">in</span> dict(x).items()&#125;</span><br><span class="line">    ds = Dataset.from_tensor_slices((x,y)) <span class="comment"># warning: 2GB limit</span></span><br><span class="line">    ds = ds.batch(batch_size).repeat(num_epochs)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> shuffle:</span><br><span class="line">        ds = ds.shuffle(100)</span><br><span class="line"></span><br><span class="line">    x, labels = ds.make_one_shot_iterator().get_next()</span><br><span class="line">    <span class="built_in">return</span> x, labels</span><br></pre></td></tr></table></figure>
+<h2 id="建模"><a href="#建模" class="headerlink" title="建模"></a>建模</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">def train_linear_classifier_model(learning_rate, steps, batch_size, train_x, train_y, validation_x, validation_y):</span><br><span class="line">    periods = 10</span><br><span class="line">    steps_per_period = steps/periods</span><br><span class="line"></span><br><span class="line">    my_optimizer = tf.train.AdamOptimizer(learning_rate = learning_rate)</span><br><span class="line">    linear_classifier = tf.estimator.LinearClassifier(</span><br><span class="line">            feature_columns=construct_feature_columns(train_x),</span><br><span class="line">            optimizer=my_optimizer</span><br><span class="line">            )</span><br><span class="line">    train_input_fn = lambda: my_input_fn(train_x,train_y[<span class="string">'median_house_value_is_high'</span>],batch_size = batch_size)</span><br><span class="line">    predict_train_input_fn = lambda: my_input_fn(train_x,train_y[<span class="string">'median_house_value_is_high'</span>],num_epochs=1, shuffle=False)</span><br><span class="line">    predict_validation_input_fn = lambda: my_input_fn(validation_x,validation_y[<span class="string">'median_house_value_is_high'</span>],num_epochs=1, shuffle=False)</span><br><span class="line">    <span class="built_in">print</span> ( <span class="string">"Training model..."</span>)</span><br><span class="line">    <span class="built_in">print</span> (<span class="string">"LogLoss (on training data):"</span>)</span><br><span class="line"></span><br><span class="line">    train_log_losses = []</span><br><span class="line">    validation_log_losses = [] <span class="comment">#</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> period <span class="keyword">in</span> range (0, periods):</span><br><span class="line">        linear_classifier.train(</span><br><span class="line">                input_fn=train_input_fn,</span><br><span class="line">                steps=steps_per_period</span><br><span class="line">                )</span><br><span class="line">        training_prob = linear_classifier.predict(input_fn=predict_train_input_fn)</span><br><span class="line">        training_prob = np.array([item[<span class="string">'probabilities'</span>] <span class="keyword">for</span> item <span class="keyword">in</span> training_prob])</span><br><span class="line">        validation_prob = linear_classifier.predict(input_fn=predict_validation_input_fn)</span><br><span class="line">        validation_prob = np.array([item[<span class="string">'probabilities'</span>] <span class="keyword">for</span> item <span class="keyword">in</span> validation_prob])</span><br><span class="line">        train_log_loss = metrics.log_loss(train_y, training_prob)</span><br><span class="line">        validation_log_loss = metrics.log_loss(validation_y, validation_prob)</span><br><span class="line">    <span class="built_in">print</span> (<span class="string">"  period %02d : %0.2f"</span> % (period, train_log_loss))</span><br><span class="line"></span><br><span class="line">    train_log_losses.append(train_log_loss)</span><br><span class="line">    validation_log_losses.append(validation_log_loss)</span><br><span class="line">    <span class="built_in">print</span> (<span class="string">"Model training finished."</span>)</span><br><span class="line"></span><br><span class="line">    plt.ylabel(<span class="string">"LogLoss"</span>)</span><br><span class="line">    plt.xlabel(<span class="string">"Periods"</span>)</span><br><span class="line">    plt.title(<span class="string">"LogLoss vs. Periods"</span>)</span><br><span class="line">    plt.tight_layout()</span><br><span class="line">    plt.plot(train_log_losses, label=<span class="string">"training"</span>)</span><br><span class="line">    plt.plot(validation_log_losses, label=<span class="string">"validation"</span>)</span><br><span class="line">    plt.legend()</span><br><span class="line"></span><br><span class="line">    <span class="built_in">return</span> linear_classifier</span><br></pre></td></tr></table></figure>
+<h2 id="运行分类函数"><a href="#运行分类函数" class="headerlink" title="运行分类函数"></a>运行分类函数</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">linear_classifier = train_linear_classifier_model(</span><br><span class="line">        learning_rate=0.000005,</span><br><span class="line">        steps=50,</span><br><span class="line">        batch_size=20,</span><br><span class="line">        train_x=train_x,</span><br><span class="line">        train_y=train_y,</span><br><span class="line">        validation_x=validation_x,</span><br><span class="line">        validation_y=validation_y)</span><br></pre></td></tr></table></figure>
+<h2 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">predict_validation_input_fn = lambda: my_input_fn(validation_x, validation_y[<span class="string">"median_house_value_is_high"</span>],num_epochs=1, shuffle=False)  </span><br><span class="line">evaluation_metrics = linear_classifier.evaluate(input_fn= predict_validation_input_fn)</span><br><span class="line"><span class="built_in">print</span> (<span class="string">"AUC on the validation set: %0.2f"</span> % evaluation_metrics[<span class="string">'auc'</span>])</span><br><span class="line"><span class="built_in">print</span> (<span class="string">"Accuracy on the validation set: %0.2f"</span> % evaluation_metrics[<span class="string">'accuracy'</span>])</span><br></pre></td></tr></table></figure>
+<h2 id="重要变量"><a href="#重要变量" class="headerlink" title="重要变量"></a>重要变量</h2><table>
+<thead>
+<tr>
+<th style="text-align:left">名称</th>
+<th>功能</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">train_x</td>
+<td>特征的训练集</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">train_y</td>
+<td>标签的训练集</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">validation_x</td>
+<td>特征的验证集</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">validation_y</td>
+<td>目标的验证集</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">x</td>
+<td>特征</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">y</td>
+<td>标签</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">training_prob</td>
+<td>训练集预测概率</td>
+<td>linear_classifier.predict(input_fn=predict_train_input_fn)</td>
+</tr>
+<tr>
+<td style="text-align:left">validation_prob</td>
+<td>验证集预测概率</td>
+<td>linear_classifier.predict(input_fn=predict_validation_input_fn)</td>
+</tr>
+<tr>
+<td style="text-align:left">train_log_loss</td>
+<td>训练集对数损失函数</td>
+<td>train_y, training_prob</td>
+</tr>
+<tr>
+<td style="text-align:left">validation_log_loss</td>
+<td>验证集对数损失函数</td>
+<td>validation_y, validation_prob</td>
+</tr>
+</tbody>
+</table>
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>功能</th>
+<th style="text-align:center">参数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>preprocess_features(df)</td>
+<td>设置特征</td>
+<td style="text-align:center">df</td>
+</tr>
+<tr>
+<td>construct_feature_columns(df)</td>
+<td>设置特征列</td>
+<td style="text-align:center">input_features</td>
+</tr>
+<tr>
+<td>preprocess_targets(df)</td>
+<td>设置目标</td>
+<td style="text-align:center">df</td>
+</tr>
+<tr>
+<td>my_input_fn</td>
+<td>输入数据</td>
+<td style="text-align:center">x, y, batch_size=1, shuffle=True, num_epochs=None</td>
+</tr>
+<tr>
+<td>train_linear_classifier_model</td>
+<td>分类模型</td>
+<td style="text-align:center">learning_rate, steps, batch_size, train_x, train_y, validation_x, validation_y</td>
+</tr>
+</tbody>
+</table>
+<h2 id="tensorflow内置函数"><a href="#tensorflow内置函数" class="headerlink" title="tensorflow内置函数"></a>tensorflow内置函数</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>功能</th>
+<th>属性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tf.data.Dataset.from_tensor_slices(x,y)</td>
+<td>返回一个特征和标签组合而成的dataset</td>
+<td>x,y</td>
+</tr>
+<tr>
+<td>Dataset.batch(batch_size)</td>
+<td>将数据拆分成batch_size份</td>
+<td>batch_size</td>
+</tr>
+<tr>
+<td>Dataset.make_one_shot_iterator()</td>
+<td>返回一个元素迭代器</td>
+<td></td>
+</tr>
+<tr>
+<td>get_next()</td>
+<td>表示从iterator里取出下一个元素</td>
+<td></td>
+</tr>
+<tr>
+<td>tf.feature_column.numeric_column</td>
+<td>设置特征列</td>
+<td>my_feature</td>
+</tr>
+<tr>
+<td>tf.train.AdamOptimizer</td>
+<td>配置Adam优化器</td>
+<td>learning_rate</td>
+</tr>
+<tr>
+<td>tf.train.GradientDescentOptimizer</td>
+<td>配置梯度下降优化器</td>
+<td>learning_rate</td>
+</tr>
+<tr>
+<td>tf.estimator.LinearClassifier</td>
+<td>线性分类器</td>
+<td>feature_columns, optimizer</td>
+</tr>
+<tr>
+<td>tf.estimator.LinearClassifier.train</td>
+<td>训练</td>
+<td>input_fn = training_input_fn, steps</td>
+</tr>
+<tr>
+<td>tf.estimator.LinearClassifier.predict</td>
+<td>预测</td>
+<td>input_fn = predict_training_input_fn, steps</td>
+</tr>
+<tr>
+<td>tf.estimator.LinearClassifier.evaluate</td>
+<td>验证</td>
+<td>input_fn= predict_validation_input_fn</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>例子<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">my_optimizer = tf.train.AdamOptimizer(learning_rate = learning_rate)</span><br><span class="line">linear_classifier = tf.estimator.LinearClassifier(</span><br><span class="line">    feature_columns=construct_feature_columns(train_x),</span><br><span class="line">    optimizer=my_optimizer</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">linear_classifier.train(</span><br><span class="line">    input_fn=training_input_fn,</span><br><span class="line">    steps=steps_per_period</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">training_probabilities = linear_classifier.predict(input_fn=predict_train_input_fn)</span><br><span class="line">evaluation_metrics = linear_classifier.evaluate(input_fn= predict_validation_input_fn)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+            </div>
+
+            <!-- Post Comments -->
+            
+    <!-- 使用 valine -->
+<div id="comment">
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#comment' ,
+        notify: true,
+        verify: false,
+        app_id: 'your appId',
+        app_key: 'your appkey',
+        placeholder: 'Please leave your footprints',
+        pageSize: '10',
+        avatar: '',
+        avatar_cdn: 'https://gravatar.loli.net/avatar/'
+    });
+</script>
+</div>
+<style>
+   #comment{
+        padding: 2pc;
+    }
+</style>
+
+
+        </div>
+        <!-- Copyright 版权 start -->
+                <div id="copyright">
+            <ul>
+                <li>&copy;Powered By <a href="https://hexo.io/zh-cn/" style="border-bottom: none;">hexo</a></li>
+            </ul>
+            
+            	<span id="busuanzi_container_site_pv">2018总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+			
+        </div>
+    </div>
+</body>
+
+
+
+ 	
+</html>

@@ -1,0 +1,300 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<link rel="bookmark"  type="image/x-icon"  href="/img/logo.png"/>
+	<link rel="shortcut icon" href="/img/logo.png">
+	
+			    <title>
+    Rock
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/css/mic_main.css" />
+    <link rel="stylesheet" href="/css/dropdownMenu.css" />
+    <meta name="keywords" content="Rock sunrisejade" />
+    
+    	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	 
+    <noscript>
+        <link rel="stylesheet" href="/css/noscript.css" />
+    </noscript>
+    <style type="text/css">
+        body:before {
+          content: ' ';
+          position: fixed;
+          top: 0;
+          background: url('/img/bg.jpg') center 0 no-repeat;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background-size: cover; 
+        }
+    </style>
+
+			    
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script async type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.scrollex.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+    <script src="/js/main.js"></script>
+	
+</head>
+    
+		
+<!-- Layouts -->
+
+
+
+<!--  代码渲染  -->
+<link rel="stylesheet" href="/css/prism_coy.css" />
+<link rel="stylesheet" href="/css/typo.css" />
+<!-- 文章页 -->
+<body class="is-loading">
+    <!-- Wrapper 外包 s-->
+    <div id="wrapper" class="fade-in">
+        <!-- Intro 头部显示 s -->
+        <!-- Intro 头部显示 e -->
+        <!-- Header 头部logo start -->
+        <header id="header">
+    <a href="/" class="logo">Rock</a>
+</header>
+        <!-- Nav 导航条 start -->
+        <nav id="nav" class="special" >
+            <ul class="menu links" >
+			<!-- Homepage  主页  --> 
+			<li >
+	            <a href="/" rel="nofollow">主页</a>
+	        </li>
+			<!-- categories_name  分类   --> 
+	        
+	        <li class="active">
+	            <a href="#s1">分类</a>
+	                    <ul class="submenu">
+	                        <li>
+	                        
+	                    </ul>
+	        </li>
+	        
+	        <!-- archives  归档   --> 
+	        
+	        
+		        <!-- Pages 自定义   -->
+		        
+		        <li>
+		            <a href="/tags/" title="标签">
+		                标签
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/about/" title="简历">
+		                简历
+		            </a>
+		        </li>
+		        
+
+
+            </ul>
+            <!-- icons 图标   -->
+			<ul class="icons">
+                    
+                    <li>
+                        <a title="github" href="https://github.com/ecloudsam" target="_blank" rel="noopener">
+                            <i class="icon fa fa-github"></i>
+                        </a>
+                    </li>
+                    
+			</ul>
+</nav>
+
+        <div id="main" >
+            <div class ="post_page_title_img" style="height: 25rem;background-image: url();background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >Sklearn-Iris Dataset</h2></a>
+            </div>
+            <!-- Post -->
+            <div class="typo" style="padding: 3rem;">
+                <h2 id="1-基本介绍"><a href="#1-基本介绍" class="headerlink" title="1 基本介绍"></a>1 基本介绍</h2><p>本文的数据集是常见的官方数据集鸢尾花iris.csv<br>数据集：由3类不同的鸢尾花构成，每一类数量为50，共有150个观测值<br>数据集特征：sepal length（萼片长）, sepal width（萼片宽）, petal length（花瓣长）, petal width（花瓣宽）<br>数据集标签：setosa，versicolor，virginica<br><a id="more"></a></p>
+<h2 id="2-导入数据"><a href="#2-导入数据" class="headerlink" title="2 导入数据"></a>2 导入数据</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">from sklearn import datasets</span><br><span class="line">iris = datasets.load_iris()</span><br><span class="line"><span class="built_in">print</span>(iris.data)</span><br></pre></td></tr></table></figure>
+<h2 id="3-观察数据结构"><a href="#3-观察数据结构" class="headerlink" title="3 观察数据结构"></a>3 观察数据结构</h2><table>
+<thead>
+<tr>
+<th>代码</th>
+<th>返回结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>iris.feature_names</td>
+<td>[‘sepal length (cm)’, ‘sepal width (cm)’, ‘petal length (cm)’, ‘petal width (cm)’]</td>
+</tr>
+<tr>
+<td>iris.target_names</td>
+<td>[‘setosa’ ‘versicolor’ ‘virginica’]</td>
+</tr>
+<tr>
+<td>iris.target</td>
+<td>[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 00 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2]</td>
+</tr>
+<tr>
+<td>type(iris.data)</td>
+<td>numpy.ndarray</td>
+</tr>
+<tr>
+<td>type(iris.target)</td>
+<td>numpy.ndarray</td>
+</tr>
+<tr>
+<td>iris.data.shape</td>
+<td>(150, 4)</td>
+</tr>
+<tr>
+<td>iris.target.shape</td>
+<td>(150,)</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>使用Sklearn,特征列和标签列的数据必须是数值的和Numpyarray形式</li>
+</ul>
+<h2 id="4-训练"><a href="#4-训练" class="headerlink" title="4 训练"></a>4 训练</h2><p>由于鸢尾花数据集的标签是按类别分的（categorical）所以是分类问题。这里用KNN近邻和逻辑回归两种模型来训练数据，来感受一下这两种模型对于准确率的影响。</p>
+<h3 id="4-1-方法一：K-nearest-neighbors-KNN-算法"><a href="#4-1-方法一：K-nearest-neighbors-KNN-算法" class="headerlink" title="4.1 方法一：K-nearest neighbors (KNN)算法"></a>4.1 方法一：K-nearest neighbors (KNN)算法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#1.将整个数据集拆分为两部分：训练集和测试集</span></span><br><span class="line">X = iris.data</span><br><span class="line">y = iris.target</span><br><span class="line">from sklearn.cross_validation import train_test_split</span><br><span class="line">X_train,X_test,y_train,y_test = train_test_split(X,y,test_size=0.4,random_state=4)</span><br><span class="line"></span><br><span class="line"><span class="comment">#2.配置Knn分类算法：K=5</span></span><br><span class="line">from sklearn.neighbors import KNeighborsClassifier</span><br><span class="line">Knn = KNeighborsClassifier(n_neighbors = 5)</span><br><span class="line"><span class="built_in">print</span>(knn)</span><br><span class="line"></span><br><span class="line">KNeighborsClassifier(algorithm=<span class="string">'auto'</span>, leaf_size=30, metric=<span class="string">'minkowski'</span>,</span><br><span class="line">           metric_params=None, n_jobs=1, n_neighbors=1, p=2,</span><br><span class="line">           weights=<span class="string">'uniform'</span>)</span><br><span class="line"><span class="comment">#3.训练</span></span><br><span class="line">knn.fit(X_train, y_train)</span><br><span class="line"></span><br><span class="line"><span class="comment">#4.分类</span></span><br><span class="line">y_pred = knn.predict(X_test)</span><br><span class="line"></span><br><span class="line"><span class="comment">#5.评估</span></span><br><span class="line">from sklearn import metrics</span><br><span class="line"><span class="built_in">print</span>(metrics.accuracy_score(y_test,y_pred))</span><br><span class="line">返回结果：0.9666666666666667</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p><strong>注意：K的取值会影响分类的结果，如当k=1时，分类的准确率就下降了</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">knn = KNeighborsClassifier(n_neighbors=1)</span><br><span class="line"></span><br><span class="line">knn.fit(X_train, y_train)</span><br><span class="line"></span><br><span class="line">y_pred = knn.predict(X_test)</span><br><span class="line"><span class="built_in">print</span>(metrics.accuracy_score(y_test,y_pred))</span><br><span class="line">返回结果：0.95</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>那么问题来了k应该取什么值才能让分类能更准确呢</strong></p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">k_range = list(range(1,26))</span><br><span class="line">scores = []</span><br><span class="line"><span class="keyword">for</span> k <span class="keyword">in</span> k_range:</span><br><span class="line">    knn = KNeighborsClassifier(n_neighbors=k)</span><br><span class="line">    knn.fit(X_train, y_train)</span><br><span class="line">    y_pred = knn.predict(X_test)</span><br><span class="line">    scores.append(metrics.accuracy_score(y_test, y_pred))</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>k的取值对分类准确率的影响如下图</strong><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import matplotlib.pyplot as plt</span><br><span class="line"></span><br><span class="line">plt.plot(k_range, scores)</span><br><span class="line">plt.xlabel(<span class="string">'Value of K for KNN'</span>)</span><br><span class="line">plt.ylabel(<span class="string">'Testing Accuracy'</span>)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="k.png" alt=""></p>
+<h3 id="4-2方法二：LogisticRegression算法"><a href="#4-2方法二：LogisticRegression算法" class="headerlink" title="4.2方法二：LogisticRegression算法"></a>4.2方法二：LogisticRegression算法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">from sklearn.linear_model import LogisticRegression</span><br><span class="line">logreg = LogisticRegression()</span><br><span class="line">logreg.fit(X_train,y_train)</span><br><span class="line">y_pred = logreg.predict(X_test)</span><br><span class="line"><span class="built_in">print</span>(metrics.accuracy_score(y_test,y_pred))</span><br><span class="line">返回结果：0.95</span><br></pre></td></tr></table></figure>
+<h2 id="5-常见的SKlearn模块"><a href="#5-常见的SKlearn模块" class="headerlink" title="5 常见的SKlearn模块"></a>5 常见的SKlearn模块</h2><table>
+<thead>
+<tr>
+<th>代码</th>
+<th>返回结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>from sklearn import datasets</td>
+<td>导入数据</td>
+</tr>
+<tr>
+<td>from sklearn.linear_model import LinearRegression</td>
+<td>导入线性回归模块</td>
+</tr>
+<tr>
+<td>from sklearn.linear_model import LogisticRegression</td>
+<td>导入逻辑回归模块</td>
+</tr>
+<tr>
+<td>from sklearn.neighbors import KNeighborsClassifier</td>
+<td>导入Knn模块</td>
+</tr>
+<tr>
+<td>from sklearn import preprocessing</td>
+<td>导入预处理模块</td>
+</tr>
+<tr>
+<td>from sklearn import metrics</td>
+<td>导入分类评估函数</td>
+</tr>
+<tr>
+<td>from sklearn.cross_validation import train_test_split</td>
+<td>导入数据拆分模块</td>
+</tr>
+<tr>
+<td>from sklearn.cross_validation import cross_val_score</td>
+<td>导入数据交叉验证模块</td>
+</tr>
+<tr>
+<td>from sklearn.datasets.samples_generator import make_classification</td>
+<td>导入数据生成模块</td>
+</tr>
+<tr>
+<td>from sklearn.svm import SVC</td>
+<td>导入支持向量机</td>
+</tr>
+<tr>
+<td>from sklearn.learning_curve import learning_curve</td>
+<td>导入学习曲线</td>
+</tr>
+</tbody>
+</table>
+
+            </div>
+
+            <!-- Post Comments -->
+            
+    <!-- 使用 valine -->
+<div id="comment">
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#comment' ,
+        notify: true,
+        verify: false,
+        app_id: 'your appId',
+        app_key: 'your appkey',
+        placeholder: 'Please leave your footprints',
+        pageSize: '10',
+        avatar: '',
+        avatar_cdn: 'https://gravatar.loli.net/avatar/'
+    });
+</script>
+</div>
+<style>
+   #comment{
+        padding: 2pc;
+    }
+</style>
+
+
+        </div>
+        <!-- Copyright 版权 start -->
+                <div id="copyright">
+            <ul>
+                <li>&copy;Powered By <a href="https://hexo.io/zh-cn/" style="border-bottom: none;">hexo</a></li>
+            </ul>
+            
+            	<span id="busuanzi_container_site_pv">2018总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+			
+        </div>
+    </div>
+</body>
+
+
+
+ 	
+</html>
