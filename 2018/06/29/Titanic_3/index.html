@@ -112,7 +112,7 @@
 		        </li>
 		        
 		        <li>
-		            <a href="linkedin.com/in/jane-shan-a50170142" title="Resume">
+		            <a href="https://www.linkedin.com/in/jane-shan-a50170142/" title="Resume">
 		                Resume
 		            </a>
 		        </li>
@@ -149,7 +149,7 @@
 <p>有放回地重复抽样建模<br>训练子模型</p>
 <p>2.模型融合<br>分类问题：voting</p>
 <p>回归问题：average<br>Bagging算法不用我们自己实现，随机森林就是基于Bagging算法的一个典型例子，采用的基分类器是决策树。R和python都集成好了，直接调用</p>
-<h3 id="四、Boosting"><a href="#四、Boosting" class="headerlink" title="四、Boosting"></a>四、Boosting</h3><p>Bagging算法可以并行处理，而Boosting的思想是一种迭代的方法，每一次训练的时候都更加关心分类错误的样例，给这些分类错误的样例增加更大的权重，下一次迭代的目标就是能够更容易辨别出上一轮分类错误的样例。最终将这些弱分类器进行加权相加。引用加州大学欧文分校Alex Ihler教授的两页PPT</p>
+<h3 id="四、Boosting"><a href="#四、Boosting" class="headerlink" title="四、Boosting"></a>四、Boosting</h3><p>Bagging算法可以并行处理，而Boosting的思想是一种迭代的方法，每一次训练的时候都更加关心分类错误的样例，给这些分类错误的样例增加更大的权重，下一次迭代的目标就是能够更容易辨别出上一轮分类错误的样例。最终将这些弱分类器进行加权相加。</p>
 <h3 id="五、-Stacking原理"><a href="#五、-Stacking原理" class="headerlink" title="五、 Stacking原理"></a>五、 Stacking原理</h3><p>Stacking是层状结构的，以常见的两层为例，第一层是不同的基模型，而第二层是以上层基模型为输入数据的分类器。注意点：第一阶段的候选模型追求的是‘准而不同’，不同模型相对不关联。<br>先从一种“错误”但是容易懂的Stacking方法讲起。假设我们有3个基模型M1、M2、M3,用于第一阶段的训练，另一个模型M4用于第二阶段的训练。</p>
 <ol>
 <li>基模型M1，对训练集train训练，然后用于预测train和test的标签列，分别是P1，T1</li>
