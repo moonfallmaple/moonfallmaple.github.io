@@ -133,11 +133,11 @@
 </nav>
 
         <div id="main" >
-            <div class ="post_page_title_img" style="height: 25rem;background-image: url();background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
-                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >Tensorflow Exploratory</h2></a>
+            <div class ="post_page_title_img" style="height:8rem;background-image: url();background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+                <a href="#" style="padding: 2rem 4rem 2rem 4rem ;"><h2 >Tensorflow Exploratory</h2></a>
             </div>
             <!-- Post -->
-            <div class="typo" style="padding: 3rem;">
+            <div class="typo" style="padding: 2rem 4rem 2rem 4rem ;">
                 <h2 id="将问题构建为二元分类问题"><a href="#将问题构建为二元分类问题" class="headerlink" title="将问题构建为二元分类问题"></a>将问题构建为二元分类问题</h2><p>数据集的目标是 median_house_value，它是一个数值（连续值）特征。我们可以通过向此连续值使用阈值来创建一个布尔值标签。<br>通过某个城市街区的特征预测该街区的住房成本是否高昂。为了给训练数据和评估数据准备目标，我们针对房屋价值中位数定义了分类阈值 - 第 75 百分位数（约为 265000）。所有高于此阈值的房屋价值标记为 1，其他值标记为 0。<br><a id="more"></a></p>
 <h2 id="读入数据，数据预处理"><a href="#读入数据，数据预处理" class="headerlink" title="读入数据，数据预处理"></a>读入数据，数据预处理</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#读入数据</span></span><br><span class="line">df = pd.read_csv(<span class="string">"https://storage.googleapis.com/mledu-datasets/california_housing_train.csv"</span>, sep=<span class="string">","</span>)</span><br><span class="line"><span class="comment">#将数据集序列打乱</span></span><br><span class="line">df = df.reindex(np.random.permutation(df.index))</span><br><span class="line"><span class="comment">#在使用数据前，对数据有个大致的了解</span></span><br><span class="line"><span class="built_in">print</span>(df.describe())</span><br></pre></td></tr></table></figure>
 <h2 id="设置特征，特征列，目标，分配测试、验证数据"><a href="#设置特征，特征列，目标，分配测试、验证数据" class="headerlink" title="设置特征，特征列，目标，分配测试、验证数据"></a>设置特征，特征列，目标，分配测试、验证数据</h2><ul>
