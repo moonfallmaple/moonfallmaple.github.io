@@ -68,12 +68,18 @@
 		
 <!-- Layouts -->
 
-
-
-<!--  代码渲染  -->
-<link rel="stylesheet" href="/css/prism_coy.css" />
-<link rel="stylesheet" href="/css/typo.css" />
-<!-- 文章页 -->
+    <!-- Tags Cloud -->
+    
+<link rel="stylesheet" href="/css/item.css" />
+<style >
+    .row a{
+        border-bottom: none;
+    }
+    .special{
+        padding: 0;
+        padding: 2rem;
+    }
+</style>
 <body class="is-loading">
     <!-- Wrapper 外包 s-->
     <div id="wrapper" class="fade-in">
@@ -133,41 +139,9 @@
 </nav>
 
         <div id="main" >
-            <div class ="post_page_title_img" style="height:8rem;background-image: url();background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
-                <a href="#" style="padding: 2rem 4rem 2rem 4rem ;"><h2 >tags</h2></a>
-            </div>
-            <!-- Post -->
-            <div class="typo" style="padding: 2rem 4rem 2rem 4rem ;">
-                
-            </div>
-
-            <!-- Post Comments -->
-            
-    <!-- 使用 valine -->
-<div id="comment">
-    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
-<script>
-    new Valine({
-        el: '#comment' ,
-        notify: true,
-        verify: false,
-        app_id: 'your appId',
-        app_key: 'your appkey',
-        placeholder: 'Please leave your footprints',
-        pageSize: '10',
-        avatar: '',
-        avatar_cdn: 'https://gravatar.loli.net/avatar/'
-    });
-</script>
-</div>
-<style>
-   #comment{
-        padding: 2pc;
-    }
-</style>
-
-
+            <div class="row" style="border-bottom: none;">
+                <a href="/tags/Nodejs/" style="font-size: 16px;">Nodejs</a> <a href="/tags/Pandas/" style="font-size: 16px;">Pandas</a> <a href="/tags/Tensorflow/" style="font-size: 16px;">Tensorflow</a> <a href="/tags/hexo/" style="font-size: 16px;">hexo</a> <a href="/tags/kaggle/" style="font-size: 16px;">kaggle</a> <a href="/tags/markdown/" style="font-size: 16px;">markdown</a> <a href="/tags/sklearn/" style="font-size: 16px;">sklearn</a>
+            </div>   
         </div>
         <!-- Copyright 版权 start -->
                 <div id="copyright">
@@ -180,7 +154,6 @@
         </div>
     </div>
 </body>
-
 
 
  	
