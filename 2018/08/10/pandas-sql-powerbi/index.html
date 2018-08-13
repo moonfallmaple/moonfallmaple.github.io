@@ -1,0 +1,260 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<link rel="bookmark"  type="image/x-icon"  href="/img/logo.png"/>
+	<link rel="shortcut icon" href="/img/logo.png">
+	
+			    <title>
+    Sunrise Jade
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/css/mic_main.css" />
+    <link rel="stylesheet" href="/css/dropdownMenu.css" />
+    <meta name="keywords" content="Rock sunrisejade" />
+    
+    	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	 
+    <noscript>
+        <link rel="stylesheet" href="/css/noscript.css" />
+    </noscript>
+    <style type="text/css">
+        body:before {
+          content: ' ';
+          position: fixed;
+          top: 0;
+          background: url('/img/bg.jpg') center 0 no-repeat;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background-size: cover; 
+        }
+    </style>
+
+			    
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script async type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.scrollex.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+    <script src="/js/main.js"></script>
+	
+</head>
+    
+		
+<!-- Layouts -->
+
+
+
+<!--  代码渲染  -->
+<link rel="stylesheet" href="/css/prism_coy.css" />
+<link rel="stylesheet" href="/css/typo.css" />
+<!-- 文章页 -->
+<body class="is-loading">
+    <!-- Wrapper 外包 s-->
+    <div id="wrapper" class="fade-in">
+        <!-- Intro 头部显示 s -->
+        <!-- Intro 头部显示 e -->
+        <!-- Header 头部logo start -->
+        <header id="header">
+    <a href="/" class="logo">Rock</a>
+</header>
+        <!-- Nav 导航条 start -->
+        <nav id="nav" class="special" >
+            <ul class="menu links" >
+			<!-- Homepage  主页  --> 
+			<li >
+	            <a href="/" rel="nofollow">Home</a>
+	        </li>
+			<!-- categories_name  分类   --> 
+	        
+	        <li class="active">
+	            <a href="#s1">Category</a>
+	                    <ul class="submenu">
+	                        <li>
+	                        <a class="category-link" href="/categories/Data-Analysis/">Data-Analysis</a>
+	                    </ul>
+	        </li>
+	        
+	        <!-- archives  归档   --> 
+	        
+	        
+		        <!-- Pages 自定义   -->
+		        
+		        <li>
+		            <a href="/tags/" title="Tag">
+		                Tag
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="https://www.linkedin.com/in/jane-shan-a50170142/" title="Resume">
+		                Resume
+		            </a>
+		        </li>
+		        
+
+
+            </ul>
+            <!-- icons 图标   -->
+			<ul class="icons">
+                    
+                    <li>
+                        <a title="github" href="https://github.com/sunrisejade" target="_blank" rel="noopener">
+                            <i class="icon fa fa-github"></i>
+                        </a>
+                    </li>
+                    
+			</ul>
+</nav>
+
+        <div id="main" >
+            <div class ="post_page_title_img" style="height:8rem;background-image: url();background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+                <a href="#" style="padding: 2rem 4rem 2rem 4rem ;"><h2 >Canadian Disaster Database</h2></a>
+            </div>
+            <!-- Post -->
+            <div class="typo" style="padding: 2rem 4rem 2rem 4rem ;">
+                <h3 id="Q1-Estimated-total-cost-for-each-event"><a href="#Q1-Estimated-total-cost-for-each-event" class="headerlink" title="Q1:Estimated total cost for each event"></a>Q1:Estimated total cost for each event</h3><h4 id="Use-Python-to-solve"><a href="#Use-Python-to-solve" class="headerlink" title="-Use Python to solve:"></a>-Use Python to solve:</h4><blockquote>
+<p>Steps<br>1.create a new dataframe called ‘Total_cost’, Groupby ‘EVENT TYPE’ and get each type’s ‘ESTIMATED TOTAL COST’<br>2.Filter out ‘ESTIMATED TOTAL COST’&gt;0 and assign it to ‘Total_cost_new’<br>3.Get the index of ‘Total_cost_new’ and assign it to ‘event_type’<br>4.Use sns.barplot() to plot the figture</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Total_cost=pd.DataFrame(data.groupby(<span class="string">'EVENT TYPE'</span>)[<span class="string">'ESTIMATED TOTAL COST'</span>].sum())</span><br><span class="line">Total_cost_new=Total_cost.loc[Total_cost[<span class="string">'ESTIMATED TOTAL COST'</span>]&gt;0]</span><br><span class="line"></span><br><span class="line">event_type=Total_cost_new.index.values</span><br><span class="line">plt1=sns.barplot(x=<span class="string">'ESTIMATED TOTAL COST'</span>,y=event_type,data=Total_cost_new)</span><br></pre></td></tr></table></figure>
+<div align="center"><br><img src="./q1.png" width="700" height="400" alt="图片名称" align="center"><br></div>
+
+<h4 id="Use-PowerBI-to-solve"><a href="#Use-PowerBI-to-solve" class="headerlink" title="-Use PowerBI to solve:"></a>-Use PowerBI to solve:</h4><blockquote>
+<p>Steps<br>1.create a new dataframe called ‘Total cost for each event’, Groupby ‘EVENT TYPE’ and get each type’s ‘ESTIMATED TOTAL COST’</p>
+</blockquote>
+<div align="center"><br><img src="./q12.png" width="700" height="400" alt="图片名称" align="center"><br></div>
+
+<blockquote>
+<p>2.Filter out ‘ESTIMATED TOTAL COST’&gt;0</p>
+</blockquote>
+<div align="center"><br><img src="./q13.png" width="500" height="600" alt="图片名称" align="center"><br></div>
+
+<blockquote>
+<p>3.Plot figture of Estimated total cost for each event</p>
+</blockquote>
+<div align="center"><br><img src="./q15.png" width="700" height="400" alt="图片名称" align="center"><br></div>
+
+
+
+<h3 id="Q2-Number-of-event-happend-per-year-where-DFAA-payments-both-federal-and-provincial-have-been-applied"><a href="#Q2-Number-of-event-happend-per-year-where-DFAA-payments-both-federal-and-provincial-have-been-applied" class="headerlink" title="Q2: Number of event happend per year where DFAA payments (both federal and provincial) have been applied."></a>Q2: Number of event happend per year where DFAA payments (both federal and provincial) have been applied.</h3><h4 id="Use-Python-to-solve-1"><a href="#Use-Python-to-solve-1" class="headerlink" title="-Use Python to solve:"></a>-Use Python to solve:</h4><blockquote>
+<p>Steps<br>1.create a new dataframe called ‘Event_per_year’<br>2.Conver the type of ‘EVENT START DATE’ from string to date format<br>3.Extract the year from the ‘EVENT START DATE’ column<br>4.Filter out ‘FEDERAL DFAA PAYMENTS’&gt;0 and ‘PROVINCIAL DFAA PAYMENTS’&gt;0 assign it to ‘Event_per_year_new’<br>5.Count the num of events happened per year, get the index and value for the following figture<br>6.Use sns.barplot() to plot the figture</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">Event_per_year=pd.DataFrame(data)</span><br><span class="line">Event_per_year.head()</span><br><span class="line">Event_per_year[<span class="string">'EVENT START DATE'</span>]=pd.to_datetime(Event_per_year[<span class="string">'EVENT START DATE'</span>],dayfirst=True)</span><br><span class="line">Event_per_year[<span class="string">'YEAR'</span>]=Event_per_year[<span class="string">'EVENT START DATE'</span>].apply(lambda x:x.year)</span><br><span class="line">Event_per_year_new=pd.DataFrame(Event_per_year[(Event_per_year[<span class="string">"FEDERAL DFAA PAYMENTS"</span>]&gt;0 )&amp;</span><br><span class="line"> (Event_per_year[<span class="string">"PROVINCIAL DFAA PAYMENTS"</span>]&gt;0)])</span><br><span class="line">Event_per_year_new</span><br><span class="line"></span><br><span class="line">Num_event_yearly=Event_per_year_new[<span class="string">'YEAR'</span>].value_counts()</span><br><span class="line"><span class="built_in">print</span>(Num_event_yearly)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(Num_event_yearly.index)</span><br><span class="line"><span class="built_in">print</span>(Num_event_yearly.values)</span><br><span class="line"></span><br><span class="line">plt2=sns.barplot(x=Num_event_yearly.index,y=Num_event_yearly.values,data=Event_per_year_new)</span><br><span class="line">plt2.set(xlabel=<span class="string">'Year'</span>,ylabel=<span class="string">'Number of events happened'</span>, title=<span class="string">'Number of events happened</span></span><br><span class="line"><span class="string">each year where DFAA payments applied'</span>)</span><br></pre></td></tr></table></figure>
+<div align="center"><br><img src="./q27.png" width="600" height="300" alt="图片名称" align="center"><br></div>
+
+<h4 id="Use-PowerBI-to-solve-1"><a href="#Use-PowerBI-to-solve-1" class="headerlink" title="-Use PowerBI to solve:"></a>-Use PowerBI to solve:</h4><blockquote>
+<p>Steps<br>1.Split the ‘EVENT START DATE’ column</p>
+</blockquote>
+<div align="center"><br><img src="./q2.png" width="600" height="600" alt="图片名称" align="center"><br></div>
+
+<blockquote>
+<p>2.Based on delimiter=’/‘to split</p>
+</blockquote>
+<div align="center"><br><img src="./q21.png" width="700" height="400" alt="图片名称" align="center"><br></div>
+
+<div align="center"><br><img src="./q22.png" width="700" height="400" alt="图片名称" align="center"><br></div>
+
+<blockquote>
+<p>3.Filter out the “FEDERAL DFAA PAYMENTS”]&gt;0 and “PROVINCIAL DFAA PAYMENTS”]&gt;0 rows</p>
+</blockquote>
+<div align="center"><br><img src="./q23.png" width="700" height="500" alt="图片名称" align="center"><br></div>
+
+<blockquote>
+<p>4.plot figture of  Number of event happend per year where DFAA payments (both federal and provincial) have been applied</p>
+</blockquote>
+<div align="center"><br><img src="./q28.png" width="600" height="500" alt="图片名称" align="center"><br></div>
+
+
+<h2 id="Q3-Duration-of-events"><a href="#Q3-Duration-of-events" class="headerlink" title="Q3:Duration of events"></a>Q3:Duration of events</h2><h4 id="Use-Python-to-solve-2"><a href="#Use-Python-to-solve-2" class="headerlink" title="-Use Python to solve:"></a>-Use Python to solve:</h4><blockquote>
+<p>Steps<br>1.create a new dataframe called ‘Duration’<br>2.Conver the type of ‘EVENT START DATE’ and ‘EVENT END DATE’ from string to date format<br>3.Calculate the result of Duration[“EVENT END DATE”]-Duration[“EVENT START DATE”],  converted the difference’s type   and assign it to Duration[‘DURATION’]<br>4.Use sns.hist() to plot the figture</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Duration=pd.DataFrame(data)</span><br><span class="line">Duration[<span class="string">'EVENT START DATE'</span>]=pd.to_datetime(Duration[<span class="string">'EVENT START DATE'</span>],dayfirst=True)</span><br><span class="line">Duration[<span class="string">'EVENT END DATE'</span>]=pd.to_datetime(Duration[<span class="string">'EVENT END DATE'</span>],dayfirst=True)</span><br><span class="line"></span><br><span class="line">Duration[<span class="string">'DURATION_DAYS'</span>]=(Duration[<span class="string">"EVENT END DATE"</span>]-Duration[<span class="string">"EVENT START DATE"</span>]).astype(<span class="string">'timedelta64[D]'</span>)</span><br><span class="line"></span><br><span class="line">duration_max=data[<span class="string">'DURATION_DAYS'</span>].max()</span><br><span class="line">duration_max</span><br><span class="line">id=data[<span class="string">'DURATION_DAYS'</span>].idxmax()</span><br><span class="line">id</span><br><span class="line"></span><br><span class="line">plt3=plt.boxplot(data[<span class="string">'DURATION_DAYS'</span>])</span><br><span class="line">plt.show()</span><br><span class="line">plt.hist(data[<span class="string">"DURATION_DAYS"</span>],bins=10,range=(0,50))</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<div align="center"><br><img src="./q29.png" width="600" height="400" alt="图片名称" align="center"><br></div>
+
+<h4 id="Use-PowerBI-to-solve-2"><a href="#Use-PowerBI-to-solve-2" class="headerlink" title="-Use PowerBI to solve:"></a>-Use PowerBI to solve:</h4><blockquote>
+<p>1.Convert the type of EVENT END DATE and EVENT START DATE to date, if occurs errors, change the local option</p>
+</blockquote>
+<div align="center"><br><img src="./q31.png" width="600" height="400" alt="图片名称" align="center"><br></div>
+
+<blockquote>
+<p>2.Create a new column and calculate the difference of Duration[“EVENT END DATE”]-Duration[“EVENT START DATE”]</p>
+</blockquote>
+<div align="center"><br><img src="./q30.png" width="600" height="400" alt="图片名称" align="center"><br></div>
+
+<h2 id="Q4-Get-the-province-from-the-‘PLACE’-column"><a href="#Q4-Get-the-province-from-the-‘PLACE’-column" class="headerlink" title="Q4 Get the province from the ‘PLACE’ column"></a>Q4 Get the province from the ‘PLACE’ column</h2><h4 id="Use-Python-to-solve-3"><a href="#Use-Python-to-solve-3" class="headerlink" title="-Use Python to solve:"></a>-Use Python to solve:</h4><blockquote>
+<p>Steps<br>1.create a new dataframe called ‘Province’<br>2.Create a new column ‘ORGANIZED’ and assign 0 to it<br>3.Slice the last two letter from the ‘PLACE’ column and assign to ‘Province’<br>4.For every entry in ‘Province’ column if it is in abbre list then we label as ‘ORGANIZED’=1 otherwise ‘ORGANIZED’=0<br>5.Filter out all these unorganized row to create a new dataframe ‘Unorg’<br>6.Filter out ‘British Columbia’ from Unorg[‘PLACE’], then label the corresponding province as ‘BC’</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">abbre=[<span class="string">'NL'</span>,<span class="string">'PE'</span>,<span class="string">'NS'</span>,<span class="string">'NB'</span>,<span class="string">'QC'</span>,<span class="string">'ON'</span>,<span class="string">'MB'</span>,<span class="string">'SK'</span>,<span class="string">'AB'</span>,<span class="string">'BC'</span>,<span class="string">'YT'</span>,<span class="string">'NT'</span>,<span class="string">'NU'</span>]</span><br><span class="line">province=[<span class="string">'Nunavut'</span>,<span class="string">'Quebec'</span>,<span class="string">'Nothwest Territories'</span>,<span class="string">'Ontario'</span>,<span class="string">'British Columbia'</span>,<span class="string">'Alberta'</span>,</span><br><span class="line"><span class="string">'Saskatchewan'</span>,<span class="string">'Manitoba'</span>,<span class="string">'Yukon'</span>,<span class="string">'Newfoundland and Labrador'</span>,<span class="string">'New Brunswick'</span>,<span class="string">'Nova Scotia'</span>,</span><br><span class="line"><span class="string">'Prince Edward Island'</span>]</span><br><span class="line">import sys</span><br><span class="line">i=0</span><br><span class="line">Province=pd.DataFrame(data)</span><br><span class="line">Province[<span class="string">'ORGANIZED'</span>]=0</span><br><span class="line">Province[<span class="string">'Province'</span>]=Province[<span class="string">'PLACE'</span>].apply(lambda x: x[-2:])</span><br><span class="line"><span class="keyword">for</span> entry <span class="keyword">in</span> Province[<span class="string">'Province'</span>]:</span><br><span class="line">    <span class="keyword">if</span> entry <span class="keyword">in</span> abbre:</span><br><span class="line">        Province.ix[i,<span class="string">'ORGANIZED'</span>]=1</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        Province.ix[i,<span class="string">'ORGANIZED'</span>]=0</span><br><span class="line">    i=i+1</span><br><span class="line">Province.head()</span><br><span class="line"></span><br><span class="line">Unorg= pd.DataFrame(Province.loc[Province[<span class="string">'ORGANIZED'</span>] == 0])</span><br><span class="line">Unorg[<span class="string">'Province'</span>]=0</span><br><span class="line">Unorg.head()</span><br><span class="line"></span><br><span class="line">BC=Unorg[Unorg[<span class="string">'PLACE'</span>].str.contains(<span class="string">'British Columbia'</span>)]</span><br><span class="line">BC.index</span><br><span class="line">Unorg.ix[BC.index,<span class="string">'Province'</span>]=<span class="string">'BC'</span></span><br></pre></td></tr></table></figure>
+<div align="center"><br><img src="./q32.png" width="400" height="300" alt="图片名称" align="center"><br></div>
+
+            </div>
+
+            <!-- Post Comments -->
+            
+    <!-- 使用 valine -->
+<div id="comment">
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#comment' ,
+        notify: true,
+        verify: false,
+        app_id: '5ieD2qBIigoLuVa78tzFJ22P-gzGzoHsz',
+        app_key: '6TREdEvvBJpk2ElJDUL27w5U',
+        placeholder: 'Please leave your footprints',
+        pageSize: '10',
+        avatar: '',
+        avatar_cdn: 'https://gravatar.loli.net/avatar/'
+    });
+</script>
+</div>
+<style>
+   #comment{
+        padding: 2pc;
+    }
+</style>
+
+
+        </div>
+        <!-- Copyright 版权 start -->
+                <div id="copyright">
+            <ul>
+                <li>&copy;Powered By <a href="https://hexo.io/zh-cn/" style="border-bottom: none;">hexo</a></li>
+            </ul>
+            
+            	<span id="busuanzi_container_site_pv">2018总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+			
+        </div>
+    </div>
+</body>
+
+
+
+ 	
+</html>
