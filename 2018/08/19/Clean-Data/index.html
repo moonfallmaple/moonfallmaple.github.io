@@ -1,0 +1,220 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<link rel="bookmark"  type="image/x-icon"  href="/img/logo.png"/>
+	<link rel="shortcut icon" href="/img/logo.png">
+	
+			    <title>
+    Sunrise Jade
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/css/mic_main.css" />
+    <link rel="stylesheet" href="/css/dropdownMenu.css" />
+    <meta name="keywords" content="Rock sunrisejade" />
+    
+    	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	 
+    <noscript>
+        <link rel="stylesheet" href="/css/noscript.css" />
+    </noscript>
+    <style type="text/css">
+        body:before {
+          content: ' ';
+          position: fixed;
+          top: 0;
+          background: url('/img/bg.jpg') center 0 no-repeat;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background-size: cover; 
+        }
+    </style>
+
+			    
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script async type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.scrollex.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+    <script src="/js/main.js"></script>
+	
+</head>
+    
+		
+<!-- Layouts -->
+
+
+
+<!--  代码渲染  -->
+<link rel="stylesheet" href="/css/prism_coy.css" />
+<link rel="stylesheet" href="/css/typo.css" />
+<!-- 文章页 -->
+<body class="is-loading">
+    <!-- Wrapper 外包 s-->
+    <div id="wrapper" class="fade-in">
+        <!-- Intro 头部显示 s -->
+        <!-- Intro 头部显示 e -->
+        <!-- Header 头部logo start -->
+        <header id="header">
+    <a href="/" class="logo">Rock</a>
+</header>
+        <!-- Nav 导航条 start -->
+        <nav id="nav" class="special" >
+            <ul class="menu links" >
+			<!-- Homepage  主页  --> 
+			<li >
+	            <a href="/" rel="nofollow">Home</a>
+	        </li>
+			<!-- categories_name  分类   --> 
+	        
+	        <li class="active">
+	            <a href="#s1">Category</a>
+	                    <ul class="submenu">
+	                        <li>
+	                        <a class="category-link" href="/categories/Data-Analysis/">Data-Analysis</a>
+	                    </ul>
+	        </li>
+	        
+	        <!-- archives  归档   --> 
+	        
+	        
+		        <!-- Pages 自定义   -->
+		        
+		        <li>
+		            <a href="/tags/" title="Tag">
+		                Tag
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="https://www.linkedin.com/in/jane-shan-a50170142/" title="Resume">
+		                Resume
+		            </a>
+		        </li>
+		        
+
+
+            </ul>
+            <!-- icons 图标   -->
+			<ul class="icons">
+                    
+                    <li>
+                        <a title="github" href="https://github.com/sunrisejade" target="_blank" rel="noopener">
+                            <i class="icon fa fa-github"></i>
+                        </a>
+                    </li>
+                    
+			</ul>
+</nav>
+
+        <div id="main" >
+            <div class ="post_page_title_img" style="height:8rem;background-image: url();background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+                <a href="#" style="padding: 2rem 4rem 2rem 4rem ;"><h2 >Transform_Data</h2></a>
+            </div>
+            <!-- Post -->
+            <div class="typo" style="padding: 2rem 4rem 2rem 4rem ;">
+                <h2 id="Transform-of-Data"><a href="#Transform-of-Data" class="headerlink" title="Transform of Data:"></a>Transform of Data:</h2><blockquote>
+<p>1.split column<br>2.lambda function &amp; re.findall<br>3.replace</p>
+</blockquote>
+<h3 id="1-Split-column"><a href="#1-Split-column" class="headerlink" title="1.Split column"></a>1.Split column</h3><p>Here we take an example of titanic dataset. Suppose we want to Get title (Mr, Miss…) from the Name column to create a new feature.</p>
+<div align="center"><br><img src="./q2.png" width="500" height="150" alt="图片名称" align="center"><br></div>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">df[<span class="string">'Name_split'</span>]=df[<span class="string">'Name'</span>].str.split(<span class="string">','</span>)</span><br><span class="line"></span><br><span class="line">df[<span class="string">'Name_split'</span>]=df[<span class="string">'Name_split'</span>].str.get(1)</span><br><span class="line"></span><br><span class="line">df[<span class="string">'Title'</span>]=df[<span class="string">'Name_split'</span>].str.split(<span class="string">'.'</span>).str.get(0)</span><br><span class="line">or</span><br><span class="line">df[<span class="string">'Title'</span>]=df[<span class="string">'Name'</span>].apply(lambda x:x.split(<span class="string">','</span>)[1].split(<span class="string">'.'</span>)[0].strip())</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>1.Split the Name column by ‘,’ and assign it to ‘Name_split’</p>
+</blockquote>
+<div align="center"><br><img src="./q3.png" width="500" height="150" alt="图片名称" align="center"><br></div>
+
+<blockquote>
+<p>2.Get the second part of ‘Name_split’</p>
+</blockquote>
+<div align="center"><br><img src="./q4.png" width="500" height="150" alt="图片名称" align="center"><br></div>
+
+<blockquote>
+<p>3.Split the ‘Name_split’ by ‘.’ and get the first part of it</p>
+</blockquote>
+<div align="center"><br><img src="./q5.png" width="150" height="100" alt="图片名称" align="center"><br></div>
+
+<h3 id="2-lambda-function-amp-re-findall"><a href="#2-lambda-function-amp-re-findall" class="headerlink" title="2.lambda function &amp; re.findall"></a>2.lambda function &amp; re.findall</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import re</span><br><span class="line">df[<span class="string">'Title'</span>]=df[<span class="string">'Name'</span>].apply(lambda x: re.findall(<span class="string">'([A-Za-z]\.)'</span>,x)[0])</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#regular expression</span></span><br><span class="line">dollar sign: \$</span><br><span class="line">arbitrary number of digits: \d*</span><br><span class="line">decimal point: \.</span><br><span class="line">x number of digits :\d&#123;x&#125;</span><br><span class="line">any capital letter : [A-Z]</span><br><span class="line">arbitrary number of alphanumeric characters : \w*</span><br></pre></td></tr></table></figure>
+<h3 id="3-replace"><a href="#3-replace" class="headerlink" title="3.replace"></a>3.replace</h3><p>After get the ‘Title’ column, we’d better reduce the Title column’s category.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">data_train.Title.value_counts()</span><br><span class="line">Mr              517</span><br><span class="line"> Miss            182</span><br><span class="line"> Mrs             125</span><br><span class="line"> Master           40</span><br><span class="line"> Dr                7</span><br><span class="line"> Rev               6</span><br><span class="line"> Major             2</span><br><span class="line"> Mlle              2</span><br><span class="line"> Col               2</span><br><span class="line"> Capt              1</span><br><span class="line"> Jonkheer          1</span><br><span class="line"> Mme               1</span><br><span class="line"> Don               1</span><br><span class="line"> Ms                1</span><br><span class="line"> Sir               1</span><br><span class="line"> Lady              1</span><br><span class="line"> the Countess      1</span><br><span class="line">Name: Title, dtype: int64</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>1.Use replace() method</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">df[<span class="string">'Title'</span>] = df[<span class="string">'Title'</span>].replace([<span class="string">'Lady'</span>, <span class="string">'Countess'</span>,<span class="string">'Capt'</span>, <span class="string">'Col'</span>,<span class="string">'Don'</span>, <span class="string">'Dr'</span>,</span><br><span class="line"><span class="string">'Major'</span>, <span class="string">'Rev'</span>, <span class="string">'Sir'</span>, <span class="string">'Jonkheer'</span>], <span class="string">'Rare'</span>)</span><br><span class="line">df[<span class="string">'Title'</span>] = df[<span class="string">'Title'</span>].replace(<span class="string">'Mlle'</span>, <span class="string">'Miss'</span>)</span><br><span class="line">df[<span class="string">'Title'</span>] = df[<span class="string">'Title'</span>].replace(<span class="string">'Ms'</span>, <span class="string">'Miss'</span>)</span><br><span class="line">df[<span class="string">'Title'</span>] = df[<span class="string">'Title'</span>].replace(<span class="string">'Mme'</span>, <span class="string">'Mrs'</span>)</span><br><span class="line"></span><br><span class="line">Mr        517</span><br><span class="line">Miss      182</span><br><span class="line">Mrs       125</span><br><span class="line">Master     40</span><br><span class="line">Rare       23</span><br><span class="line">Mlle        2</span><br><span class="line">Ms          1</span><br><span class="line">Mme         1</span><br><span class="line">Name: Title, dtype: int64</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>2.Use map() method</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Title_Dict = &#123;&#125;</span><br><span class="line">Title_Dict.update(dict.fromkeys([<span class="string">'Capt'</span>, <span class="string">'Col'</span>, <span class="string">'Major'</span>, <span class="string">'Dr'</span>, <span class="string">'Rev'</span>], <span class="string">'Officer'</span>))</span><br><span class="line">Title_Dict.update(dict.fromkeys([<span class="string">'Don'</span>, <span class="string">'Sir'</span>, <span class="string">'the Countess'</span>, <span class="string">'Dona'</span>, <span class="string">'Lady'</span>], <span class="string">'Royalty'</span>))</span><br><span class="line">Title_Dict.update(dict.fromkeys([<span class="string">'Mme'</span>, <span class="string">'Ms'</span>, <span class="string">'Mrs'</span>], <span class="string">'Mrs'</span>))</span><br><span class="line">Title_Dict.update(dict.fromkeys([<span class="string">'Mlle'</span>, <span class="string">'Miss'</span>], <span class="string">'Miss'</span>))</span><br><span class="line">Title_Dict.update(dict.fromkeys([<span class="string">'Mr'</span>], <span class="string">'Mr'</span>))</span><br><span class="line">Title_Dict.update(dict.fromkeys([<span class="string">'Master'</span>,<span class="string">'Jonkheer'</span>], <span class="string">'Master'</span>))</span><br><span class="line"></span><br><span class="line">df[<span class="string">'Title'</span>] = df[<span class="string">'Title'</span>].map(Title_Dict)</span><br></pre></td></tr></table></figure>
+
+            </div>
+
+            <!-- Post Comments -->
+            
+    <!-- 使用 valine -->
+<div id="comment">
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#comment' ,
+        notify: true,
+        verify: false,
+        app_id: '5ieD2qBIigoLuVa78tzFJ22P-gzGzoHsz',
+        app_key: '6TREdEvvBJpk2ElJDUL27w5U',
+        placeholder: 'Please leave your footprints',
+        pageSize: '10',
+        avatar: '',
+        avatar_cdn: 'https://gravatar.loli.net/avatar/'
+    });
+</script>
+</div>
+<style>
+   #comment{
+        padding: 2pc;
+    }
+</style>
+
+
+        </div>
+        <!-- Copyright 版权 start -->
+                <div id="copyright">
+            <ul>
+                <li>&copy;Powered By <a href="https://hexo.io/zh-cn/" style="border-bottom: none;">hexo</a></li>
+            </ul>
+            
+            	<span id="busuanzi_container_site_pv">2018总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+			
+        </div>
+    </div>
+</body>
+
+
+
+ 	
+</html>
