@@ -1,0 +1,265 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<link rel="bookmark"  type="image/x-icon"  href="/img/logo.png"/>
+	<link rel="shortcut icon" href="/img/logo.png">
+	
+			    <title>
+    Moonfall Jade
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/css/mic_main.css" />
+    <link rel="stylesheet" href="/css/dropdownMenu.css" />
+    <meta name="keywords" content="" />
+    
+    	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	 
+    <noscript>
+        <link rel="stylesheet" href="/css/noscript.css" />
+    </noscript>
+    <style type="text/css">
+        body:before {
+          content: ' ';
+          position: fixed;
+          top: 0;
+          background: url('/img/bg.jpg') center 0 no-repeat;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background-size: cover; 
+        }
+    </style>
+
+			    
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script async type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.scrollex.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+    <script src="/js/main.js"></script>
+	
+</head>
+    
+		
+<!-- Layouts -->
+
+
+
+<!--  代码渲染  -->
+<link rel="stylesheet" href="/css/prism_coy.css" />
+<link rel="stylesheet" href="/css/typo.css" />
+<!-- 文章页 -->
+<body class="is-loading">
+    <!-- Wrapper 外包 s-->
+    <div id="wrapper" class="fade-in">
+        <!-- Intro 头部显示 s -->
+        <!-- Intro 头部显示 e -->
+        <!-- Header 头部logo start -->
+        <header id="header">
+    <a href="/" class="logo">月明天清</a>
+</header>
+        <!-- Nav 导航条 start -->
+        <nav id="nav" class="special" >
+            <ul class="menu links" >
+			<!-- Homepage  主页  --> 
+			<li >
+	            <a href="/" rel="nofollow">Home</a>
+	        </li>
+			<!-- categories_name  分类   --> 
+	        
+	        <li class="active">
+	            <a href="#s1">Category</a>
+	                    <ul class="submenu">
+	                        <li>
+	                        <a class="category-link" href="/categories/Data-Analysis/">Data-Analysis</a>
+	                    </ul>
+	        </li>
+	        
+	        <!-- archives  归档   --> 
+	        
+	        
+		        <!-- Pages 自定义   -->
+		        
+		        <li>
+		            <a href="/tags/" title="Tag">
+		                Tag
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="https://www.linkedin.com/in/jane-shan-a50170142/" title="Resume">
+		                Resume
+		            </a>
+		        </li>
+		        
+
+
+            </ul>
+            <!-- icons 图标   -->
+			<ul class="icons">
+                    
+                    <li>
+                        <a title="github" href="https://github.com/sunrisejade" target="_blank" rel="noopener">
+                            <i class="icon fa fa-github"></i>
+                        </a>
+                    </li>
+                    
+			</ul>
+</nav>
+
+        <div id="main" >
+            <div class ="post_page_title_img" style="height:8rem;background-image: url();background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+                <a href="#" style="padding: 2rem 4rem 2rem 4rem ;"><h2 >Churn-Prediction</h2></a>
+            </div>
+            <!-- Post -->
+            <div class="typo" style="padding: 2rem 4rem 2rem 4rem ;">
+                <p>Customer churn Prediction</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">import pandas as pd</span><br><span class="line">import numpy as np</span><br><span class="line"></span><br><span class="line">import seaborn as sns</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line"></span><br><span class="line"><span class="comment"># Classifier Libraries</span></span><br><span class="line">from sklearn.linear_model import LogisticRegression</span><br><span class="line">from sklearn.svm import SVC</span><br><span class="line">from sklearn.neighbors import KNeighborsClassifier</span><br><span class="line">from sklearn.tree import DecisionTreeClassifier</span><br><span class="line">from sklearn.ensemble import (RandomForestClassifier, AdaBoostClassifier,</span><br><span class="line">GradientBoostingClassifier,ExtraTreesClassifier)</span><br><span class="line">from xgboost.sklearn import XGBClassifier</span><br><span class="line"></span><br><span class="line"><span class="comment"># Model selection &amp; evaluation</span></span><br><span class="line">from sklearn.metrics import precision_score, recall_score, f1_score, roc_auc_score,</span><br><span class="line"> accuracy_score, classification_report</span><br><span class="line">from sklearn.metrics import confusion_matrix</span><br></pre></td></tr></table></figure>
+<h3 id="Q1-What-are-the-two-important-predictors-of-customer-churn"><a href="#Q1-What-are-the-two-important-predictors-of-customer-churn" class="headerlink" title="Q1 What are the two important predictors of customer churn"></a>Q1 What are the two important predictors of customer churn</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1.Import dataset</span></span><br><span class="line">data=pd.read_excel(<span class="string">'Churn_Case.xlsx'</span>,<span class="string">'Case Data'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2.Rename column name</span></span><br><span class="line">data=data.rename(index=str, columns=&#123;<span class="string">'Churn (1 = Yes, 0 = No)'</span>:<span class="string">'Churn'</span>,<span class="string">'Customer</span></span><br><span class="line"><span class="string">Age (in months)'</span>:<span class="string">'Customer Age'</span>&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3.Drop customer ID</span></span><br><span class="line">data=data.drop(<span class="string">'ID'</span>,axis=1)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 4.Feature importance</span></span><br><span class="line"><span class="comment">#import lib</span></span><br><span class="line">from xgboost import XGBClassifier</span><br><span class="line">from xgboost import plot_importance</span><br><span class="line">from sklearn.ensemble import (RandomForestClassifier, AdaBoostClassifier,</span><br><span class="line">GradientBoostingClassifier,ExtraTreesClassifier)</span><br><span class="line"></span><br><span class="line"><span class="comment">#plot</span></span><br><span class="line">from matplotlib import pyplot</span><br><span class="line">import plotly.offline as py</span><br><span class="line">py.init_notebook_mode(connected=True)</span><br><span class="line">import plotly.graph_objs as go</span><br><span class="line">import plotly.tools as tls</span><br><span class="line"></span><br><span class="line"><span class="comment"># Initiate model</span></span><br><span class="line">rf=RandomForestClassifier()</span><br><span class="line">et=ExtraTreesClassifier()</span><br><span class="line">ada=AdaBoostClassifier()</span><br><span class="line">gb=GradientBoostingClassifier()</span><br><span class="line">xg=XGBClassifier()</span><br><span class="line"></span><br><span class="line"><span class="comment"># split data into X and y</span></span><br><span class="line">X= data.drop([<span class="string">'Churn'</span>], axis=1)</span><br><span class="line">y=data[<span class="string">'Churn'</span>]</span><br><span class="line">X_columns=data.drop([<span class="string">'Churn'</span>], axis=1).columns.values</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#train model</span></span><br><span class="line">rf.fit(X,y)</span><br><span class="line">et.fit(X,y)</span><br><span class="line">ada.fit(X,y)</span><br><span class="line">gb.fit(X,y)</span><br><span class="line">xg.fit(X,y)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Get feature importance</span></span><br><span class="line">rf_features =rf.feature_importances_</span><br><span class="line">et_features = et.feature_importances_</span><br><span class="line">ada_features = ada.feature_importances_</span><br><span class="line">gb_features = gb.feature_importances_</span><br><span class="line">xg_features=xg.feature_importances_</span><br><span class="line"></span><br><span class="line"><span class="comment"># create feature importance dataframe</span></span><br><span class="line">feature_dataframe = pd.DataFrame( &#123;</span><br><span class="line">     <span class="string">'Random Forest feature importances'</span>: rf_features,</span><br><span class="line">     <span class="string">'Extra Trees  feature importances'</span>: et_features,</span><br><span class="line">     <span class="string">'AdaBoost feature importances'</span>: ada_features,</span><br><span class="line">     <span class="string">'xg Boost feature importances'</span>: xg_features,</span><br><span class="line">     <span class="string">'Gradient Boost feature importances'</span>: gb_features,</span><br><span class="line">     <span class="string">'features'</span>: X_columns</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment"># create average feature importance dataframe</span></span><br><span class="line">feature_dataframe[<span class="string">'mean'</span>] = feature_dataframe.mean(axis= 1)</span><br><span class="line">feature_dataframe.sort_values(by=<span class="string">'mean'</span>,ascending=False)</span><br></pre></td></tr></table></figure>
+<div align="center"><br><img src="./q1.png" width="900" height="350" alt="图片名称" align="center"><br></div>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">y = feature_dataframe[<span class="string">'mean'</span>].values</span><br><span class="line"></span><br><span class="line">x = feature_dataframe[<span class="string">'features'</span>].values</span><br><span class="line">data = [go.Bar(</span><br><span class="line">            x= x,</span><br><span class="line">             y= y,</span><br><span class="line">            width = 0.5,</span><br><span class="line">            marker=dict(</span><br><span class="line">               color = feature_dataframe[<span class="string">'mean'</span>].values,</span><br><span class="line">            colorscale=<span class="string">'Portland'</span>,</span><br><span class="line">            showscale=True,</span><br><span class="line">            reversescale = False</span><br><span class="line">            ),</span><br><span class="line">            opacity=0.6</span><br><span class="line">        )]</span><br><span class="line"></span><br><span class="line">layout= go.Layout(</span><br><span class="line">    autosize= True,</span><br><span class="line">    title= <span class="string">'Barplots of Mean Feature Importance'</span>,</span><br><span class="line">    hovermode= <span class="string">'closest'</span>,</span><br><span class="line"><span class="comment">#     xaxis= dict(</span></span><br><span class="line"><span class="comment">#         title= 'Pop',</span></span><br><span class="line"><span class="comment">#         ticklen= 5,</span></span><br><span class="line"><span class="comment">#         zeroline= False,</span></span><br><span class="line"><span class="comment">#         gridwidth= 2,</span></span><br><span class="line"><span class="comment">#     ),</span></span><br><span class="line">    yaxis=dict(</span><br><span class="line">        title= <span class="string">'Feature Importance'</span>,</span><br><span class="line">        ticklen= 5,</span><br><span class="line">        gridwidth= 2</span><br><span class="line">    ),</span><br><span class="line">    showlegend= False</span><br><span class="line">)</span><br><span class="line">fig = go.Figure(data=data, layout=layout)</span><br><span class="line">py.iplot(fig, filename=<span class="string">'bar-direct-labels'</span>)</span><br></pre></td></tr></table></figure>
+<div align="center"><br><img src="./q11.png" width="700" height="450" alt="图片名称" align="center"><br></div>
+
+
+<h3 id="Q2-What-is-the-natural-customer-segmentation-with-the-churn-risk"><a href="#Q2-What-is-the-natural-customer-segmentation-with-the-churn-risk" class="headerlink" title="Q2 What is the natural customer segmentation with the churn risk?"></a>Q2 What is the natural customer segmentation with the churn risk?</h3><h4 id="2-1-Check-the-Monthly-Churn-rate-by-Customer-age"><a href="#2-1-Check-the-Monthly-Churn-rate-by-Customer-age" class="headerlink" title="2.1 Check the Monthly Churn rate by Customer age"></a>2.1 Check the Monthly Churn rate by Customer age</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">data[[<span class="string">'Churn'</span>,<span class="string">'Customer Age'</span>]].groupby(<span class="string">'Customer Age'</span>).mean().plot.bar(figsize=(15,5),</span><br><span class="line">title=<span class="string">'Monthly Churn rate by Customer age'</span>)</span><br></pre></td></tr></table></figure>
+<div align="center"><br><img src="./q2.png" width="1000" height="350" alt="图片名称" align="center"><br></div>
+
+<h4 id="2-2-Churn-Rate-by-age-segmentation-Whole-data-Mid-7-16-gt-Old-16-67-gt-Young-0-7"><a href="#2-2-Churn-Rate-by-age-segmentation-Whole-data-Mid-7-16-gt-Old-16-67-gt-Young-0-7" class="headerlink" title="2.2 Churn Rate by age segmentation (Whole data) -Mid:(7-16]&gt; Old:(16-67]&gt;Young:(0-7]"></a>2.2 Churn Rate by age segmentation (Whole data) -Mid:(7-16]&gt; Old:(16-67]&gt;Young:(0-7]</h4><blockquote>
+<p> we could divide the customer age to 3 categories based on quantiles : young:(0-7], mid:(7-16],old:(16-67]</p>
+</blockquote>
+<blockquote>
+<p>pd.qcut():Discretize variable into equal-sized buckets based on rank or based on sample quantiles.</p>
+</blockquote>
+<blockquote>
+<p>Create a new feature ‘CategoricalAge’ and based on the new feature to calculate the churn rate for each age segmentation.</p>
+</blockquote>
+<blockquote>
+<p>The mid group has the highest percentage to churn, next one is old group,then the young group</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">data[<span class="string">'CategoricalAge'</span>]= pd.qcut(data[<span class="string">'Customer Age'</span>], 3)</span><br><span class="line"><span class="built_in">print</span>(data[[<span class="string">'CategoricalAge'</span>, <span class="string">'Churn'</span>]].groupby([<span class="string">'CategoricalAge'</span>], as_index=False).mean())</span><br><span class="line"></span><br><span class="line">CategoricalAge     Churn</span><br><span class="line">0   (0.999, 7.0]  0.025552</span><br><span class="line">1    (7.0, 16.0]  0.080366</span><br><span class="line">2   (16.0, 67.0]  0.051183</span><br></pre></td></tr></table></figure>
+<div align="center"><br><img src="./q22.png" width="381" height="248" alt="图片名称" align="center"><br></div>
+
+<h4 id="2-3-Churn-Rate-by-age-segmentation-churn-1-Young-0-999-7-12-gt-Old-16-47-gt-Mid-12-16"><a href="#2-3-Churn-Rate-by-age-segmentation-churn-1-Young-0-999-7-12-gt-Old-16-47-gt-Mid-12-16" class="headerlink" title="2.3 Churn Rate by age segmentation (churn=1) -Young:(0.999-7-12]&gt; Old:(16-47]&gt;Mid:(12-16]"></a>2.3 Churn Rate by age segmentation (churn=1) -Young:(0.999-7-12]&gt; Old:(16-47]&gt;Mid:(12-16]</h4><blockquote>
+<p>In the subset data (Churn==1),based on quantiles to divede the age for 3 parts :(0.999, 12.0] ,(12.0, 16.0] ,(16.0, 47.0]</p>
+</blockquote>
+<blockquote>
+<p>we found month 12 not only occupies large percentage of the customer age,but also is the time most customer choose to churn, there are 56 customers left in this month.</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pd.qcut(data[data[<span class="string">'Churn'</span>]==1][<span class="string">'Customer Age'</span>],3)</span><br><span class="line">plt.figure(figsize=(15,5))</span><br><span class="line">data[data[<span class="string">'Churn'</span>]==1][<span class="string">'Customer Age'</span>].value_counts().plot.bar()</span><br></pre></td></tr></table></figure>
+<div align="center"><br><img src="./q23.png" width="874" height="309" alt="图片名称" align="center"><br></div>
+
+<blockquote>
+<p>The Young group has the highest percentage to churn, next one is old group,then the Mid group</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">'Young group:'</span>,round(len(data[(data[<span class="string">'Churn'</span>]==1)&amp;(data[<span class="string">'Customer Age'</span>]&lt;=12)</span><br><span class="line">&amp;(data[<span class="string">'Customer Age'</span>]&gt;0.999)])/(len(data[<span class="string">'Churn'</span>]==1)),4))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'Mid group:'</span>,round(len(data[(data[<span class="string">'Churn'</span>]==1)&amp;(data[<span class="string">'Customer Age'</span>]&lt;=16)</span><br><span class="line">&amp;(data[<span class="string">'Customer Age'</span>]&gt;12)])/(len(data[<span class="string">'Churn'</span>]==1)),4))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'Old group:'</span>,round(len(data[(data[<span class="string">'Churn'</span>]==1)&amp;(data[<span class="string">'Customer Age'</span>]&lt;=47)</span><br><span class="line">&amp;(data[<span class="string">'Customer Age'</span>]&gt;16)])/(len(data[<span class="string">'Churn'</span>]==1)),4))</span><br><span class="line"></span><br><span class="line">Young group: 0.0244</span><br><span class="line">Mid group: 0.0098</span><br><span class="line">Old group: 0.0167</span><br></pre></td></tr></table></figure>
+<h4 id="2-4-Age-segmentation-Conculsion"><a href="#2-4-Age-segmentation-Conculsion" class="headerlink" title="2.4 Age segmentation Conculsion:"></a>2.4 Age segmentation Conculsion:</h4><blockquote>
+<p>1) We could found 16 are division point in both two cuts.</p>
+</blockquote>
+<blockquote>
+<p>2) Since month 12 has the maximum churn number, it will be an important month, If we put in the first group then first group will be the most risk group, If we put in the second group then second group will be most risk group. I suggest to put in the second group, use the age cut young:(0-7], mid:(7-16],old:(16-67]</p>
+</blockquote>
+<blockquote>
+<p>3) Reason: for a small and medium size business like qwe (provide online subscription services), customer who use service for 12 month is a long time,should pay more attention to them. So, it’s better to seperate them with new customers</p>
+</blockquote>
+<h3 id="Q3-Build-a-model-to-find-out-the-small-subset-of-particularly-risky-customers"><a href="#Q3-Build-a-model-to-find-out-the-small-subset-of-particularly-risky-customers" class="headerlink" title="Q3 Build a model to find out the small subset of particularly risky customers"></a>Q3 Build a model to find out the small subset of particularly risky customers</h3><h4 id="3-1-Splitting-the-Data"><a href="#3-1-Splitting-the-Data" class="headerlink" title="3.1 Splitting the Data"></a>3.1 Splitting the Data</h4><p>Before proceeding with the Random UnderSampling technique we have to separate the orginal dataframe. Why? for testing purposes, remember although we are splitting the data when implementing Random UnderSampling or OverSampling techniques, we want to test our models on the original testing set not on the testing set created by either of these techniques. The main goal is to fit the model either with the dataframes that were undersample and oversample (in order for our models to detect the patterns), and test it on the original testing set.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">X = data.drop(<span class="string">'Churn'</span>, axis=1)</span><br><span class="line">y = data[<span class="string">'Churn'</span>]</span><br><span class="line"></span><br><span class="line">sss = StratifiedShuffleSplit(n_splits=5, test_size=0.2, random_state=42)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> train_index, test_index <span class="keyword">in</span> sss.split(X, y):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Train:"</span>, train_index, <span class="string">"Test:"</span>, test_index)</span><br><span class="line">    original_Xtrain, original_Xtest = X.iloc[train_index], X.iloc[test_index]</span><br><span class="line">    original_ytrain, original_ytest = y.iloc[train_index], y.iloc[test_index]</span><br><span class="line"></span><br><span class="line"><span class="comment"># original_Xtrain, original_Xtest, original_ytrain, original_ytest = train_test_split(X, y</span></span><br><span class="line">,test_size=0.2, random_state=42)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># See if both the train and test label distribution are similarly distributed</span></span><br><span class="line">train_unique_label, train_counts_label = np.unique(original_ytrain, return_counts=True)</span><br><span class="line">test_unique_label, test_counts_label = np.unique(original_ytest, return_counts=True)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'-'</span> * 100)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">'Label Distributions: \n'</span>)</span><br><span class="line"><span class="built_in">print</span>(train_counts_label/ len(original_ytrain))</span><br><span class="line"><span class="built_in">print</span>(test_counts_label/ len(original_ytest))</span><br><span class="line"></span><br><span class="line"><span class="comment">#Output</span></span><br><span class="line">Train: [2791 1260 1386 ... 5933 2387 4736] Test: [5613  835  701 ... 6004 4180 5869]</span><br><span class="line">Train: [3868 3385 2151 ...  768 2401   46] Test: [3257 5589 5299 ... 6140 3425 2872]</span><br><span class="line">Train: [1979  595   77 ...  391  845 5531] Test: [5762 1017 2704 ... 4026 3217 5007]</span><br><span class="line">Train: [   3 3003 2026 ... 3527  819  859] Test: [4126 5827 2926 ...  983 5226  796]</span><br><span class="line">Train: [1995 5377 1192 ... 4003 1082 2392] Test: [5272 1151 1336 ... 1038 1299 3217]</span><br><span class="line">----------------------------------------------------------------------------------------------------</span><br><span class="line">Label Distributions:</span><br><span class="line"></span><br><span class="line">[0.94917258 0.05082742]</span><br><span class="line">[0.9488189 0.0511811]</span><br></pre></td></tr></table></figure>
+<h4 id="3-2-Random-Undersampling"><a href="#3-2-Random-Undersampling" class="headerlink" title="3.2 Random Undersampling"></a>3.2 Random Undersampling</h4><p>In this phase of the project we will implement “Random Under Sampling” which basically consists of removing data in order to have a more balanced dataset and thus avoiding our models to overfitting.</p>
+<blockquote>
+<p>Steps:</p>
+</blockquote>
+<blockquote>
+<p>1) The first thing we have to do is determine how imbalanced is our class (use “value_counts()” on the Churn column to determine the amount for each label)</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">data[<span class="string">'Churn'</span>].value_counts().plot(kind=<span class="string">'bar'</span>)</span><br><span class="line">plt.show()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Churn is the target column, it has two value 0 and 1.</span></span><br><span class="line"><span class="comment">#(Churn = "1") means customer acturally left in the two months after Dec 1st</span></span><br><span class="line"><span class="comment">#(Churn = "0") means customer acturally continue use the service.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Churn has a large imbalance between it's two value</span></span><br><span class="line">0 ： 6024</span><br><span class="line"></span><br><span class="line">1 ：323</span><br></pre></td></tr></table></figure>
+<div align="center"><br><img src="./q31.png" width="384" height="248" alt="图片名称" align="center"><br></div>
+
+<blockquote>
+<p>2) Once we determine how many instances are considered Churn customers (Churn = “1”) , we should bring the<br>Non-churn customers (Churn = “0”) to the same amount as  Churn customers (assuming we want a 50/50 ratio), this will be equivalent to 323 cases of Churn and 323 cases of Non-churn.</p>
+</blockquote>
+<blockquote>
+<p>3) After implementing this technique, we have a sub-sample of our dataframe with a 50/50 ratio with regards to our classes. Then the next step we will implement is to shuffle the data to see if our models can maintain a certain accuracy everytime we run this script.</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Since our classes are highly skewed we should make them equivalent in order to have</span></span><br><span class="line">a normal distribution of the classes.</span><br><span class="line"></span><br><span class="line"><span class="comment"># Lets shuffle the data before creating the subsamples</span></span><br><span class="line">new_df= data.sample(frac=1)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Take same amount (323 rows) of churn and non-churn cases.</span></span><br><span class="line">Left_df = new_df.loc[new_df[<span class="string">'Churn'</span>] == 1]</span><br><span class="line">Stay_df = new_df.loc[new_df[<span class="string">'Churn'</span>] == 0][:323]</span><br><span class="line"></span><br><span class="line">normal_distributed_df = pd.concat([Left_df, Stay_df])</span><br><span class="line"></span><br><span class="line"><span class="comment"># Shuffle dataframe rows</span></span><br><span class="line">new_df = normal_distributed_df.sample(frac=1, random_state=42)</span><br></pre></td></tr></table></figure>
+<div align="center"><br><img src="./q32.png" width="392" height="279" alt="图片名称" align="center"><br></div>
+
+<blockquote>
+<p>Note: The main issue with “Random Under-Sampling” is that we run the risk that our classification models will not perform as accurate as we would like to since there is a great deal of information loss (bringing 323 Churn=0 customers from 6,024 Churn=0 customers)</p>
+</blockquote>
+<h4 id="3-3-Build-Classifier"><a href="#3-3-Build-Classifier" class="headerlink" title="3.3 Build Classifier"></a>3.3 Build Classifier</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">new_X = new_df.drop(<span class="string">'Churn'</span>, axis=1).values</span><br><span class="line">new_y = new_df[<span class="string">'Churn'</span>].values</span><br><span class="line"></span><br><span class="line">new_X_train, new_X_test, new_y_train, new_y_test = train_test_split(new_X, new_y,</span><br><span class="line">test_size=0.2, random_state=42)</span><br><span class="line"></span><br><span class="line"><span class="comment">#RandomForestClassifier</span></span><br><span class="line">tree =RandomForestClassifier()</span><br><span class="line">tree.fit(new_X_train, new_y_train)</span><br><span class="line"></span><br><span class="line">y_pred = tree.predict(original_Xtest)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Test set accuracy score: &#123;:.5f&#125;"</span>.format(accuracy_score(y_pred,original_ytest)))</span><br><span class="line"><span class="built_in">print</span>(classification_report(original_ytest, y_pred, target_names=labels))</span><br><span class="line"><span class="built_in">print</span>(confusion_matrix(y_pred,original_ytest))</span><br><span class="line"></span><br><span class="line"><span class="comment">#output</span></span><br><span class="line">Test <span class="built_in">set</span> accuracy score: 0.73228</span><br><span class="line">             precision    recall  f1-score   support</span><br><span class="line"></span><br><span class="line">    Churn=0       0.99      0.73      0.84      1205</span><br><span class="line">    Churn=1       0.14      0.85      0.24        65</span><br><span class="line"></span><br><span class="line">avg / total       0.95      0.73      0.81      1270</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">import itertools</span><br><span class="line">def plot_confusion_matrix(cm, classes,</span><br><span class="line">                          title=<span class="string">'Confusion matrix'</span>,</span><br><span class="line">                          cmap=plt.cm.Blues):</span><br><span class="line">    <span class="string">""</span><span class="string">"</span></span><br><span class="line"><span class="string">    This function prints and plots the confusion matrix.</span></span><br><span class="line"><span class="string">    "</span><span class="string">""</span></span><br><span class="line">    plt.imshow(cm, interpolation=<span class="string">'nearest'</span>, cmap=cmap)</span><br><span class="line">    plt.title(title)</span><br><span class="line">    plt.colorbar()</span><br><span class="line">    tick_marks = np.arange(len(classes))</span><br><span class="line">    plt.xticks(tick_marks, classes, rotation=0)</span><br><span class="line">    plt.yticks(tick_marks, classes)</span><br><span class="line"></span><br><span class="line">    thresh = cm.max() / 2.</span><br><span class="line">    <span class="keyword">for</span> i, j <span class="keyword">in</span> itertools.product(range(cm.shape[0]), range(cm.shape[1])):</span><br><span class="line">        plt.text(j, i, cm[i, j],</span><br><span class="line">                 horizontalalignment=<span class="string">"center"</span>,</span><br><span class="line">                 color=<span class="string">"white"</span> <span class="keyword">if</span> cm[i, j] &gt; thresh <span class="keyword">else</span> <span class="string">"black"</span>)</span><br><span class="line"></span><br><span class="line">    plt.tight_layout()</span><br><span class="line">    plt.ylabel(<span class="string">'True label'</span>)</span><br><span class="line">    plt.xlabel(<span class="string">'Predicted label'</span>)</span><br><span class="line"></span><br><span class="line">labels = [<span class="string">'Churn=0'</span>, <span class="string">'Churn=1'</span>]</span><br><span class="line">plot_confusion_matrix(tree_matrix</span><br><span class="line">                      , classes=labels</span><br><span class="line">                      , title=<span class="string">'Confusion matrix'</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<div align="center"><br><img src="./q33.png" width="381" height="300" alt="图片名称" align="center"><br></div>
+
+
+<h3 id="Q4-what-characteristics-separate-them-from-the-rest-of-QWE-customers"><a href="#Q4-what-characteristics-separate-them-from-the-rest-of-QWE-customers" class="headerlink" title="Q4 what characteristics separate them from the rest of QWE customers?"></a>Q4 what characteristics separate them from the rest of QWE customers?</h3><h3 id="Q5-Can-our-Model-support-a-call-based-program-to-improve-customer-retention"><a href="#Q5-Can-our-Model-support-a-call-based-program-to-improve-customer-retention" class="headerlink" title="Q5 Can our Model support a call-based program to improve customer retention?"></a>Q5 Can our Model support a call-based program to improve customer retention?</h3>
+            </div>
+
+            <!-- Post Comments -->
+            
+    <!-- 使用 valine -->
+<div id="comment">
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#comment' ,
+        notify: true,
+        verify: false,
+        app_id: '5ieD2qBIigoLuVa78tzFJ22P-gzGzoHsz',
+        app_key: '6TREdEvvBJpk2ElJDUL27w5U',
+        placeholder: 'Please leave your footprints',
+        pageSize: '10',
+        avatar: '',
+        avatar_cdn: 'https://gravatar.loli.net/avatar/'
+    });
+</script>
+</div>
+<style>
+   #comment{
+        padding: 2pc;
+    }
+</style>
+
+
+        </div>
+        <!-- Copyright 版权 start -->
+                <div id="copyright">
+            <ul>
+                <li>&copy;Powered By <a href="https://hexo.io/zh-cn/" style="border-bottom: none;">hexo</a></li>
+            </ul>
+            
+            	<span id="busuanzi_container_site_pv">2018总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+			
+        </div>
+    </div>
+</body>
+
+
+
+ 	
+</html>
