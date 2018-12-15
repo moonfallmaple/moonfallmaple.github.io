@@ -68,18 +68,12 @@
 		
 <!-- Layouts -->
 
-    <!-- Tags Cloud -->
-    
-<link rel="stylesheet" href="/css/item.css" />
-<style >
-    .row a{
-        border-bottom: none;
-    }
-    .special{
-        padding: 0;
-        padding: 2rem;
-    }
-</style>
+
+
+<!--  代码渲染  -->
+<link rel="stylesheet" href="/css/prism_coy.css" />
+<link rel="stylesheet" href="/css/typo.css" />
+<!-- 文章页 -->
 <body class="is-loading">
     <!-- Wrapper 外包 s-->
     <div id="wrapper" class="fade-in">
@@ -145,9 +139,78 @@
 </nav>
 
         <div id="main" >
-            <div class="row" style="border-bottom: none;">
-                <a href="/tags/Nodejs/" style="font-size: 16px;">Nodejs</a> <a href="/tags/Pandas/" style="font-size: 16px;">Pandas</a> <a href="/tags/React/" style="font-size: 16px;">React</a> <a href="/tags/Tensorflow/" style="font-size: 16px;">Tensorflow</a> <a href="/tags/hexo/" style="font-size: 16px;">hexo</a> <a href="/tags/kaggle/" style="font-size: 16px;">kaggle</a> <a href="/tags/markdown/" style="font-size: 16px;">markdown</a> <a href="/tags/sklearn/" style="font-size: 16px;">sklearn</a>
-            </div>   
+            <div class ="post_page_title_img" style="height:8rem;background-image: url();background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+                <a href="#" style="padding: 2rem 4rem 2rem 4rem ;"><h2 >Deploy React on Git-Pages</h2></a>
+            </div>
+            <!-- Post -->
+            <div class="typo" style="padding: 2rem 4rem 2rem 4rem ;">
+                <h1 id="Tutorial"><a href="#Tutorial" class="headerlink" title="Tutorial"></a>Tutorial</h1><h2 id="Procedure"><a href="#Procedure" class="headerlink" title="Procedure"></a>Procedure</h2><ol>
+<li><p>Create an empty repo at github. (No Readme, No gitignore, No license)<br></p>
+</li>
+<li><p>Create a new react app named YYY. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create-react-app YYY</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>open the YYY file, then install gh-pages package there </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install gh-pages –save-dev</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Edit package.json file (XXX is your Github username, YYY is your repo name)</p>
+</li>
+</ol>
+<blockquote>
+<p>Add property “homepage”: “<a href="http://XXX.github.io/YYY&quot;" target="_blank" rel="noopener">http://XXX.github.io/YYY&quot;</a>, </p>
+</blockquote>
+<blockquote>
+<p>Add property “predeploy”: “npm run build”,</p>
+</blockquote>
+<blockquote>
+<p>Add property “deploy”: “gh-pages -d build” (This step is to set your git-pages under gh-pages branch. )</p>
+</blockquote>
+<div align="center"><br><img src="./json.jpg" width="700" height="500" alt="图片名称" align="center"><br></div>
+
+<h3 id="Don’t-set-master-branch-by-yourself"><a href="#Don’t-set-master-branch-by-yourself" class="headerlink" title="Don’t set master branch by yourself !!!"></a>Don’t set <strong>master</strong> branch by yourself !!!</h3><p>When you add property “deploy”: “gh-pages -d build” to package.json, you already create a git-page and set it under gh-pages branch. </p>
+<div align="center"><br><img src="./branch.jpg" width="550" height="310" alt="图片名称" align="center"><br></div>
+
+<ol start="5">
+<li><p>Initialize git in YYY file</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Set your remote git repo location</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin https://github.com/XXX/YYY.git</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Deploy</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run deploy</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+
+            </div>
+
+            <!-- Post Comments -->
+            
+    <!-- 使用 valine -->
+<div id="comment">
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#comment' ,
+        notify: true,
+        verify: false,
+        app_id: '5ieD2qBIigoLuVa78tzFJ22P-gzGzoHsz',
+        app_key: '6TREdEvvBJpk2ElJDUL27w5U',
+        placeholder: 'Please leave your footprints',
+        pageSize: '10',
+        avatar: '',
+        avatar_cdn: 'https://gravatar.loli.net/avatar/'
+    });
+</script>
+</div>
+<style>
+   #comment{
+        padding: 2pc;
+    }
+</style>
+
+
         </div>
         <!-- Copyright 版权 start -->
                 <div id="copyright">
@@ -160,6 +223,7 @@
         </div>
     </div>
 </body>
+
 
 
  	
