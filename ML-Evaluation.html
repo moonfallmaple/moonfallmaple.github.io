@@ -71,7 +71,7 @@
 
 
 <!--  代码渲染  -->
-<link rel="stylesheet" href="/css/prism_coy.css" />
+<link rel="stylesheet" href="/css/prism_prism_okaidia.css" />
 <link rel="stylesheet" href="/css/typo.css" />
 <!-- 文章页 -->
 <body class="is-loading">
@@ -146,7 +146,23 @@
             <div class="typo" style="padding: 2rem 4rem 2rem 4rem ;">
                 <h2 id="How-good-is-your-model"><a href="#How-good-is-your-model" class="headerlink" title="How good is your model?"></a>How good is your model?</h2><p>LinearRegression<br>线性模型的拟合好坏可以通过R方和均方根误差来评判<br>R^2：reg_all.score(X_test, y_test)<br>RMSE: np.sqrt(mean_squared_error(y_test,y_pred))</p>
 <p>Classification<br>分类模型通过混淆矩阵，Roc曲线来判断</p>
-<h2 id="Metrics-for-classification"><a href="#Metrics-for-classification" class="headerlink" title="Metrics for classification"></a>Metrics for classification</h2><h2 id="Logistic-regression-and-the-ROC-curve"><a href="#Logistic-regression-and-the-ROC-curve" class="headerlink" title="Logistic regression and the ROC curve"></a>Logistic regression and the ROC curve</h2><h2 id="Plotting-an-ROC-curve"><a href="#Plotting-an-ROC-curve" class="headerlink" title="Plotting an ROC curve"></a>Plotting an ROC curve</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Import necessary modules</span></span><br><span class="line">from sklearn.metrics import roc_curve</span><br><span class="line"></span><br><span class="line"><span class="comment"># Compute predicted probabilities: y_pred_prob</span></span><br><span class="line">y_pred_prob = logreg.predict_proba(X_test)[:,1]</span><br><span class="line">y_test.value_counts()</span><br><span class="line"><span class="comment"># Generate ROC curve values: fpr, tpr, thresholds</span></span><br><span class="line">fpr, tpr, thresholds = roc_curve(y_test, y_pred_prob)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Plot ROC curve</span></span><br><span class="line">plt.plot([0, 1], [0, 1], <span class="string">'k--'</span>)</span><br><span class="line">plt.plot(fpr,tpr)</span><br><span class="line">plt.xlabel(<span class="string">'False Positive Rate'</span>)</span><br><span class="line">plt.ylabel(<span class="string">'True Positive Rate'</span>)</span><br><span class="line">plt.title(<span class="string">'ROC Curve'</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<h2 id="Metrics-for-classification"><a href="#Metrics-for-classification" class="headerlink" title="Metrics for classification"></a>Metrics for classification</h2><h2 id="Logistic-regression-and-the-ROC-curve"><a href="#Logistic-regression-and-the-ROC-curve" class="headerlink" title="Logistic regression and the ROC curve"></a>Logistic regression and the ROC curve</h2><h2 id="Plotting-an-ROC-curve"><a href="#Plotting-an-ROC-curve" class="headerlink" title="Plotting an ROC curve"></a>Plotting an ROC curve</h2><pre><code class="bash"># Import necessary modules
+from sklearn.metrics import roc_curve
+
+# Compute predicted probabilities: y_pred_prob
+y_pred_prob = logreg.predict_proba(X_test)[:,1]
+y_test.value_counts()
+# Generate ROC curve values: fpr, tpr, thresholds
+fpr, tpr, thresholds = roc_curve(y_test, y_pred_prob)
+
+# Plot ROC curve
+plt.plot([0, 1], [0, 1], &#39;k--&#39;)
+plt.plot(fpr,tpr)
+plt.xlabel(&#39;False Positive Rate&#39;)
+plt.ylabel(&#39;True Positive Rate&#39;)
+plt.title(&#39;ROC Curve&#39;)
+plt.show()
+</code></pre>
 <p>from sklearn.metrics import classification_report<br>from sklearn.metrics import confusion_matrix</p>
 <div align="center"><br><img src="./q1.png" width="850" height="200" alt="图片名称" align="center"><br></div><br><div align="center"><br><img src="./q2.png" width="900" height="100" alt="图片名称" align="center"><br></div>
 
@@ -157,7 +173,25 @@
 
 
 
-<h2 id="AUC-computation"><a href="#AUC-computation" class="headerlink" title="AUC computation"></a>AUC computation</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Import necessary modules</span></span><br><span class="line">from sklearn.metrics import roc_auc_score</span><br><span class="line">from sklearn.model_selection import cross_val_score</span><br><span class="line"></span><br><span class="line"><span class="comment"># Compute predicted probabilities: y_pred_prob</span></span><br><span class="line">y_pred_prob = logreg.predict_proba(X_test)[:,1]</span><br><span class="line"></span><br><span class="line"><span class="comment"># Compute and print AUC score</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"AUC: &#123;&#125;"</span>.format(roc_auc_score(y_test, y_pred_prob)))</span><br><span class="line"></span><br><span class="line"><span class="comment"># Compute cross-validated AUC scores: cv_auc</span></span><br><span class="line">cv_auc = cross_val_score(logreg, X, y, cv=5, scoring=<span class="string">'roc_auc'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Print list of AUC scores</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"AUC scores computed using 5-fold cross-validation: &#123;&#125;"</span>.format(cv_auc))</span><br><span class="line"></span><br><span class="line">AUC:0.8255</span><br><span class="line">AUC scores computed using 5-fold cross-validation:[0.8015,0.8063,0.8148,0.8625,0.85547]</span><br></pre></td></tr></table></figure>
+<h2 id="AUC-computation"><a href="#AUC-computation" class="headerlink" title="AUC computation"></a>AUC computation</h2><pre><code class="bash"># Import necessary modules
+from sklearn.metrics import roc_auc_score
+from sklearn.model_selection import cross_val_score
+
+# Compute predicted probabilities: y_pred_prob
+y_pred_prob = logreg.predict_proba(X_test)[:,1]
+
+# Compute and print AUC score
+print(&quot;AUC: {}&quot;.format(roc_auc_score(y_test, y_pred_prob)))
+
+# Compute cross-validated AUC scores: cv_auc
+cv_auc = cross_val_score(logreg, X, y, cv=5, scoring=&#39;roc_auc&#39;)
+
+# Print list of AUC scores
+print(&quot;AUC scores computed using 5-fold cross-validation: {}&quot;.format(cv_auc))
+
+AUC:0.8255
+AUC scores computed using 5-fold cross-validation:[0.8015,0.8063,0.8148,0.8625,0.85547]
+</code></pre>
 <p><div align="center"><br><img src="./q4.png" width="500" height="300" alt="图片名称" align="center"><br></div><br>ROC上的</p>
 
             </div>

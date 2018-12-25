@@ -71,7 +71,7 @@
 
 
 <!--  代码渲染  -->
-<link rel="stylesheet" href="/css/prism_coy.css" />
+<link rel="stylesheet" href="/css/prism_prism_okaidia.css" />
 <link rel="stylesheet" href="/css/typo.css" />
 <!-- 文章页 -->
 <body class="is-loading">
@@ -144,30 +144,159 @@
             </div>
             <!-- Post -->
             <div class="typo" style="padding: 2rem 4rem 2rem 4rem ;">
-                <h2 id="1-SELECT-columns-SELECT"><a href="#1-SELECT-columns-SELECT" class="headerlink" title="1.SELECT columns: SELECT"></a>1.SELECT columns: SELECT</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># one column</span></span><br><span class="line">SELECT title</span><br><span class="line">FROM films</span><br><span class="line"></span><br><span class="line"><span class="comment"># multiple columns</span></span><br><span class="line">SELECT title, release_year</span><br><span class="line">FROM films</span><br><span class="line"></span><br><span class="line"><span class="comment"># All columns</span></span><br><span class="line">SELECT *</span><br><span class="line">FROM people</span><br><span class="line">LIMIT 10;</span><br><span class="line"></span><br><span class="line"><span class="comment">#unique values from a column</span></span><br><span class="line">SELECT DISTINCT country</span><br><span class="line">FROM films</span><br></pre></td></tr></table></figure>
+                <h2 id="1-SELECT-columns-SELECT"><a href="#1-SELECT-columns-SELECT" class="headerlink" title="1.SELECT columns: SELECT"></a>1.SELECT columns: SELECT</h2><pre><code class="bash"># one column
+SELECT title
+FROM films
+
+# multiple columns
+SELECT title, release_year
+FROM films
+
+# All columns
+SELECT *
+FROM people
+LIMIT 10;
+
+#unique values from a column
+SELECT DISTINCT country
+FROM films
+
+</code></pre>
 <h2 id="2-Filter-rows-WHERE"><a href="#2-Filter-rows-WHERE" class="headerlink" title="2.Filter rows: WHERE"></a>2.Filter rows: WHERE</h2><p>The following operators can be used in the WHERE clause:</p>
-<h4 id="2-1Filter-Numeric-fields-lt-gt-lt-gt-lt-gt"><a href="#2-1Filter-Numeric-fields-lt-gt-lt-gt-lt-gt" class="headerlink" title="2.1Filter Numeric fields (=,&lt;&gt;,&lt;,&gt;,&lt;=,&gt;=)"></a>2.1Filter Numeric fields (=,&lt;&gt;,&lt;,&gt;,&lt;=,&gt;=)</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT *</span><br><span class="line">FROM films</span><br><span class="line">WHERE budget &gt; 10000;</span><br></pre></td></tr></table></figure>
-<h4 id="2-2Filter-TEXT-fields-Include-qoutes-for-text"><a href="#2-2Filter-TEXT-fields-Include-qoutes-for-text" class="headerlink" title="2.2Filter TEXT fields (Include qoutes for text)"></a>2.2Filter TEXT fields (Include qoutes for text)</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT *</span><br><span class="line">FROM films</span><br><span class="line">WHERE language=<span class="string">'French'</span></span><br></pre></td></tr></table></figure>
-<h4 id="2-3-AND"><a href="#2-3-AND" class="headerlink" title="2.3 AND"></a>2.3 AND</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT title,release_year</span><br><span class="line">FROM films</span><br><span class="line">WHERE release_year &lt; 2000 AND language=<span class="string">'Spanish'</span>;</span><br></pre></td></tr></table></figure>
-<h4 id="2-4-OR"><a href="#2-4-OR" class="headerlink" title="2.4 OR"></a>2.4 OR</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT title</span><br><span class="line">FROM films</span><br><span class="line">WHERE (release_year = 1994 OR release_year = 1995)</span><br><span class="line">AND (certification = <span class="string">'PG'</span> OR certification = <span class="string">'R'</span>);</span><br></pre></td></tr></table></figure>
-<h4 id="2-5-BETWEEN-filtering-values-within-a-specified-range"><a href="#2-5-BETWEEN-filtering-values-within-a-specified-range" class="headerlink" title="2.5 BETWEEN (filtering values within a specified range)"></a>2.5 BETWEEN (filtering values within a specified range)</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># BETWEEN is inclusive, meaning the beginning and end values are included in the results!</span></span><br><span class="line">WHERE release_year BETWEEN 1990 AND 2000</span><br></pre></td></tr></table></figure>
-<h4 id="2-6-IN-To-specify-multiple-possible-values-for-a-column"><a href="#2-6-IN-To-specify-multiple-possible-values-for-a-column" class="headerlink" title="2.6 IN (To specify multiple possible values for a column)"></a>2.6 IN (To specify multiple possible values for a column)</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">WHERE release_year IN (1990,2000)</span><br></pre></td></tr></table></figure>
-<h4 id="2-7-IS-NULL-check-missing-value"><a href="#2-7-IS-NULL-check-missing-value" class="headerlink" title="2.7 IS NULL (check missing value)"></a>2.7 IS NULL (check missing value)</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">WHERE language IS NULL</span><br></pre></td></tr></table></figure>
-<h4 id="2-8-LIKE-Search-for-a-pattern"><a href="#2-8-LIKE-Search-for-a-pattern" class="headerlink" title="2.8 LIKE (Search for a pattern)"></a>2.8 LIKE (Search for a pattern)</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Start with <span class="string">'B'</span>: WHERE name LIKE <span class="string">'B%'</span></span><br><span class="line">Ends with <span class="string">'A'</span> : WHERE name LIKE <span class="string">'%A'</span></span><br><span class="line">Second letter is r: WHERE name LIKE <span class="string">'_r%'</span></span><br><span class="line">Have <span class="string">"or"</span> <span class="keyword">in</span> any position: WHERE name LIKE <span class="string">'%r%'</span></span><br><span class="line">Not start with A: WHERE name NOT LIKE <span class="string">'A%'</span></span><br></pre></td></tr></table></figure>
-<h2 id="3-Aggregate-Function"><a href="#3-Aggregate-Function" class="headerlink" title="3.Aggregate Function"></a>3.Aggregate Function</h2><p>Aggregate Function returns a value<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SELECT COUNT(column_name)</span><br><span class="line">SELECT AVG(column_name)</span><br><span class="line">SELECT SUM(column_name)</span><br><span class="line">SELECT MIN(column_name)</span><br><span class="line">SELECT MAX(column_name)</span><br></pre></td></tr></table></figure></p>
-<h2 id="4-GROUP-BY"><a href="#4-GROUP-BY" class="headerlink" title="4.GROUP BY"></a>4.GROUP BY</h2><p>Commonly, GROUP BY is used with aggregate functions like COUNT() or MAX()<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT sex, count(*)</span><br><span class="line">FROM employees</span><br><span class="line">GROUP BY sex;</span><br></pre></td></tr></table></figure></p>
-<h2 id="5-Case-when-and-Then"><a href="#5-Case-when-and-Then" class="headerlink" title="5. Case when and Then"></a>5. Case when and Then</h2><p>Define a new category<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Transfer the numerical column to category column, then name the new column as geosize_group.</span></span><br><span class="line"><span class="comment">#INTO Clause is used to create a new table</span></span><br><span class="line"></span><br><span class="line">SELECT name, continent, code, surface_area,</span><br><span class="line">CASE</span><br><span class="line">    WHEN surface_area &gt;2000000 THEN <span class="string">'large'</span></span><br><span class="line">    WHEN surface_area &gt;350000 AND surface_area &lt;200000000  THEN  <span class="string">'medium'</span></span><br><span class="line">    ELSE  <span class="string">'small'</span></span><br><span class="line">END</span><br><span class="line">AS geosize_group</span><br><span class="line">INTO pop_plus</span><br><span class="line">FROM countries</span><br></pre></td></tr></table></figure></p>
-<h2 id="6-HAVING"><a href="#6-HAVING" class="headerlink" title="6.HAVING"></a>6.HAVING</h2><p>If you want to filter on aggregate functions like COUNT(),you need to use HAVING clause, WHERE is invalid.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT release_year</span><br><span class="line">FROM films</span><br><span class="line">GROUP BY release_year</span><br><span class="line">HAVING COUNT(title) &gt; 10;</span><br></pre></td></tr></table></figure></p>
+<h4 id="2-1Filter-Numeric-fields-lt-gt-lt-gt-lt-gt"><a href="#2-1Filter-Numeric-fields-lt-gt-lt-gt-lt-gt" class="headerlink" title="2.1Filter Numeric fields (=,&lt;&gt;,&lt;,&gt;,&lt;=,&gt;=)"></a>2.1Filter Numeric fields (=,&lt;&gt;,&lt;,&gt;,&lt;=,&gt;=)</h4><pre><code class="bash">SELECT *
+FROM films
+WHERE budget &gt; 10000;
+</code></pre>
+<h4 id="2-2Filter-TEXT-fields-Include-qoutes-for-text"><a href="#2-2Filter-TEXT-fields-Include-qoutes-for-text" class="headerlink" title="2.2Filter TEXT fields (Include qoutes for text)"></a>2.2Filter TEXT fields (Include qoutes for text)</h4><pre><code class="bash">SELECT *
+FROM films
+WHERE language=&#39;French&#39;
+</code></pre>
+<h4 id="2-3-AND"><a href="#2-3-AND" class="headerlink" title="2.3 AND"></a>2.3 AND</h4><pre><code class="bash">SELECT title,release_year
+FROM films
+WHERE release_year &lt; 2000 AND language=&#39;Spanish&#39;;
+</code></pre>
+<h4 id="2-4-OR"><a href="#2-4-OR" class="headerlink" title="2.4 OR"></a>2.4 OR</h4><pre><code class="bash">SELECT title
+FROM films
+WHERE (release_year = 1994 OR release_year = 1995)
+AND (certification = &#39;PG&#39; OR certification = &#39;R&#39;);
+</code></pre>
+<h4 id="2-5-BETWEEN-filtering-values-within-a-specified-range"><a href="#2-5-BETWEEN-filtering-values-within-a-specified-range" class="headerlink" title="2.5 BETWEEN (filtering values within a specified range)"></a>2.5 BETWEEN (filtering values within a specified range)</h4><pre><code class="bash"># BETWEEN is inclusive, meaning the beginning and end values are included in the results!
+WHERE release_year BETWEEN 1990 AND 2000
+</code></pre>
+<h4 id="2-6-IN-To-specify-multiple-possible-values-for-a-column"><a href="#2-6-IN-To-specify-multiple-possible-values-for-a-column" class="headerlink" title="2.6 IN (To specify multiple possible values for a column)"></a>2.6 IN (To specify multiple possible values for a column)</h4><pre><code class="bash">WHERE release_year IN (1990,2000)
+</code></pre>
+<h4 id="2-7-IS-NULL-check-missing-value"><a href="#2-7-IS-NULL-check-missing-value" class="headerlink" title="2.7 IS NULL (check missing value)"></a>2.7 IS NULL (check missing value)</h4><pre><code class="bash">WHERE language IS NULL
+</code></pre>
+<h4 id="2-8-LIKE-Search-for-a-pattern"><a href="#2-8-LIKE-Search-for-a-pattern" class="headerlink" title="2.8 LIKE (Search for a pattern)"></a>2.8 LIKE (Search for a pattern)</h4><pre><code class="bash">Start with &#39;B&#39;: WHERE name LIKE &#39;B%&#39;
+Ends with &#39;A&#39; : WHERE name LIKE &#39;%A&#39;
+Second letter is r: WHERE name LIKE &#39;_r%&#39;
+Have &quot;or&quot; in any position: WHERE name LIKE &#39;%r%&#39;
+Not start with A: WHERE name NOT LIKE &#39;A%&#39;
+</code></pre>
+<h2 id="3-Aggregate-Function"><a href="#3-Aggregate-Function" class="headerlink" title="3.Aggregate Function"></a>3.Aggregate Function</h2><p>Aggregate Function returns a value</p>
+<pre><code class="bash">SELECT COUNT(column_name)
+SELECT AVG(column_name)
+SELECT SUM(column_name)
+SELECT MIN(column_name)
+SELECT MAX(column_name)
+</code></pre>
+<h2 id="4-GROUP-BY"><a href="#4-GROUP-BY" class="headerlink" title="4.GROUP BY"></a>4.GROUP BY</h2><p>Commonly, GROUP BY is used with aggregate functions like COUNT() or MAX()</p>
+<pre><code class="bash">SELECT sex, count(*)
+FROM employees
+GROUP BY sex;
+</code></pre>
+<h2 id="5-Case-when-and-Then"><a href="#5-Case-when-and-Then" class="headerlink" title="5. Case when and Then"></a>5. Case when and Then</h2><p>Define a new category</p>
+<pre><code class="bash">#Transfer the numerical column to category column, then name the new column as geosize_group.
+#INTO Clause is used to create a new table
+
+SELECT name, continent, code, surface_area,
+CASE
+    WHEN surface_area &gt;2000000 THEN &#39;large&#39;
+    WHEN surface_area &gt;350000 AND surface_area &lt;200000000  THEN  &#39;medium&#39;
+    ELSE  &#39;small&#39;
+END
+AS geosize_group
+INTO pop_plus
+FROM countries
+</code></pre>
+<h2 id="6-HAVING"><a href="#6-HAVING" class="headerlink" title="6.HAVING"></a>6.HAVING</h2><p>If you want to filter on aggregate functions like COUNT(),you need to use HAVING clause, WHERE is invalid.</p>
+<pre><code class="bash">SELECT release_year
+FROM films
+GROUP BY release_year
+HAVING COUNT(title) &gt; 10;
+</code></pre>
 <h2 id="7-JOINS"><a href="#7-JOINS" class="headerlink" title="7.JOINS"></a>7.JOINS</h2><p>If you want to query multiple tables, you need joining tables first</p>
-<h4 id="7-1-INNER-JOIN"><a href="#7-1-INNER-JOIN" class="headerlink" title="7.1 INNER JOIN"></a>7.1 INNER JOIN</h4><p>Based on matching values selects rows from both tables.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SELECT c.code AS country_code, year, inflation_rate, c.name</span><br><span class="line">FROM countries AS c</span><br><span class="line">Inner JOIN economies AS e</span><br><span class="line">ON c.code = e.code;</span><br><span class="line"><span class="comment">#when the matching column name is same in both table can use USING (coded) as a shortcut</span></span><br></pre></td></tr></table></figure></p>
-<h4 id="7-2-lEFT-JOIN"><a href="#7-2-lEFT-JOIN" class="headerlink" title="7.2 lEFT JOIN"></a>7.2 lEFT JOIN</h4><p>Return all the records from the left table and the matched records from the right table<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># one to many relationship: one customer match many order ID</span></span><br><span class="line"></span><br><span class="line">SELECT Customers.CustomerName, Orders.OrderID</span><br><span class="line">FROM Customers</span><br><span class="line">LEFT JOIN Orders</span><br><span class="line">ON Customers.CustomerID=Orders.CustomerID</span><br><span class="line">ORDER BY Customers.CustomerName;</span><br></pre></td></tr></table></figure></p>
-<h4 id="7-3-RIGHT-JOIN"><a href="#7-3-RIGHT-JOIN" class="headerlink" title="7.3 RIGHT JOIN"></a>7.3 RIGHT JOIN</h4><p>Return all the records from the right  table and the matched records from the left table<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># many to one relationship: many OrderID match one employees</span></span><br><span class="line"></span><br><span class="line">SELECT Orders.OrderID, Employees.LastName, Employees.FirstName</span><br><span class="line">FROM Orders</span><br><span class="line">RIGHT JOIN Employees</span><br><span class="line">ON Orders.EmployeeID = Employees.EmployeeID</span><br><span class="line">ORDER BY Orders.OrderID;</span><br></pre></td></tr></table></figure></p>
-<h4 id="7-4-FULL-JOIN"><a href="#7-4-FULL-JOIN" class="headerlink" title="7.4 FULL JOIN"></a>7.4 FULL JOIN</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT Customers.CustomerName, Orders.OrderID</span><br><span class="line">FROM Customers</span><br><span class="line">FULL OUTER JOIN Orders ON Customers.CustomerID=Orders.CustomerID</span><br><span class="line">ORDER BY Customers.CustomerName;</span><br></pre></td></tr></table></figure>
-<h4 id="7-5-CROSS-JOIN"><a href="#7-5-CROSS-JOIN" class="headerlink" title="7.5 CROSS JOIN"></a>7.5 CROSS JOIN</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT c.name AS city, l.name AS language</span><br><span class="line">FROM cities AS c</span><br><span class="line">CROSS JOIN languages AS l</span><br><span class="line">WHERE  c.name LIKE <span class="string">'Hyder%'</span>;</span><br></pre></td></tr></table></figure>
-<h4 id="7-6-SELF-JOIN"><a href="#7-6-SELF-JOIN" class="headerlink" title="7.6 SELF JOIN"></a>7.6 SELF JOIN</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT p1. country_code,</span><br><span class="line">       p1.size AS size2010,</span><br><span class="line">       p2.size AS size2015,  (p2.size-p1.size)/p1.size*100.0 AS growth_perc</span><br><span class="line">FROM populations AS p1</span><br><span class="line">INNER JOIN populations AS P2</span><br><span class="line">ON  P1. country_code = P2.country_code AND p1.year=p2.year-5;</span><br></pre></td></tr></table></figure>
-<h2 id="8-Subquery"><a href="#8-Subquery" class="headerlink" title="8.Subquery"></a>8.Subquery</h2><h4 id="8-1-Subquery-inside-WHERE"><a href="#8-1-Subquery-inside-WHERE" class="headerlink" title="8.1 Subquery inside WHERE"></a>8.1 Subquery inside WHERE</h4><p>If the subquery is one or multiple value or word<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Calculate the avg life_expectancy</span></span><br><span class="line">SELECT AVG(life_expectancy)</span><br><span class="line">FROM populations</span><br><span class="line">WHERE year = 2015;</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"><span class="comment"># Then get those who live longer 1.15 times than the avg life_expectancy</span></span><br><span class="line">SELECT *</span><br><span class="line">FROM populations</span><br><span class="line">WHERE life_expectancy &gt; 1.15 * (SELECT AVG(life_expectancy) FROM populations WHERE year = 2015)</span><br><span class="line">AND year = 2015;</span><br></pre></td></tr></table></figure></p>
-<h4 id="8-2-Subquery-inside-SELECT"><a href="#8-2-Subquery-inside-SELECT" class="headerlink" title="8.2 Subquery inside SELECT"></a>8.2 Subquery inside SELECT</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">SELECT countries.name AS country,</span><br><span class="line">  (SELECT COUNT(*)</span><br><span class="line">   FROM cities</span><br><span class="line">   WHERE countries.code = cities.country_code) AS cities_num</span><br><span class="line">FROM countries</span><br><span class="line">ORDER BY cities_num DESC, country</span><br><span class="line">LIMIT 9;</span><br></pre></td></tr></table></figure>
-<h4 id="8-3-Subquery-inside-FROM"><a href="#8-3-Subquery-inside-FROM" class="headerlink" title="8.3 Subquery inside FROM"></a>8.3 Subquery inside FROM</h4><p>If subquery is one or multiple column then can be regarded as a new table<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT name,subquery.count</span><br><span class="line">FROM countries,(SELECT country_code, COUNT(*)</span><br><span class="line">FROM cities</span><br><span class="line">GROUP BY country_code</span><br><span class="line">) AS subquery</span><br><span class="line">WHERE countries.code = subquery.country_code;</span><br></pre></td></tr></table></figure></p>
+<h4 id="7-1-INNER-JOIN"><a href="#7-1-INNER-JOIN" class="headerlink" title="7.1 INNER JOIN"></a>7.1 INNER JOIN</h4><p>Based on matching values selects rows from both tables.</p>
+<pre><code class="bash">SELECT c.code AS country_code, year, inflation_rate, c.name
+FROM countries AS c
+Inner JOIN economies AS e
+ON c.code = e.code;
+#when the matching column name is same in both table can use USING (coded) as a shortcut
+</code></pre>
+<h4 id="7-2-lEFT-JOIN"><a href="#7-2-lEFT-JOIN" class="headerlink" title="7.2 lEFT JOIN"></a>7.2 lEFT JOIN</h4><p>Return all the records from the left table and the matched records from the right table</p>
+<pre><code class="bash"># one to many relationship: one customer match many order ID
+
+SELECT Customers.CustomerName, Orders.OrderID
+FROM Customers
+LEFT JOIN Orders
+ON Customers.CustomerID=Orders.CustomerID
+ORDER BY Customers.CustomerName;
+</code></pre>
+<h4 id="7-3-RIGHT-JOIN"><a href="#7-3-RIGHT-JOIN" class="headerlink" title="7.3 RIGHT JOIN"></a>7.3 RIGHT JOIN</h4><p>Return all the records from the right  table and the matched records from the left table</p>
+<pre><code class="bash"># many to one relationship: many OrderID match one employees
+
+SELECT Orders.OrderID, Employees.LastName, Employees.FirstName
+FROM Orders
+RIGHT JOIN Employees
+ON Orders.EmployeeID = Employees.EmployeeID
+ORDER BY Orders.OrderID;
+</code></pre>
+<h4 id="7-4-FULL-JOIN"><a href="#7-4-FULL-JOIN" class="headerlink" title="7.4 FULL JOIN"></a>7.4 FULL JOIN</h4><pre><code class="bash">SELECT Customers.CustomerName, Orders.OrderID
+FROM Customers
+FULL OUTER JOIN Orders ON Customers.CustomerID=Orders.CustomerID
+ORDER BY Customers.CustomerName;
+</code></pre>
+<h4 id="7-5-CROSS-JOIN"><a href="#7-5-CROSS-JOIN" class="headerlink" title="7.5 CROSS JOIN"></a>7.5 CROSS JOIN</h4><pre><code class="bash">SELECT c.name AS city, l.name AS language
+FROM cities AS c
+CROSS JOIN languages AS l
+WHERE  c.name LIKE &#39;Hyder%&#39;;
+</code></pre>
+<h4 id="7-6-SELF-JOIN"><a href="#7-6-SELF-JOIN" class="headerlink" title="7.6 SELF JOIN"></a>7.6 SELF JOIN</h4><pre><code class="bash">SELECT p1. country_code,
+       p1.size AS size2010,
+       p2.size AS size2015,  (p2.size-p1.size)/p1.size*100.0 AS growth_perc
+FROM populations AS p1
+INNER JOIN populations AS P2
+ON  P1. country_code = P2.country_code AND p1.year=p2.year-5;
+</code></pre>
+<h2 id="8-Subquery"><a href="#8-Subquery" class="headerlink" title="8.Subquery"></a>8.Subquery</h2><h4 id="8-1-Subquery-inside-WHERE"><a href="#8-1-Subquery-inside-WHERE" class="headerlink" title="8.1 Subquery inside WHERE"></a>8.1 Subquery inside WHERE</h4><p>If the subquery is one or multiple value or word</p>
+<pre><code class="bash"># Calculate the avg life_expectancy
+SELECT AVG(life_expectancy)
+FROM populations
+WHERE year = 2015;
+
+---
+# Then get those who live longer 1.15 times than the avg life_expectancy
+SELECT *
+FROM populations
+WHERE life_expectancy &gt; 1.15 * (SELECT AVG(life_expectancy) FROM populations WHERE year = 2015)
+AND year = 2015;
+</code></pre>
+<h4 id="8-2-Subquery-inside-SELECT"><a href="#8-2-Subquery-inside-SELECT" class="headerlink" title="8.2 Subquery inside SELECT"></a>8.2 Subquery inside SELECT</h4><pre><code class="bash">SELECT countries.name AS country,
+  (SELECT COUNT(*)
+   FROM cities
+   WHERE countries.code = cities.country_code) AS cities_num
+FROM countries
+ORDER BY cities_num DESC, country
+LIMIT 9;
+</code></pre>
+<h4 id="8-3-Subquery-inside-FROM"><a href="#8-3-Subquery-inside-FROM" class="headerlink" title="8.3 Subquery inside FROM"></a>8.3 Subquery inside FROM</h4><p>If subquery is one or multiple column then can be regarded as a new table</p>
+<pre><code class="bash">SELECT name,subquery.count
+FROM countries,(SELECT country_code, COUNT(*)
+FROM cities
+GROUP BY country_code
+) AS subquery
+WHERE countries.code = subquery.country_code;
+</code></pre>
 
             </div>
 

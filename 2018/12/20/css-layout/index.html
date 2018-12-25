@@ -71,7 +71,7 @@
 
 
 <!--  代码渲染  -->
-<link rel="stylesheet" href="/css/prism_coy.css" />
+<link rel="stylesheet" href="/css/prism_prism_okaidia.css" />
 <link rel="stylesheet" href="/css/typo.css" />
 <!-- 文章页 -->
 <body class="is-loading">
@@ -158,14 +158,38 @@
 </blockquote>
 <h2 id="2-布局"><a href="#2-布局" class="headerlink" title="2.布局"></a>2.布局</h2><h3 id="什么都不设置，自动堆叠成一列，每个div占满一行"><a href="#什么都不设置，自动堆叠成一列，每个div占满一行" class="headerlink" title="什么都不设置，自动堆叠成一列，每个div占满一行"></a>什么都不设置，自动堆叠成一列，每个div占满一行</h3><div align="right"><br><img src="./1.jpg" width="450" height="280" alt="图片名称" align="right" style="top: 25px; position: relative;"><br></div>
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">&lt;div class=&quot;flex-container&quot;&gt;</span><br><span class="line">                &lt;div&gt;1&lt;/div&gt;</span><br><span class="line">                &lt;div&gt;2&lt;/div&gt;</span><br><span class="line">                &lt;div&gt;3&lt;/div&gt;  </span><br><span class="line">                &lt;div&gt;4&lt;/div&gt;</span><br><span class="line">                &lt;div&gt;5&lt;/div&gt;</span><br><span class="line">                &lt;div&gt;6&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="设置父元素为flexbox，横向-纵行，自动换行"><a href="#设置父元素为flexbox，横向-纵行，自动换行" class="headerlink" title="设置父元素为flexbox，横向/纵行，自动换行"></a>设置<strong>父元素</strong>为flexbox，横向/纵行，自动换行</h3><div align="right"><br><img src="./2.jpg" alt="图片名称" align="right" width="400" height="220" style=" top: 23px; position: relative;"><br></div>
+<pre><code>&lt;body&gt;
+&lt;div class=&quot;flex-container&quot;&gt;
+                &lt;div&gt;1&lt;/div&gt;
+                &lt;div&gt;2&lt;/div&gt;
+                &lt;div&gt;3&lt;/div&gt;  
+                &lt;div&gt;4&lt;/div&gt;
+                &lt;div&gt;5&lt;/div&gt;
+                &lt;div&gt;6&lt;/div&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+</code></pre><h3 id="设置父元素为flexbox，横向-纵行，自动换行"><a href="#设置父元素为flexbox，横向-纵行，自动换行" class="headerlink" title="设置父元素为flexbox，横向/纵行，自动换行"></a>设置<strong>父元素</strong>为flexbox，横向/纵行，自动换行</h3><div align="right"><br><img src="./2.jpg" alt="图片名称" align="right" width="400" height="220" style=" top: 23px; position: relative;"><br></div>
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"> .flex-container &#123;</span><br><span class="line">            display:flex;</span><br><span class="line">            flex-direction: row/column;</span><br><span class="line">            flex-flow:wrap;</span><br><span class="line">            background-color: DodgerBlue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="设置子元素宽度width-webkit-fill-available-修改容器宽度堆叠成一列"><a href="#设置子元素宽度width-webkit-fill-available-修改容器宽度堆叠成一列" class="headerlink" title="设置子元素宽度width:-webkit-fill-available 修改容器宽度堆叠成一列"></a>设置<strong>子元素</strong>宽度width:-webkit-fill-available 修改容器宽度堆叠成一列</h3><div align="right"><br><img src="./4.jpg" width="400" height="220" alt="图片名称" align="right" style=" top: 23px; position: relative;"><br></div>
+<pre><code>
+ .flex-container {
+            display:flex;
+            flex-direction: row/column;
+            flex-flow:wrap;
+            background-color: DodgerBlue;
+}
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.flex-container &gt; div &#123;</span><br><span class="line">    #设置多列时改成每列列宽占父元素的百分比%</span><br><span class="line">            width:-webkit-fill-available; </span><br><span class="line">            height:200px;</span><br><span class="line">            margin: 30px;</span><br><span class="line">            background-color: #f1f1f1;</span><br><span class="line">            border-style: solid;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="Width：100-（不建议使用）"><a href="#Width：100-（不建议使用）" class="headerlink" title="Width：100%: （不建议使用）"></a>Width：100%: （不建议使用）</h2><blockquote>
+
+</code></pre><h3 id="设置子元素宽度width-webkit-fill-available-修改容器宽度堆叠成一列"><a href="#设置子元素宽度width-webkit-fill-available-修改容器宽度堆叠成一列" class="headerlink" title="设置子元素宽度width:-webkit-fill-available 修改容器宽度堆叠成一列"></a>设置<strong>子元素</strong>宽度width:-webkit-fill-available 修改容器宽度堆叠成一列</h3><div align="right"><br><img src="./4.jpg" width="400" height="220" alt="图片名称" align="right" style=" top: 23px; position: relative;"><br></div>
+
+<pre><code>.flex-container &gt; div {
+    #设置多列时改成每列列宽占父元素的百分比%
+            width:-webkit-fill-available; 
+            height:200px;
+            margin: 30px;
+            background-color: #f1f1f1;
+            border-style: solid;
+}
+</code></pre><h2 id="Width：100-（不建议使用）"><a href="#Width：100-（不建议使用）" class="headerlink" title="Width：100%: （不建议使用）"></a>Width：100%: （不建议使用）</h2><blockquote>
 <p>不设置margin: div宽度=容器的宽度=父元素宽度。</p>
 </blockquote>
 <blockquote>
@@ -173,8 +197,17 @@
 </blockquote>
 <div align="right"><br><img src="./5.jpg" width="400" height="330" alt="图片名称" align="right" style=" top: 23px; position: relative;"><br></div>
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">  .flex-container &gt; div &#123;              </span><br><span class="line">            width: 100%;</span><br><span class="line">            margin: 30px;</span><br><span class="line">            height:200px;</span><br><span class="line">        border-style: solid;</span><br><span class="line">            text-align: center;</span><br><span class="line">            line-height: 75px;</span><br><span class="line">            font-size: 30px;</span><br><span class="line">            background-color: #f1f1f1;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="width-webkit-fill-available"><a href="#width-webkit-fill-available" class="headerlink" title="width:-webkit-fill-available:"></a>width:-webkit-fill-available:</h2><blockquote>
+<pre><code>  .flex-container &gt; div {              
+            width: 100%;
+            margin: 30px;
+            height:200px;
+        border-style: solid;
+            text-align: center;
+            line-height: 75px;
+            font-size: 30px;
+            background-color: #f1f1f1;  
+}
+</code></pre><h2 id="width-webkit-fill-available"><a href="#width-webkit-fill-available" class="headerlink" title="width:-webkit-fill-available:"></a>width:-webkit-fill-available:</h2><blockquote>
 <p>div的宽度=容器宽度+margin宽度=父元素宽度</p>
 </blockquote>
 <div align="center"><br><img src="./4.jpg" width="400" height="220" alt="图片名称" align="center"><br></div>

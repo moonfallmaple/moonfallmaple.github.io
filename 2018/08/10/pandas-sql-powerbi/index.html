@@ -71,7 +71,7 @@
 
 
 <!--  代码渲染  -->
-<link rel="stylesheet" href="/css/prism_coy.css" />
+<link rel="stylesheet" href="/css/prism_prism_okaidia.css" />
 <link rel="stylesheet" href="/css/typo.css" />
 <!-- 文章页 -->
 <body class="is-loading">
@@ -147,7 +147,12 @@
                 <h3 id="Q1-Estimated-total-cost-for-each-event"><a href="#Q1-Estimated-total-cost-for-each-event" class="headerlink" title="Q1:Estimated total cost for each event"></a>Q1:Estimated total cost for each event</h3><h4 id="Use-Python-to-solve"><a href="#Use-Python-to-solve" class="headerlink" title="-Use Python to solve:"></a>-Use Python to solve:</h4><blockquote>
 <p>Steps<br>1.create a new dataframe called ‘Total_cost’, Groupby ‘EVENT TYPE’ and get each type’s ‘ESTIMATED TOTAL COST’<br>2.Filter out ‘ESTIMATED TOTAL COST’&gt;0 and assign it to ‘Total_cost_new’<br>3.Get the index of ‘Total_cost_new’ and assign it to ‘event_type’<br>4.Use sns.barplot() to plot the figture</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Total_cost=pd.DataFrame(data.groupby(<span class="string">'EVENT TYPE'</span>)[<span class="string">'ESTIMATED TOTAL COST'</span>].sum())</span><br><span class="line">Total_cost_new=Total_cost.loc[Total_cost[<span class="string">'ESTIMATED TOTAL COST'</span>]&gt;0]</span><br><span class="line"></span><br><span class="line">event_type=Total_cost_new.index.values</span><br><span class="line">plt1=sns.barplot(x=<span class="string">'ESTIMATED TOTAL COST'</span>,y=event_type,data=Total_cost_new)</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">Total_cost=pd.DataFrame(data.groupby(&#39;EVENT TYPE&#39;)[&#39;ESTIMATED TOTAL COST&#39;].sum())
+Total_cost_new=Total_cost.loc[Total_cost[&#39;ESTIMATED TOTAL COST&#39;]&gt;0]
+
+event_type=Total_cost_new.index.values
+plt1=sns.barplot(x=&#39;ESTIMATED TOTAL COST&#39;,y=event_type,data=Total_cost_new)
+</code></pre>
 <div align="center"><br><img src="./q1.png" width="700" height="400" alt="图片名称" align="center"><br></div>
 
 <h4 id="Use-PowerBI-to-solve"><a href="#Use-PowerBI-to-solve" class="headerlink" title="-Use PowerBI to solve:"></a>-Use PowerBI to solve:</h4><blockquote>
@@ -170,7 +175,24 @@
 <h3 id="Q2-Number-of-event-happend-per-year-where-DFAA-payments-both-federal-and-provincial-have-been-applied"><a href="#Q2-Number-of-event-happend-per-year-where-DFAA-payments-both-federal-and-provincial-have-been-applied" class="headerlink" title="Q2: Number of event happend per year where DFAA payments (both federal and provincial) have been applied."></a>Q2: Number of event happend per year where DFAA payments (both federal and provincial) have been applied.</h3><h4 id="Use-Python-to-solve-1"><a href="#Use-Python-to-solve-1" class="headerlink" title="-Use Python to solve:"></a>-Use Python to solve:</h4><blockquote>
 <p>Steps<br>1.create a new dataframe called ‘Event_per_year’<br>2.Conver the type of ‘EVENT START DATE’ from string to date format<br>3.Extract the year from the ‘EVENT START DATE’ column<br>4.Filter out ‘FEDERAL DFAA PAYMENTS’&gt;0 and ‘PROVINCIAL DFAA PAYMENTS’&gt;0 assign it to ‘Event_per_year_new’<br>5.Count the num of events happened per year, get the index and value for the following figture<br>6.Use sns.barplot() to plot the figture</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">Event_per_year=pd.DataFrame(data)</span><br><span class="line">Event_per_year.head()</span><br><span class="line">Event_per_year[<span class="string">'EVENT START DATE'</span>]=pd.to_datetime(Event_per_year[<span class="string">'EVENT START DATE'</span>],dayfirst=True)</span><br><span class="line">Event_per_year[<span class="string">'YEAR'</span>]=Event_per_year[<span class="string">'EVENT START DATE'</span>].apply(lambda x:x.year)</span><br><span class="line">Event_per_year_new=pd.DataFrame(Event_per_year[(Event_per_year[<span class="string">"FEDERAL DFAA PAYMENTS"</span>]&gt;0 )&amp;</span><br><span class="line"> (Event_per_year[<span class="string">"PROVINCIAL DFAA PAYMENTS"</span>]&gt;0)])</span><br><span class="line">Event_per_year_new</span><br><span class="line"></span><br><span class="line">Num_event_yearly=Event_per_year_new[<span class="string">'YEAR'</span>].value_counts()</span><br><span class="line"><span class="built_in">print</span>(Num_event_yearly)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(Num_event_yearly.index)</span><br><span class="line"><span class="built_in">print</span>(Num_event_yearly.values)</span><br><span class="line"></span><br><span class="line">plt2=sns.barplot(x=Num_event_yearly.index,y=Num_event_yearly.values,data=Event_per_year_new)</span><br><span class="line">plt2.set(xlabel=<span class="string">'Year'</span>,ylabel=<span class="string">'Number of events happened'</span>, title=<span class="string">'Number of events happened</span></span><br><span class="line"><span class="string">each year where DFAA payments applied'</span>)</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">Event_per_year=pd.DataFrame(data)
+Event_per_year.head()
+Event_per_year[&#39;EVENT START DATE&#39;]=pd.to_datetime(Event_per_year[&#39;EVENT START DATE&#39;],dayfirst=True)
+Event_per_year[&#39;YEAR&#39;]=Event_per_year[&#39;EVENT START DATE&#39;].apply(lambda x:x.year)
+Event_per_year_new=pd.DataFrame(Event_per_year[(Event_per_year[&quot;FEDERAL DFAA PAYMENTS&quot;]&gt;0 )&amp;
+ (Event_per_year[&quot;PROVINCIAL DFAA PAYMENTS&quot;]&gt;0)])
+Event_per_year_new
+
+Num_event_yearly=Event_per_year_new[&#39;YEAR&#39;].value_counts()
+print(Num_event_yearly)
+
+print(Num_event_yearly.index)
+print(Num_event_yearly.values)
+
+plt2=sns.barplot(x=Num_event_yearly.index,y=Num_event_yearly.values,data=Event_per_year_new)
+plt2.set(xlabel=&#39;Year&#39;,ylabel=&#39;Number of events happened&#39;, title=&#39;Number of events happened
+each year where DFAA payments applied&#39;)
+</code></pre>
 <div align="center"><br><img src="./q27.png" width="600" height="300" alt="图片名称" align="center"><br></div>
 
 <h4 id="Use-PowerBI-to-solve-1"><a href="#Use-PowerBI-to-solve-1" class="headerlink" title="-Use PowerBI to solve:"></a>-Use PowerBI to solve:</h4><blockquote>
@@ -199,7 +221,23 @@
 <h2 id="Q3-Duration-of-events"><a href="#Q3-Duration-of-events" class="headerlink" title="Q3:Duration of events"></a>Q3:Duration of events</h2><h4 id="Use-Python-to-solve-2"><a href="#Use-Python-to-solve-2" class="headerlink" title="-Use Python to solve:"></a>-Use Python to solve:</h4><blockquote>
 <p>Steps<br>1.create a new dataframe called ‘Duration’<br>2.Conver the type of ‘EVENT START DATE’ and ‘EVENT END DATE’ from string to date format<br>3.Calculate the result of Duration[“EVENT END DATE”]-Duration[“EVENT START DATE”],  converted the difference’s type   and assign it to Duration[‘DURATION’]<br>4.Use sns.hist() to plot the figture</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Duration=pd.DataFrame(data)</span><br><span class="line">Duration[<span class="string">'EVENT START DATE'</span>]=pd.to_datetime(Duration[<span class="string">'EVENT START DATE'</span>],dayfirst=True)</span><br><span class="line">Duration[<span class="string">'EVENT END DATE'</span>]=pd.to_datetime(Duration[<span class="string">'EVENT END DATE'</span>],dayfirst=True)</span><br><span class="line"></span><br><span class="line">Duration[<span class="string">'DURATION_DAYS'</span>]=(Duration[<span class="string">"EVENT END DATE"</span>]-Duration[<span class="string">"EVENT START DATE"</span>]).astype(<span class="string">'timedelta64[D]'</span>)</span><br><span class="line"></span><br><span class="line">duration_max=data[<span class="string">'DURATION_DAYS'</span>].max()</span><br><span class="line">duration_max</span><br><span class="line">id=data[<span class="string">'DURATION_DAYS'</span>].idxmax()</span><br><span class="line">id</span><br><span class="line"></span><br><span class="line">plt3=plt.boxplot(data[<span class="string">'DURATION_DAYS'</span>])</span><br><span class="line">plt.show()</span><br><span class="line">plt.hist(data[<span class="string">"DURATION_DAYS"</span>],bins=10,range=(0,50))</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">Duration=pd.DataFrame(data)
+Duration[&#39;EVENT START DATE&#39;]=pd.to_datetime(Duration[&#39;EVENT START DATE&#39;],dayfirst=True)
+Duration[&#39;EVENT END DATE&#39;]=pd.to_datetime(Duration[&#39;EVENT END DATE&#39;],dayfirst=True)
+
+Duration[&#39;DURATION_DAYS&#39;]=(Duration[&quot;EVENT END DATE&quot;]-Duration[&quot;EVENT START DATE&quot;]).astype(&#39;timedelta64[D]&#39;)
+
+duration_max=data[&#39;DURATION_DAYS&#39;].max()
+duration_max
+id=data[&#39;DURATION_DAYS&#39;].idxmax()
+id
+
+plt3=plt.boxplot(data[&#39;DURATION_DAYS&#39;])
+plt.show()
+plt.hist(data[&quot;DURATION_DAYS&quot;],bins=10,range=(0,50))
+plt.show()
+
+</code></pre>
 <div align="center"><br><img src="./q29.png" width="600" height="400" alt="图片名称" align="center"><br></div>
 
 <h4 id="Use-PowerBI-to-solve-2"><a href="#Use-PowerBI-to-solve-2" class="headerlink" title="-Use PowerBI to solve:"></a>-Use PowerBI to solve:</h4><blockquote>
@@ -215,7 +253,32 @@
 <h2 id="Q4-Get-the-province-from-the-‘PLACE’-column"><a href="#Q4-Get-the-province-from-the-‘PLACE’-column" class="headerlink" title="Q4 Get the province from the ‘PLACE’ column"></a>Q4 Get the province from the ‘PLACE’ column</h2><h4 id="Use-Python-to-solve-3"><a href="#Use-Python-to-solve-3" class="headerlink" title="-Use Python to solve:"></a>-Use Python to solve:</h4><blockquote>
 <p>Steps<br>1.create a new dataframe called ‘Province’<br>2.Create a new column ‘ORGANIZED’ and assign 0 to it<br>3.Slice the last two letter from the ‘PLACE’ column and assign to ‘Province’<br>4.For every entry in ‘Province’ column if it is in abbre list then we label as ‘ORGANIZED’=1 otherwise ‘ORGANIZED’=0<br>5.Filter out all these unorganized row to create a new dataframe ‘Unorg’<br>6.Filter out ‘British Columbia’ from Unorg[‘PLACE’], then label the corresponding province as ‘BC’</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">abbre=[<span class="string">'NL'</span>,<span class="string">'PE'</span>,<span class="string">'NS'</span>,<span class="string">'NB'</span>,<span class="string">'QC'</span>,<span class="string">'ON'</span>,<span class="string">'MB'</span>,<span class="string">'SK'</span>,<span class="string">'AB'</span>,<span class="string">'BC'</span>,<span class="string">'YT'</span>,<span class="string">'NT'</span>,<span class="string">'NU'</span>]</span><br><span class="line">province=[<span class="string">'Nunavut'</span>,<span class="string">'Quebec'</span>,<span class="string">'Nothwest Territories'</span>,<span class="string">'Ontario'</span>,<span class="string">'British Columbia'</span>,<span class="string">'Alberta'</span>,</span><br><span class="line"><span class="string">'Saskatchewan'</span>,<span class="string">'Manitoba'</span>,<span class="string">'Yukon'</span>,<span class="string">'Newfoundland and Labrador'</span>,<span class="string">'New Brunswick'</span>,<span class="string">'Nova Scotia'</span>,</span><br><span class="line"><span class="string">'Prince Edward Island'</span>]</span><br><span class="line">import sys</span><br><span class="line">i=0</span><br><span class="line">Province=pd.DataFrame(data)</span><br><span class="line">Province[<span class="string">'ORGANIZED'</span>]=0</span><br><span class="line">Province[<span class="string">'Province'</span>]=Province[<span class="string">'PLACE'</span>].apply(lambda x: x[-2:])</span><br><span class="line"><span class="keyword">for</span> entry <span class="keyword">in</span> Province[<span class="string">'Province'</span>]:</span><br><span class="line">    <span class="keyword">if</span> entry <span class="keyword">in</span> abbre:</span><br><span class="line">        Province.ix[i,<span class="string">'ORGANIZED'</span>]=1</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        Province.ix[i,<span class="string">'ORGANIZED'</span>]=0</span><br><span class="line">    i=i+1</span><br><span class="line">Province.head()</span><br><span class="line"></span><br><span class="line">Unorg= pd.DataFrame(Province.loc[Province[<span class="string">'ORGANIZED'</span>] == 0])</span><br><span class="line">Unorg[<span class="string">'Province'</span>]=0</span><br><span class="line">Unorg.head()</span><br><span class="line"></span><br><span class="line">BC=Unorg[Unorg[<span class="string">'PLACE'</span>].str.contains(<span class="string">'British Columbia'</span>)]</span><br><span class="line">BC.index</span><br><span class="line">Unorg.ix[BC.index,<span class="string">'Province'</span>]=<span class="string">'BC'</span></span><br></pre></td></tr></table></figure>
+<pre><code class="bash">abbre=[&#39;NL&#39;,&#39;PE&#39;,&#39;NS&#39;,&#39;NB&#39;,&#39;QC&#39;,&#39;ON&#39;,&#39;MB&#39;,&#39;SK&#39;,&#39;AB&#39;,&#39;BC&#39;,&#39;YT&#39;,&#39;NT&#39;,&#39;NU&#39;]
+province=[&#39;Nunavut&#39;,&#39;Quebec&#39;,&#39;Nothwest Territories&#39;,&#39;Ontario&#39;,&#39;British Columbia&#39;,&#39;Alberta&#39;,
+&#39;Saskatchewan&#39;,&#39;Manitoba&#39;,&#39;Yukon&#39;,&#39;Newfoundland and Labrador&#39;,&#39;New Brunswick&#39;,&#39;Nova Scotia&#39;,
+&#39;Prince Edward Island&#39;]
+import sys
+i=0
+Province=pd.DataFrame(data)
+Province[&#39;ORGANIZED&#39;]=0
+Province[&#39;Province&#39;]=Province[&#39;PLACE&#39;].apply(lambda x: x[-2:])
+for entry in Province[&#39;Province&#39;]:
+    if entry in abbre:
+        Province.ix[i,&#39;ORGANIZED&#39;]=1
+    else:
+        Province.ix[i,&#39;ORGANIZED&#39;]=0
+    i=i+1
+Province.head()
+
+Unorg= pd.DataFrame(Province.loc[Province[&#39;ORGANIZED&#39;] == 0])
+Unorg[&#39;Province&#39;]=0
+Unorg.head()
+
+BC=Unorg[Unorg[&#39;PLACE&#39;].str.contains(&#39;British Columbia&#39;)]
+BC.index
+Unorg.ix[BC.index,&#39;Province&#39;]=&#39;BC&#39;
+
+</code></pre>
 <div align="center"><br><img src="./q32.png" width="400" height="300" alt="图片名称" align="center"><br></div>
 
             </div>

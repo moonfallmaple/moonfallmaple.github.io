@@ -71,7 +71,7 @@
 
 
 <!--  代码渲染  -->
-<link rel="stylesheet" href="/css/prism_coy.css" />
+<link rel="stylesheet" href="/css/prism_prism_okaidia.css" />
 <link rel="stylesheet" href="/css/typo.css" />
 <!-- 文章页 -->
 <body class="is-loading">
@@ -146,28 +146,54 @@
             <div class="typo" style="padding: 2rem 4rem 2rem 4rem ;">
                 <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>npm(全称Node Package manager,即“node包管理器”)是一个命令行下的软件，用来管理和安装node模块。<br>npm不需要单独安装。在安装Node的时候，会连带一起安装npm。但是，Node附带的npm可能不是最新版本，最好用下面的命令，<strong>更新</strong> 到最新版本。</p>
 <a id="more"></a>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install npm@latest -g</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">npm install npm@latest -g
+</code></pre>
 <ul>
 <li>@latest 表示最新版本</li>
 <li>-g 表示全局安装</li>
 <li>命令的主干是npm install npm，也就是使用npm安装自己。之所以可以这样，是因为npm本身与Node的其他模块没有区别。</li>
 </ul>
-<h3 id="npm常用命令"><a href="#npm常用命令" class="headerlink" title="npm常用命令"></a>npm常用命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看 npm 的版本</span></span><br><span class="line">npm -v</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看 npm 命令列表</span></span><br><span class="line">npm <span class="built_in">help</span></span><br></pre></td></tr></table></figure>
-<h2 id="npm-init（新建项目）"><a href="#npm-init（新建项目）" class="headerlink" title="npm init（新建项目）"></a>npm init（新建项目）</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir hello-world</span><br><span class="line"><span class="built_in">cd</span> hello-world</span><br><span class="line">npm init</span><br></pre></td></tr></table></figure>
+<h3 id="npm常用命令"><a href="#npm常用命令" class="headerlink" title="npm常用命令"></a>npm常用命令</h3><pre><code class="bash"># 查看 npm 的版本
+npm -v
+
+# 查看 npm 命令列表
+npm help
+</code></pre>
+<h2 id="npm-init（新建项目）"><a href="#npm-init（新建项目）" class="headerlink" title="npm init（新建项目）"></a>npm init（新建项目）</h2><pre><code class="bash">mkdir hello-world
+cd hello-world
+npm init
+</code></pre>
 <ul>
 <li>通过命令行创建一个目录，假定叫做hello-world，并通过cd进入该目录。</li>
 <li>通过npm init命令来创建一个 <strong>package.json</strong> 文件。该文件是工程开始的第一步，它记录了项目所需要的各种模块以及项目的配置信息（比如名称、版本、许可证等元数据）。</li>
 </ul>
 <p>npm init：运行命令它会向用户提问一系列问题，如果你觉得不用修改默认配置，一路回车就可以了。在回答一堆问题后输入 yes 就会生成以下所示内容的package.json 文件。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"name"</span>: <span class="string">"hello-world"</span>,</span><br><span class="line">  <span class="string">"version"</span>: <span class="string">"1.0.0"</span>,</span><br><span class="line">  <span class="string">"description"</span>: <span class="string">"\"hello world test app\""</span>,</span><br><span class="line">  <span class="string">"main"</span>: <span class="string">"index.js"</span>,</span><br><span class="line">  <span class="string">"scripts"</span>: &#123;</span><br><span class="line">    <span class="string">"test"</span>: <span class="string">"echo \"Error: no test specified\" &amp;&amp; exit 1"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"author"</span>: <span class="string">""</span>,</span><br><span class="line">  <span class="string">"license"</span>: <span class="string">"ISC"</span></span><br><span class="line">&#125;</span><br><span class="line">Is this ok? (yes) y</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">{
+  &quot;name&quot;: &quot;hello-world&quot;,
+  &quot;version&quot;: &quot;1.0.0&quot;,
+  &quot;description&quot;: &quot;\&quot;hello world test app\&quot;&quot;,
+  &quot;main&quot;: &quot;index.js&quot;,
+  &quot;scripts&quot;: {
+    &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;
+  },
+  &quot;author&quot;: &quot;&quot;,
+  &quot;license&quot;: &quot;ISC&quot;
+}
+Is this ok? (yes) y
+</code></pre>
 <h2 id="npm-install-（安装模块）"><a href="#npm-install-（安装模块）" class="headerlink" title="npm install （安装模块）"></a>npm install （安装模块）</h2><p>Node模块采用npm install命令安装。</p>
 <p>每个模块可以“全局安装”，也可以“本地安装”。</p>
 <ul>
 <li><p>全局安装: 将模块安装到系统目录中，各个项目都可以调用。一般来说，全局安装只适用于工具模块，比如eslint和gulp。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 全局安装</span></span><br><span class="line">sudo npm install -global &lt;package name&gt;</span><br><span class="line">sudo npm install -g &lt;package name&gt;</span><br></pre></td></tr></table></figure>
+<pre><code class="bash"># 全局安装
+sudo npm install -global &lt;package name&gt;
+sudo npm install -g &lt;package name&gt;
+</code></pre>
 </li>
 <li><p>本地安装: 将模块下载到当前项目的node_modules子目录，然后只有这个项目才能通过require()方法调用这个模块。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 本地安装</span></span><br><span class="line">npm install &lt;package name&gt;</span><br></pre></td></tr></table></figure>
+<pre><code class="bash"># 本地安装
+npm install &lt;package name&gt;
+</code></pre>
 </li>
 </ul>
 <h3 id="指定依赖"><a href="#指定依赖" class="headerlink" title="指定依赖"></a>指定依赖</h3><p>package.json里面有两个对象是用来指定依赖的：</p>
@@ -176,13 +202,46 @@
 <li>“devDependencies”:列出 <strong>开发</strong> 环境的依赖</li>
 </ul>
 <p>在npm install命令后设置–save和save-dev可以省掉手改修改package.json文件的步骤。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#添加生产环境的依赖：</span></span><br><span class="line">npm install &lt;package name&gt; --save <span class="comment">#或-S</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#添加开发环境的依赖：</span></span><br><span class="line">npm install &lt;package name&gt; --save-dev <span class="comment">#或-D</span></span><br></pre></td></tr></table></figure>
-<h3 id="本地安装express模块"><a href="#本地安装express模块" class="headerlink" title="本地安装express模块"></a>本地安装express模块</h3><p>这里通过安装express模块为例<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install express --save</span><br></pre></td></tr></table></figure></p>
-<p>在项目根目录下，新建一个启动文件index.js<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var express = require(<span class="string">'express'</span>);</span><br><span class="line">var app = express ();</span><br><span class="line"></span><br><span class="line">app.get(<span class="string">'/'</span>, <span class="keyword">function</span>(req, res) &#123;  <span class="comment">#'/' 是指服务器的根目录，如果只是在本地测试就是本地项目的根目录</span></span><br><span class="line">    res.send(<span class="string">'Hello world'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.listen(3000,<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">    console.log(<span class="string">'伺服器已经启动在 http://localhost:3000/'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<pre><code class="bash">#添加生产环境的依赖：
+npm install &lt;package name&gt; --save #或-S
+
+#添加开发环境的依赖：
+npm install &lt;package name&gt; --save-dev #或-D
+</code></pre>
+<h3 id="本地安装express模块"><a href="#本地安装express模块" class="headerlink" title="本地安装express模块"></a>本地安装express模块</h3><p>这里通过安装express模块为例</p>
+<pre><code class="bash">npm install express --save
+</code></pre>
+<p>在项目根目录下，新建一个启动文件index.js</p>
+<pre><code class="bash">var express = require(&#39;express&#39;);
+var app = express ();
+
+app.get(&#39;/&#39;, function(req, res) {  #&#39;/&#39; 是指服务器的根目录，如果只是在本地测试就是本地项目的根目录
+    res.send(&#39;Hello world&#39;);
+});
+
+app.listen(3000,function(){
+    console.log(&#39;伺服器已经启动在 http://localhost:3000/&#39;);
+});
+</code></pre>
 <p>上述代码的作用是：建立一个express应用，当使用者连线到伺服器的根目录（’/‘）时，使用res.send方法返回给浏览器我们指定好的字符串Hello world。</p>
-<p>在命令行运行以下代码，就可以在浏览器中访问项目网站了。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node index</span><br></pre></td></tr></table></figure></p>
+<p>在命令行运行以下代码，就可以在浏览器中访问项目网站了。</p>
+<pre><code class="bash">node index
+</code></pre>
 <p>上面代码会在本机的3000端口启动一个网站，网页显示Hello world!。</p>
-<p><strong>app.get()</strong> 就是一个路由（routing） 而实际应用中，我们可以指定多个路由请求。<br>例如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var express = require(<span class="string">'express'</span>);</span><br><span class="line">var app = express ();</span><br><span class="line"></span><br><span class="line">app.get(<span class="string">'/'</span>, <span class="keyword">function</span>(req, res) &#123;</span><br><span class="line">    res.send(<span class="string">'Hello world'</span>);</span><br><span class="line">&#125;);</span><br><span class="line">app.get(<span class="string">'/mypath'</span>, <span class="keyword">function</span>(req, res) &#123; <span class="comment">#当使用者连线到（/mypath）时,作出回应</span></span><br><span class="line">    res.send(<span class="string">'this is my path'</span>);</span><br><span class="line">&#125;);</span><br><span class="line">app.listen(3000,<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">    console.log(<span class="string">'伺服器已经启动在 http://localhost:3000/'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p><strong>app.get()</strong> 就是一个路由（routing） 而实际应用中，我们可以指定多个路由请求。<br>例如：</p>
+<pre><code class="bash">var express = require(&#39;express&#39;);
+var app = express ();
+
+app.get(&#39;/&#39;, function(req, res) {
+    res.send(&#39;Hello world&#39;);
+});
+app.get(&#39;/mypath&#39;, function(req, res) { #当使用者连线到（/mypath）时,作出回应
+    res.send(&#39;this is my path&#39;);
+});
+app.listen(3000,function(){
+    console.log(&#39;伺服器已经启动在 http://localhost:3000/&#39;);
+});
+</code></pre>
 <p>上面代码会在<a href="http://localhost:3000/mypath" target="_blank" rel="noopener">http://localhost:3000/mypath</a> 路径启动一个网站，网页显示this is my path。</p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>npm模块管理器:<a href="http://javascript.ruanyifeng.com/nodejs/npm.html#toc0" target="_blank" rel="noopener">http://javascript.ruanyifeng.com/nodejs/npm.html#toc0</a><br>package.json文件:<a href="http://javascript.ruanyifeng.com/nodejs/packagejson.html" target="_blank" rel="noopener">http://javascript.ruanyifeng.com/nodejs/packagejson.html</a><br>Express框架:<a href="http://javascript.ruanyifeng.com/nodejs/express.html" target="_blank" rel="noopener">http://javascript.ruanyifeng.com/nodejs/express.html</a></p>
 

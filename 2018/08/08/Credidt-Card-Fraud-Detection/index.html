@@ -71,7 +71,7 @@
 
 
 <!--  代码渲染  -->
-<link rel="stylesheet" href="/css/prism_coy.css" />
+<link rel="stylesheet" href="/css/prism_prism_okaidia.css" />
 <link rel="stylesheet" href="/css/typo.css" />
 <!-- 文章页 -->
 <body class="is-loading">
@@ -216,44 +216,247 @@
 
 <h4 id="Distribution-of-Amount-and-Time"><a href="#Distribution-of-Amount-and-Time" class="headerlink" title="Distribution of Amount and Time"></a>Distribution of Amount and Time</h4><div align="center"><br><img src="./q11.png" width="847" height="334" alt="图片名称" align="center"><br></div>
 
-<h4 id="Load-pakage-and-dataset"><a href="#Load-pakage-and-dataset" class="headerlink" title="Load pakage and dataset"></a>Load pakage and dataset</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">import pandas as pd</span><br><span class="line">import numpy as np</span><br><span class="line"></span><br><span class="line">import seaborn as sns</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">import matplotlib.gridspec as gridspec</span><br><span class="line"></span><br><span class="line"><span class="comment"># Classifier Libraries</span></span><br><span class="line">from sklearn.linear_model import LogisticRegression</span><br><span class="line"></span><br><span class="line"><span class="comment"># Classifier Evaluation</span></span><br><span class="line">from sklearn.metrics import precision_score, recall_score, f1_score, roc_auc_score,</span><br><span class="line">accuracy_score, classification_report</span><br><span class="line">from sklearn.metrics import confusion_matrix</span><br><span class="line"></span><br><span class="line">data=pd.read_csv(<span class="string">'creditcard.csv'</span>)</span><br><span class="line">data.tail(10)</span><br></pre></td></tr></table></figure>
-<h4 id="Visualization-of-Class-Time-and-Amount-distribution"><a href="#Visualization-of-Class-Time-and-Amount-distribution" class="headerlink" title="Visualization of (Class, Time and Amount) distribution"></a>Visualization of (Class, Time and Amount) distribution</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Distribution of Class</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">'Normal transactions:'</span>,round(data[<span class="string">'Class'</span>].value_counts()[0]/len(data[<span class="string">'Class'</span>])*100,2),</span><br><span class="line"><span class="string">'of the dataset'</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'Fraud transactions:'</span>,round(data[<span class="string">'Class'</span>].value_counts()[1]/len(data[<span class="string">'Class'</span>])*100,2),</span><br><span class="line"><span class="string">'of the dataset'</span>)</span><br><span class="line"></span><br><span class="line">fig, axs = plt.subplots(1,2,figsize=(14,7))</span><br><span class="line">axs[0].set_title(<span class="string">"Frequency of each Class"</span>)</span><br><span class="line">data[<span class="string">'Class'</span>].value_counts().plot(kind=<span class="string">'bar'</span>,ax=axs[0])</span><br><span class="line"></span><br><span class="line">axs[1].set_title(<span class="string">"Percentage of each Class"</span>)</span><br><span class="line">data[<span class="string">'Class'</span>].value_counts().plot(kind=<span class="string">'pie'</span>,ax=axs[1])</span><br><span class="line">plt.show()</span><br><span class="line"></span><br><span class="line"><span class="comment">#Distribution of Amount and Time</span></span><br><span class="line">fig,ax= plt.subplots(1,2,figsize=(14,5))</span><br><span class="line">sns.distplot(data[<span class="string">'Amount'</span>],ax=ax[0],color=<span class="string">'r'</span>)</span><br><span class="line">ax[0].set_title(<span class="string">'Distribution of Transaction Amount'</span>, fontsize=14)</span><br><span class="line">ax[0].set_xlim([min(data[<span class="string">'Amount'</span>]), max(data[<span class="string">'Amount'</span>])])</span><br><span class="line"></span><br><span class="line">sns.distplot(data[<span class="string">'Time'</span>],ax=ax[1])</span><br><span class="line">ax[1].set_title(<span class="string">'Distribution of Transaction Time'</span>, fontsize=14)</span><br><span class="line">ax[1].set_xlim([min(data[<span class="string">'Time'</span>]), max(data[<span class="string">'Time'</span>])])</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-<h3 id="2-Feature-Engineering"><a href="#2-Feature-Engineering" class="headerlink" title="2.Feature Engineering"></a>2.Feature Engineering</h3><h4 id="2-1-Creating-‘Hour’-Feature"><a href="#2-1-Creating-‘Hour’-Feature" class="headerlink" title="2.1: Creating ‘Hour’ Feature"></a>2.1: Creating ‘Hour’ Feature</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data[<span class="string">'Hour'</span>]=data[<span class="string">"Time"</span>].apply(lambda x : divmod(x, 3600)[0])</span><br></pre></td></tr></table></figure>
+<h4 id="Load-pakage-and-dataset"><a href="#Load-pakage-and-dataset" class="headerlink" title="Load pakage and dataset"></a>Load pakage and dataset</h4><pre><code class="bash">import pandas as pd
+import numpy as np
+
+import seaborn as sns
+import matplotlib.pyplot as plt
+import matplotlib.gridspec as gridspec
+
+# Classifier Libraries
+from sklearn.linear_model import LogisticRegression
+
+# Classifier Evaluation
+from sklearn.metrics import precision_score, recall_score, f1_score, roc_auc_score,
+accuracy_score, classification_report
+from sklearn.metrics import confusion_matrix
+
+data=pd.read_csv(&#39;creditcard.csv&#39;)
+data.tail(10)
+</code></pre>
+<h4 id="Visualization-of-Class-Time-and-Amount-distribution"><a href="#Visualization-of-Class-Time-and-Amount-distribution" class="headerlink" title="Visualization of (Class, Time and Amount) distribution"></a>Visualization of (Class, Time and Amount) distribution</h4><pre><code class="bash">#Distribution of Class
+print(&#39;Normal transactions:&#39;,round(data[&#39;Class&#39;].value_counts()[0]/len(data[&#39;Class&#39;])*100,2),
+&#39;of the dataset&#39;)
+print(&#39;Fraud transactions:&#39;,round(data[&#39;Class&#39;].value_counts()[1]/len(data[&#39;Class&#39;])*100,2),
+&#39;of the dataset&#39;)
+
+fig, axs = plt.subplots(1,2,figsize=(14,7))
+axs[0].set_title(&quot;Frequency of each Class&quot;)
+data[&#39;Class&#39;].value_counts().plot(kind=&#39;bar&#39;,ax=axs[0])
+
+axs[1].set_title(&quot;Percentage of each Class&quot;)
+data[&#39;Class&#39;].value_counts().plot(kind=&#39;pie&#39;,ax=axs[1])
+plt.show()
+
+#Distribution of Amount and Time
+fig,ax= plt.subplots(1,2,figsize=(14,5))
+sns.distplot(data[&#39;Amount&#39;],ax=ax[0],color=&#39;r&#39;)
+ax[0].set_title(&#39;Distribution of Transaction Amount&#39;, fontsize=14)
+ax[0].set_xlim([min(data[&#39;Amount&#39;]), max(data[&#39;Amount&#39;])])
+
+sns.distplot(data[&#39;Time&#39;],ax=ax[1])
+ax[1].set_title(&#39;Distribution of Transaction Time&#39;, fontsize=14)
+ax[1].set_xlim([min(data[&#39;Time&#39;]), max(data[&#39;Time&#39;])])
+plt.show()
+</code></pre>
+<h3 id="2-Feature-Engineering"><a href="#2-Feature-Engineering" class="headerlink" title="2.Feature Engineering"></a>2.Feature Engineering</h3><h4 id="2-1-Creating-‘Hour’-Feature"><a href="#2-1-Creating-‘Hour’-Feature" class="headerlink" title="2.1: Creating ‘Hour’ Feature"></a>2.1: Creating ‘Hour’ Feature</h4><pre><code class="bash">data[&#39;Hour&#39;]=data[&quot;Time&quot;].apply(lambda x : divmod(x, 3600)[0])
+
+</code></pre>
 <h4 id="2-2-Exploring-patterns-difference-between-Normal-and-Fraud-Transanctions"><a href="#2-2-Exploring-patterns-difference-between-Normal-and-Fraud-Transanctions" class="headerlink" title="2.2:Exploring patterns difference between Normal and Fraud Transanctions"></a>2.2:Exploring patterns difference between Normal and Fraud Transanctions</h4><blockquote>
 <p>Difference 1: For the fraud transactions: the correlation between some of the variables is more pronounced. The variation between V1, V2, V3, V4, V5, V6, V7, V9, V10, V11, V12, V14, V16, V17 and V18 and V19 presents a certain pattern</p>
 </blockquote>
 <div align="center"><br><img src="./q2.png" width="906" height="594" alt="图片名称" align="center"><br></div>
 
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">Xfraud = data.loc[data[<span class="string">"Class"</span>] == 1] <span class="comment"># update Xfraud &amp; XnonFraud with cleaned data</span></span><br><span class="line">XnonFraud = data.loc[data[<span class="string">"Class"</span>] == 0]</span><br><span class="line"></span><br><span class="line">correlationNonFraud = XnonFraud.loc[:, data.columns != <span class="string">'Class'</span>].corr()</span><br><span class="line"></span><br><span class="line">mask = np.zeros_like(correlationNonFraud) <span class="comment"># boolean array</span></span><br><span class="line">indices = np.triu_indices_from(correlationNonFraud) <span class="comment">#Return the indices for the</span></span><br><span class="line">upper-triangle of arr.</span><br><span class="line">mask[indices] = True</span><br><span class="line">grid_kws = &#123;<span class="string">"width_ratios"</span>: (.9, .9, .05), <span class="string">"wspace"</span>: 0.2&#125;</span><br><span class="line">f, (ax1, ax2, cbar_ax) = plt.subplots(1, 3, gridspec_kw=grid_kws, figsize = (14, 9))</span><br><span class="line"></span><br><span class="line">cmap = sns.diverging_palette(220, 8, as_cmap=True) <span class="comment">#color map</span></span><br><span class="line">ax1 =sns.heatmap(correlationNonFraud, ax = ax1, vmin = -1, vmax = 1, cmap = cmap,</span><br><span class="line">square = False, linewidths = 0.5, mask = mask, cbar = False)</span><br><span class="line">ax1.set_xticklabels(ax1.get_xticklabels(), size = 16);</span><br><span class="line">ax1.set_yticklabels(ax1.get_yticklabels(), size = 16);</span><br><span class="line">ax1.set_title(<span class="string">'Normal'</span>, size = 20)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">correlationFraud = Xfraud.loc[:, data.columns != <span class="string">'Class'</span>].corr()</span><br><span class="line">ax2 = sns.heatmap(correlationFraud, vmin = -1, vmax = 1, cmap = cmap, \</span><br><span class="line">      ax = ax2, square = False, linewidths = 0.5, mask = mask, yticklabels = False, \</span><br><span class="line">      cbar_ax = cbar_ax, cbar_kws=&#123;<span class="string">'orientation'</span>: <span class="string">'vertical'</span>, \</span><br><span class="line">                                 <span class="string">'ticks'</span>: [-1, -0.5, 0, 0.5, 1]&#125;)</span><br><span class="line">ax2.set_xticklabels(ax2.get_xticklabels(), size = 16);</span><br><span class="line">ax2.set_title(<span class="string">'Fraud'</span>, size = 20);</span><br><span class="line"></span><br><span class="line">cbar_ax.set_yticklabels(cbar_ax.get_yticklabels(), size = 14)</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">Xfraud = data.loc[data[&quot;Class&quot;] == 1] # update Xfraud &amp; XnonFraud with cleaned data
+XnonFraud = data.loc[data[&quot;Class&quot;] == 0]
+
+correlationNonFraud = XnonFraud.loc[:, data.columns != &#39;Class&#39;].corr()
+
+mask = np.zeros_like(correlationNonFraud) # boolean array
+indices = np.triu_indices_from(correlationNonFraud) #Return the indices for the
+upper-triangle of arr.
+mask[indices] = True
+grid_kws = {&quot;width_ratios&quot;: (.9, .9, .05), &quot;wspace&quot;: 0.2}
+f, (ax1, ax2, cbar_ax) = plt.subplots(1, 3, gridspec_kw=grid_kws, figsize = (14, 9))
+
+cmap = sns.diverging_palette(220, 8, as_cmap=True) #color map
+ax1 =sns.heatmap(correlationNonFraud, ax = ax1, vmin = -1, vmax = 1, cmap = cmap,
+square = False, linewidths = 0.5, mask = mask, cbar = False)
+ax1.set_xticklabels(ax1.get_xticklabels(), size = 16);
+ax1.set_yticklabels(ax1.get_yticklabels(), size = 16);
+ax1.set_title(&#39;Normal&#39;, size = 20)
+
+
+correlationFraud = Xfraud.loc[:, data.columns != &#39;Class&#39;].corr()
+ax2 = sns.heatmap(correlationFraud, vmin = -1, vmax = 1, cmap = cmap, \
+      ax = ax2, square = False, linewidths = 0.5, mask = mask, yticklabels = False, \
+      cbar_ax = cbar_ax, cbar_kws={&#39;orientation&#39;: &#39;vertical&#39;, \
+                                 &#39;ticks&#39;: [-1, -0.5, 0, 0.5, 1]})
+ax2.set_xticklabels(ax2.get_xticklabels(), size = 16);
+ax2.set_title(&#39;Fraud&#39;, size = 20);
+
+cbar_ax.set_yticklabels(cbar_ax.get_yticklabels(), size = 14)
+</code></pre>
 <blockquote>
 <p>Difference 2: Fraud transactions tend to be Small Amount</p>
 </blockquote>
 <div align="center"><br><img src="./q22.png" width="848" height="333" alt="图片名称" align="center"><br></div>
 
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">fig, (ax0, ax1) = plt.subplots(nrows=1, ncols=2, sharey=True,figsize = (14, 5))</span><br><span class="line"></span><br><span class="line">sns.distplot(data[data[<span class="string">'Class'</span>]==1][<span class="string">'Amount'</span>], ax=ax0, bins=30)</span><br><span class="line">ax0.set(title=<span class="string">"Fraud"</span>,xlabel=<span class="string">'Amount ($)'</span>,ylabel=<span class="string">'Probability'</span>)</span><br><span class="line"></span><br><span class="line">sns.distplot(data[data[<span class="string">'Class'</span>]==0][<span class="string">'Amount'</span>], ax=ax1, bins=30)</span><br><span class="line">ax1.set(title=<span class="string">"Normal"</span>,xlabel=<span class="string">'Amount ($)'</span>,ylabel=<span class="string">'Probability'</span>)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">fig, (ax0, ax1) = plt.subplots(nrows=1, ncols=2, sharey=True,figsize = (14, 5))
+
+sns.distplot(data[data[&#39;Class&#39;]==1][&#39;Amount&#39;], ax=ax0, bins=30)
+ax0.set(title=&quot;Fraud&quot;,xlabel=&#39;Amount ($)&#39;,ylabel=&#39;Probability&#39;)
+
+sns.distplot(data[data[&#39;Class&#39;]==0][&#39;Amount&#39;], ax=ax1, bins=30)
+ax1.set(title=&quot;Normal&quot;,xlabel=&#39;Amount ($)&#39;,ylabel=&#39;Probability&#39;)
+
+plt.show()
+</code></pre>
 <blockquote>
 <p>Difference 3: The most frequent fraud transactions were happended at 11:am on the first day. The rest of Fraud transactions were happened between 11pm-9am. Indicating that the credit theft don’t want to attract the credit card owner’s attention, so they prefer to choose the time when the owner sleep and the time when consumption frequency is high.</p>
 </blockquote>
 <div align="center"><br><img src="./q23.png" width="1302" height="424" alt="图片名称" align="center"><br></div>
 
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># High Consumption frequency: between 9:00 am to 11:00 pm</span></span><br><span class="line">sns.factorplot(x=<span class="string">'Hour'</span>,data=data,kind=<span class="string">"count"</span>,  palette=<span class="string">"ocean"</span>, size=6, aspect=3)</span><br></pre></td></tr></table></figure>
+<pre><code class="bash"># High Consumption frequency: between 9:00 am to 11:00 pm
+sns.factorplot(x=&#39;Hour&#39;,data=data,kind=&quot;count&quot;,  palette=&quot;ocean&quot;, size=6, aspect=3)
+</code></pre>
 <div align="center"><br><img src="./q24.png" width="956" height="333" alt="图片名称" align="center"><br></div>
 
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">fig,(ax0, ax1) = plt.subplots(nrows=1, ncols=2,figsize = (16, 5))</span><br><span class="line">ax0.scatter(data[data[<span class="string">'Class'</span>]==1][<span class="string">'Hour'</span>],data[data[<span class="string">'Class'</span>]==1][<span class="string">'Amount'</span>])</span><br><span class="line">ax0.set(title=<span class="string">'Fraud'</span>,xlabel=<span class="string">'Hour'</span>,ylabel=<span class="string">'Amount($)'</span>)</span><br><span class="line"></span><br><span class="line">ax1.scatter(data[data[<span class="string">'Class'</span>]==0][<span class="string">'Hour'</span>],data[data[<span class="string">'Class'</span>]==0][<span class="string">'Amount'</span>])</span><br><span class="line">ax1.set(title=<span class="string">'Normal'</span>,xlabel=<span class="string">'Hour'</span>,ylabel=<span class="string">'Amount($)'</span>)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">fig,(ax0, ax1) = plt.subplots(nrows=1, ncols=2,figsize = (16, 5))
+ax0.scatter(data[data[&#39;Class&#39;]==1][&#39;Hour&#39;],data[data[&#39;Class&#39;]==1][&#39;Amount&#39;])
+ax0.set(title=&#39;Fraud&#39;,xlabel=&#39;Hour&#39;,ylabel=&#39;Amount($)&#39;)
+
+ax1.scatter(data[data[&#39;Class&#39;]==0][&#39;Hour&#39;],data[data[&#39;Class&#39;]==0][&#39;Amount&#39;])
+ax1.set(title=&#39;Normal&#39;,xlabel=&#39;Hour&#39;,ylabel=&#39;Amount($)&#39;)
+
+plt.show()
+</code></pre>
 <h4 id="2-3-Exploring-feature-distribution-difference-between-Normal-and-Fraud-transactions"><a href="#2-3-Exploring-feature-distribution-difference-between-Normal-and-Fraud-transactions" class="headerlink" title="2.3: Exploring feature distribution difference between Normal and Fraud transactions"></a>2.3: Exploring feature distribution difference between Normal and Fraud transactions</h4><p>Figures below present the distribution of different variables between Normal and Fraud,we should choose those variables which has significant difference.<br>We drop variables:’V8’, ‘V13’, ‘V15’, ‘V20’, ‘V21’, ‘V22’, ‘V23’, ‘V24’, ‘V25’, ‘V26’, ‘V27’, ‘V28’</p>
 <div align="center"><br><img src="./q25.png" width="939" height="1678" alt="图片名称" align="center"><br></div>
 
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">features_name=data.iloc[:,1:29].columns</span><br><span class="line">features_name</span><br><span class="line"></span><br><span class="line"><span class="comment"># define the figsize of the whole picture</span></span><br><span class="line">plt.figure(figsize=(16,30))</span><br><span class="line"></span><br><span class="line"><span class="comment"># define the num of columns and rows</span></span><br><span class="line">gs = gridspec.GridSpec(7, 4)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i,f <span class="keyword">in</span> enumerate(data[features_name]):</span><br><span class="line">    ax = plt.subplot(gs[i])</span><br><span class="line">    sns.distplot(data[f][data[<span class="string">"Class"</span>] == 1], bins=50)</span><br><span class="line">    sns.distplot(data[f][data[<span class="string">"Class"</span>] == 0], bins=50)</span><br><span class="line">    ax.set_xlabel(<span class="string">''</span>)</span><br><span class="line">    ax.set_title(<span class="string">'histogram of feature: '</span> + str(f))</span><br></pre></td></tr></table></figure>
-<h4 id="2-4-Generate-a-new-dataframe-“data-new”"><a href="#2-4-Generate-a-new-dataframe-“data-new”" class="headerlink" title="2.4: Generate a new dataframe “data_new”"></a>2.4: Generate a new dataframe “data_new”</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">droplist = [<span class="string">'V8'</span>, <span class="string">'V13'</span>, <span class="string">'V15'</span>, <span class="string">'V20'</span>, <span class="string">'V21'</span>, <span class="string">'V22'</span>, <span class="string">'V23'</span>, <span class="string">'V24'</span>, <span class="string">'V25'</span>, <span class="string">'V26'</span>, <span class="string">'V27'</span>, <span class="string">'V28'</span>,<span class="string">'Time'</span>]</span><br><span class="line">data_new = data.drop(droplist, axis = 1)</span><br><span class="line">data_new.shape <span class="comment"># 查看数据的维度</span></span><br><span class="line">data_new.head()</span><br></pre></td></tr></table></figure>
-<h4 id="2-5-Feature-scaling-with-‘Hour’-and-‘Amount’"><a href="#2-5-Feature-scaling-with-‘Hour’-and-‘Amount’" class="headerlink" title="2.5: Feature scaling with ‘Hour’ and ‘Amount’"></a>2.5: Feature scaling with ‘Hour’ and ‘Amount’</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Feature scaling with 'Amount' and 'Hour'</span></span><br><span class="line">col = [<span class="string">'Amount'</span>,<span class="string">'Hour'</span>]</span><br><span class="line">from sklearn.preprocessing import StandardScaler</span><br><span class="line">sc =StandardScaler()</span><br><span class="line">data_new[col] =sc.fit_transform(data_new[col])</span><br><span class="line">data_new.head()</span><br></pre></td></tr></table></figure>
-<h4 id="2-6-Exploring-feature-importance"><a href="#2-6-Exploring-feature-importance" class="headerlink" title="2.6: Exploring feature importance"></a>2.6: Exploring feature importance</h4><div align="center"><br><img src="./q26.png" width="385" height="587" alt="图片名称" align="center"><br></div><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#导入库</span></span><br><span class="line">from sklearn.ensemble import RandomForestClassifier</span><br><span class="line">import plotly.offline as py</span><br><span class="line">py.init_notebook_mode(connected=True)</span><br><span class="line">import plotly.graph_objs as go</span><br><span class="line">import plotly.tools as tls</span><br><span class="line"></span><br><span class="line">X_columns=data_new.drop([<span class="string">'Class'</span>], axis=1).columns</span><br><span class="line">X_value= data_new.drop([<span class="string">'Class'</span>], axis=1)</span><br><span class="line">y_value=data_new[<span class="string">'Class'</span>]</span><br><span class="line">rf=RandomForestClassifier()</span><br><span class="line"></span><br><span class="line"><span class="comment">#训练模型</span></span><br><span class="line">rf.fit(X_value,y_value)</span><br><span class="line"></span><br><span class="line"><span class="comment">#预测特征重要度</span></span><br><span class="line">rf_features =rf.feature_importances_</span><br><span class="line"></span><br><span class="line">cols = X_columns.values</span><br><span class="line">feature_dataframe = pd.DataFrame( &#123;<span class="string">'features'</span>: cols,<span class="string">'Random Forest feature importances'</span>: rf_features&#125;)</span><br><span class="line">feature_dataframe.sort_values(by=<span class="string">'Random Forest feature importances'</span>,ascending=False)</span><br></pre></td></tr></table></figure><br><br>### 3:Splitting the Data (Whole DataFrame)<br>Before proceeding with the Random UnderSampling technique we have to separate the orginal dataframe.<br>Why? for testing purposes, we want to test our models on the original testing set not on the testing set created by either of UnderSampling or Oversampling techniques. The main goal is to fit the model either with the dataframes that were undersample and oversample (in order for our models to detect the patterns), and test it on the original testing set.<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">from sklearn.model_selection import train_test_split</span><br><span class="line"></span><br><span class="line">X = data_new.drop(<span class="string">'Class'</span>,axis=1)</span><br><span class="line">y = data_new[ <span class="string">'Class'</span>]</span><br><span class="line"><span class="comment"># Whole dataset</span></span><br><span class="line">X_train, X_test, y_train, y_test = train_test_split(X,y,test_size = 0.3, random_state = 0)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Number transactions train dataset: "</span>, len(X_train))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Number transactions test dataset: "</span>, len(X_test))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Total number of transactions: "</span>, len(X_train)+len(X_test))</span><br><span class="line"></span><br><span class="line">-------------------------------------------</span><br><span class="line">Number transactions train dataset:  199364</span><br><span class="line">Number transactions <span class="built_in">test</span> dataset:  85443</span><br><span class="line">Total number of transactions:  284807</span><br></pre></td></tr></table></figure><br><br>### 4: Random Under-Sampling<br><br><div align="center"><br><img src="./q4.png" width="392" height="279" alt="图片名称" align="center"><br></div>
+<pre><code class="bash">features_name=data.iloc[:,1:29].columns
+features_name
 
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Random undersampling</span></span><br><span class="line">data_new = data_new.sample(frac=1)</span><br><span class="line"></span><br><span class="line"><span class="comment"># amount of fraud classes 492 rows.</span></span><br><span class="line">fraud_df = data_new.loc[data_new[<span class="string">'Class'</span>] == 1]</span><br><span class="line">non_fraud_df = data_new.loc[data_new[<span class="string">'Class'</span>] == 0][:492]</span><br><span class="line"></span><br><span class="line">normal_distributed_df = pd.concat([fraud_df, non_fraud_df])</span><br><span class="line"></span><br><span class="line"><span class="comment"># Shuffle dataframe rows</span></span><br><span class="line">new_df = normal_distributed_df.sample(frac=1, random_state=42)</span><br><span class="line"></span><br><span class="line">X_undersample=new_df.drop([<span class="string">'Class'</span>], axis=1)</span><br><span class="line">y_undersample=new_df[<span class="string">'Class'</span>]</span><br><span class="line">X_train_undersample, X_test_undersample, y_train_undersample, y_test_undersample</span><br><span class="line">= train_test_split(X_undersample,y_undersample</span><br><span class="line">,test_size = 0.3,random_state = 42)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">""</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Number transactions train dataset: "</span>, len(X_train_undersample))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Number transactions test dataset: "</span>, len(X_test_undersample))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Total number of transactions: "</span>, len(X_train_undersample)+len(X_test_undersample))</span><br><span class="line"></span><br><span class="line">--------------</span><br><span class="line">Number transactions train dataset:  688</span><br><span class="line">Number transactions <span class="built_in">test</span> dataset:  296</span><br><span class="line">Total number of transactions:  984</span><br></pre></td></tr></table></figure>
+# define the figsize of the whole picture
+plt.figure(figsize=(16,30))
+
+# define the num of columns and rows
+gs = gridspec.GridSpec(7, 4)
+
+for i,f in enumerate(data[features_name]):
+    ax = plt.subplot(gs[i])
+    sns.distplot(data[f][data[&quot;Class&quot;] == 1], bins=50)
+    sns.distplot(data[f][data[&quot;Class&quot;] == 0], bins=50)
+    ax.set_xlabel(&#39;&#39;)
+    ax.set_title(&#39;histogram of feature: &#39; + str(f))
+
+</code></pre>
+<h4 id="2-4-Generate-a-new-dataframe-“data-new”"><a href="#2-4-Generate-a-new-dataframe-“data-new”" class="headerlink" title="2.4: Generate a new dataframe “data_new”"></a>2.4: Generate a new dataframe “data_new”</h4><pre><code class="bash">droplist = [&#39;V8&#39;, &#39;V13&#39;, &#39;V15&#39;, &#39;V20&#39;, &#39;V21&#39;, &#39;V22&#39;, &#39;V23&#39;, &#39;V24&#39;, &#39;V25&#39;, &#39;V26&#39;, &#39;V27&#39;, &#39;V28&#39;,&#39;Time&#39;]
+data_new = data.drop(droplist, axis = 1)
+data_new.shape # 查看数据的维度
+data_new.head()
+</code></pre>
+<h4 id="2-5-Feature-scaling-with-‘Hour’-and-‘Amount’"><a href="#2-5-Feature-scaling-with-‘Hour’-and-‘Amount’" class="headerlink" title="2.5: Feature scaling with ‘Hour’ and ‘Amount’"></a>2.5: Feature scaling with ‘Hour’ and ‘Amount’</h4><pre><code class="bash"># Feature scaling with &#39;Amount&#39; and &#39;Hour&#39;
+col = [&#39;Amount&#39;,&#39;Hour&#39;]
+from sklearn.preprocessing import StandardScaler
+sc =StandardScaler()
+data_new[col] =sc.fit_transform(data_new[col])
+data_new.head()
+</code></pre>
+<h4 id="2-6-Exploring-feature-importance"><a href="#2-6-Exploring-feature-importance" class="headerlink" title="2.6: Exploring feature importance"></a>2.6: Exploring feature importance</h4><div align="center"><br><img src="./q26.png" width="385" height="587" alt="图片名称" align="center"><br></div><br><code>bash
+#导入库
+from sklearn.ensemble import RandomForestClassifier
+import plotly.offline as py
+py.init_notebook_mode(connected=True)
+import plotly.graph_objs as go
+import plotly.tools as tls
+
+X_columns=data_new.drop([&#39;Class&#39;], axis=1).columns
+X_value= data_new.drop([&#39;Class&#39;], axis=1)
+y_value=data_new[&#39;Class&#39;]
+rf=RandomForestClassifier()
+
+#训练模型
+rf.fit(X_value,y_value)
+
+#预测特征重要度
+rf_features =rf.feature_importances_
+
+cols = X_columns.values
+feature_dataframe = pd.DataFrame( {&#39;features&#39;: cols,&#39;Random Forest feature importances&#39;: rf_features})
+feature_dataframe.sort_values(by=&#39;Random Forest feature importances&#39;,ascending=False)</code><br><br>### 3:Splitting the Data (Whole DataFrame)<br>Before proceeding with the Random UnderSampling technique we have to separate the orginal dataframe.<br>Why? for testing purposes, we want to test our models on the original testing set not on the testing set created by either of UnderSampling or Oversampling techniques. The main goal is to fit the model either with the dataframes that were undersample and oversample (in order for our models to detect the patterns), and test it on the original testing set.<br><br><code>bash
+from sklearn.model_selection import train_test_split
+
+X = data_new.drop(&#39;Class&#39;,axis=1)
+y = data_new[ &#39;Class&#39;]
+# Whole dataset
+X_train, X_test, y_train, y_test = train_test_split(X,y,test_size = 0.3, random_state = 0)
+
+print(&quot;Number transactions train dataset: &quot;, len(X_train))
+print(&quot;Number transactions test dataset: &quot;, len(X_test))
+print(&quot;Total number of transactions: &quot;, len(X_train)+len(X_test))
+
+-------------------------------------------
+Number transactions train dataset:  199364
+Number transactions test dataset:  85443
+Total number of transactions:  284807</code><br><br>### 4: Random Under-Sampling<br><br><div align="center"><br><img src="./q4.png" width="392" height="279" alt="图片名称" align="center"><br></div>
+
+<pre><code class="bash">#Random undersampling
+data_new = data_new.sample(frac=1)
+
+# amount of fraud classes 492 rows.
+fraud_df = data_new.loc[data_new[&#39;Class&#39;] == 1]
+non_fraud_df = data_new.loc[data_new[&#39;Class&#39;] == 0][:492]
+
+normal_distributed_df = pd.concat([fraud_df, non_fraud_df])
+
+# Shuffle dataframe rows
+new_df = normal_distributed_df.sample(frac=1, random_state=42)
+
+X_undersample=new_df.drop([&#39;Class&#39;], axis=1)
+y_undersample=new_df[&#39;Class&#39;]
+X_train_undersample, X_test_undersample, y_train_undersample, y_test_undersample
+= train_test_split(X_undersample,y_undersample
+,test_size = 0.3,random_state = 42)
+print(&quot;&quot;)
+print(&quot;Number transactions train dataset: &quot;, len(X_train_undersample))
+print(&quot;Number transactions test dataset: &quot;, len(X_test_undersample))
+print(&quot;Total number of transactions: &quot;, len(X_train_undersample)+len(X_test_undersample))
+
+--------------
+Number transactions train dataset:  688
+Number transactions test dataset:  296
+Total number of transactions:  984
+</code></pre>
 <h3 id="5-Logistic-regression-classifier-Skewed-data"><a href="#5-Logistic-regression-classifier-Skewed-data" class="headerlink" title="5:Logistic regression classifier - Skewed data"></a>5:Logistic regression classifier - Skewed data</h3><p>In this phrase, we will use the train and test data from the original skewed dataset. Our intuition is that skewness will introduce issues difficult to capture, and therefore, provide a less effective algorithm.</p>
 <blockquote>
 <p>Recall metric in the testing dataset:  0.61</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">log_reg_params = &#123;<span class="string">"penalty"</span>: [<span class="string">'l1'</span>, <span class="string">'l2'</span>], <span class="string">'C'</span>: [0.001, 0.01, 0.1, 1, 10, 100, 1000]&#125;</span><br><span class="line"></span><br><span class="line">param_grid = &#123;<span class="string">'C'</span>: [0.01,0.1, 1, 10, 100, 1000,],<span class="string">'penalty'</span>: [ <span class="string">'l1'</span>, <span class="string">'l2'</span>]&#125;</span><br><span class="line">grid_search = GridSearchCV(LogisticRegression(),  param_grid, cv=10)</span><br><span class="line">grid_search.fit(X_train, y_train)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Best parameters: &#123;&#125;"</span>.format(grid_search.best_params_))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Best cross-validation score: &#123;:.5f&#125;"</span>.format(grid_search.best_score_))</span><br><span class="line">y_pred = grid_search.predict(X_test)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Test set accuracy score: &#123;:.5f&#125;"</span>.format(accuracy_score(y_test, y_pred)))</span><br><span class="line">labels = [<span class="string">'Non-fraud'</span>,<span class="string">'fraud'</span>]</span><br><span class="line"><span class="built_in">print</span>(classification_report(y_test, y_pred,target_names=labels))</span><br><span class="line">matrix=confusion_matrix(y_test,y_pred)</span><br><span class="line"></span><br><span class="line">---------------------</span><br><span class="line">Best parameters: &#123;<span class="string">'C'</span>: 0.1, <span class="string">'penalty'</span>: <span class="string">'l1'</span>&#125;</span><br><span class="line">Best cross-validation score: 0.99914</span><br><span class="line">Test <span class="built_in">set</span> accuracy score: 0.99923</span><br><span class="line">             precision    recall  f1-score   support</span><br><span class="line"></span><br><span class="line">  Non-fraud       1.00      1.00      1.00     85302</span><br><span class="line">      fraud       0.89      0.61      0.72       141</span><br><span class="line"></span><br><span class="line">avg / total       1.00      1.00      1.00     85443</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">log_reg_params = {&quot;penalty&quot;: [&#39;l1&#39;, &#39;l2&#39;], &#39;C&#39;: [0.001, 0.01, 0.1, 1, 10, 100, 1000]}
+
+param_grid = {&#39;C&#39;: [0.01,0.1, 1, 10, 100, 1000,],&#39;penalty&#39;: [ &#39;l1&#39;, &#39;l2&#39;]}
+grid_search = GridSearchCV(LogisticRegression(),  param_grid, cv=10)
+grid_search.fit(X_train, y_train)
+print(&quot;Best parameters: {}&quot;.format(grid_search.best_params_))
+print(&quot;Best cross-validation score: {:.5f}&quot;.format(grid_search.best_score_))
+y_pred = grid_search.predict(X_test)
+print(&quot;Test set accuracy score: {:.5f}&quot;.format(accuracy_score(y_test, y_pred)))
+labels = [&#39;Non-fraud&#39;,&#39;fraud&#39;]
+print(classification_report(y_test, y_pred,target_names=labels))
+matrix=confusion_matrix(y_test,y_pred)
+
+---------------------
+Best parameters: {&#39;C&#39;: 0.1, &#39;penalty&#39;: &#39;l1&#39;}
+Best cross-validation score: 0.99914
+Test set accuracy score: 0.99923
+             precision    recall  f1-score   support
+
+  Non-fraud       1.00      1.00      1.00     85302
+      fraud       0.89      0.61      0.72       141
+
+avg / total       1.00      1.00      1.00     85443
+
+</code></pre>
 <div align="center"><br><img src="./q51.png" width="389" height="294" alt="图片名称" align="center"><br></div>
 
 
@@ -261,14 +464,66 @@
 <blockquote>
 <p>Recall metric in the testing dataset:  0.85</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">from sklearn.model_selection import GridSearchCV</span><br><span class="line"></span><br><span class="line">log_reg_params = &#123;<span class="string">"penalty"</span>: [<span class="string">'l1'</span>, <span class="string">'l2'</span>], <span class="string">'C'</span>: [0.001, 0.01, 0.1, 1, 10, 100, 1000]&#125;</span><br><span class="line">param_grid = &#123;<span class="string">'C'</span>: [0.01,0.1, 1, 10, 100, 1000,],<span class="string">'penalty'</span>: [ <span class="string">'l1'</span>, <span class="string">'l2'</span>]&#125;</span><br><span class="line"><span class="comment"># Use GridSearchCV to find the best parameters.</span></span><br><span class="line">grid_search = GridSearchCV(LogisticRegression(),  param_grid, cv=10)</span><br><span class="line">grid_search.fit(X_train_undersample, y_train_undersample)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Best parameters: &#123;&#125;"</span>.format(grid_search.best_params_))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Best cross-validation score: &#123;:.5f&#125;"</span>.format(grid_search.best_score_))</span><br><span class="line">y_pred = grid_search.predict(X_test_undersample)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Test set accuracy score: &#123;:.5f&#125;"</span>.format(accuracy_score(y_test_undersample, y_pred)))</span><br><span class="line">labels = [<span class="string">'Non-fraud'</span>,<span class="string">'fraud'</span>]</span><br><span class="line"><span class="built_in">print</span>(classification_report(y_test_undersample, y_pred,target_names=labels))</span><br><span class="line"><span class="built_in">print</span>(confusion_matrix(y_test_undersample,y_pred))</span><br><span class="line">matrix=confusion_matrix(y_test_undersample,y_pred)</span><br><span class="line"></span><br><span class="line">-------------------------</span><br><span class="line">Best parameters: &#123;<span class="string">'C'</span>: 10, <span class="string">'penalty'</span>: <span class="string">'l1'</span>&#125;</span><br><span class="line">Best cross-validation score: 0.94477</span><br><span class="line">Test <span class="built_in">set</span> accuracy score: 0.90541</span><br><span class="line">             precision    recall  f1-score   support</span><br><span class="line"></span><br><span class="line">  Non-fraud       0.84      0.97      0.90       134</span><br><span class="line">      fraud       0.97      0.85      0.91       162</span><br><span class="line"></span><br><span class="line">avg / total       0.91      0.91      0.91       296</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">
+from sklearn.model_selection import GridSearchCV
+
+log_reg_params = {&quot;penalty&quot;: [&#39;l1&#39;, &#39;l2&#39;], &#39;C&#39;: [0.001, 0.01, 0.1, 1, 10, 100, 1000]}
+param_grid = {&#39;C&#39;: [0.01,0.1, 1, 10, 100, 1000,],&#39;penalty&#39;: [ &#39;l1&#39;, &#39;l2&#39;]}
+# Use GridSearchCV to find the best parameters.
+grid_search = GridSearchCV(LogisticRegression(),  param_grid, cv=10)
+grid_search.fit(X_train_undersample, y_train_undersample)
+print(&quot;Best parameters: {}&quot;.format(grid_search.best_params_))
+print(&quot;Best cross-validation score: {:.5f}&quot;.format(grid_search.best_score_))
+y_pred = grid_search.predict(X_test_undersample)
+print(&quot;Test set accuracy score: {:.5f}&quot;.format(accuracy_score(y_test_undersample, y_pred)))
+labels = [&#39;Non-fraud&#39;,&#39;fraud&#39;]
+print(classification_report(y_test_undersample, y_pred,target_names=labels))
+print(confusion_matrix(y_test_undersample,y_pred))
+matrix=confusion_matrix(y_test_undersample,y_pred)
+
+-------------------------
+Best parameters: {&#39;C&#39;: 10, &#39;penalty&#39;: &#39;l1&#39;}
+Best cross-validation score: 0.94477
+Test set accuracy score: 0.90541
+             precision    recall  f1-score   support
+
+  Non-fraud       0.84      0.97      0.90       134
+      fraud       0.97      0.85      0.91       162
+
+avg / total       0.91      0.91      0.91       296
+
+</code></pre>
 <div align="center"><br><img src="./q6.png" width="389" height="294" alt="图片名称" align="center"><br></div>
 
 <h4 id="7-Logistic-regression-classifier-use-Undersampled-data-for-fitting-and-original-test-data-for-testing"><a href="#7-Logistic-regression-classifier-use-Undersampled-data-for-fitting-and-original-test-data-for-testing" class="headerlink" title="7:Logistic regression classifier - use Undersampled data for fitting and original test data for testing"></a>7:Logistic regression classifier - use Undersampled data for fitting and original test data for testing</h4><blockquote>
 <p>Recall metric in the testing dataset:  0.91</p>
 </blockquote>
 <p>We found a very decent recall accuracy when applying it to a much larger and skewed dataset. Also, as test on the larger and skewed data we will found a decrease of precision. That’s true, because this time there are more non-fraud transations in testing data. Since you want to identify all fraudulent data resp. At least raise all suspicious data which is probably at loss of precision. You are still reducing the amount which may has to be reviewed manually to tiny part of original transaction data. In our case, if we predict that a transaction is fraudulent and turns out not to be, is not a massive problem compared to the opposite.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">log_reg_params = &#123;<span class="string">"penalty"</span>: [<span class="string">'l1'</span>, <span class="string">'l2'</span>], <span class="string">'C'</span>: [0.001, 0.01, 0.1, 1, 10, 100, 1000]&#125;</span><br><span class="line"></span><br><span class="line">param_grid = &#123;<span class="string">'C'</span>: [0.01,0.1, 1, 10, 100, 1000,],<span class="string">'penalty'</span>: [ <span class="string">'l1'</span>, <span class="string">'l2'</span>]&#125;</span><br><span class="line">grid_search = GridSearchCV(LogisticRegression(),  param_grid, cv=10)</span><br><span class="line">grid_search.fit(X_train_undersample, y_train_undersample)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Best parameters: &#123;&#125;"</span>.format(grid_search.best_params_))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Best cross-validation score: &#123;:.5f&#125;"</span>.format(grid_search.best_score_))</span><br><span class="line">y_pred = grid_search.predict(X_test)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Test set accuracy score: &#123;:.5f&#125;"</span>.format(accuracy_score(y_test, y_pred)))</span><br><span class="line">labels = [<span class="string">'Non-fraud'</span>,<span class="string">'fraud'</span>]</span><br><span class="line"><span class="built_in">print</span>(classification_report(y_test, y_pred,target_names=labels))</span><br><span class="line"><span class="built_in">print</span>(confusion_matrix(y_test,y_pred))</span><br><span class="line">matrix=confusion_matrix(y_test,y_pred)</span><br><span class="line"></span><br><span class="line">-----------------------------------------</span><br><span class="line">Best parameters: &#123;<span class="string">'C'</span>: 10, <span class="string">'penalty'</span>: <span class="string">'l1'</span>&#125;</span><br><span class="line">Best cross-validation score: 0.94477</span><br><span class="line">Test <span class="built_in">set</span> accuracy score: 0.97795</span><br><span class="line">             precision    recall  f1-score   support</span><br><span class="line"></span><br><span class="line">  Non-fraud       1.00      0.98      0.99     85302</span><br><span class="line">      fraud       0.06      0.91      0.12       141</span><br><span class="line"></span><br><span class="line">avg / total       1.00      0.98      0.99     85443</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">log_reg_params = {&quot;penalty&quot;: [&#39;l1&#39;, &#39;l2&#39;], &#39;C&#39;: [0.001, 0.01, 0.1, 1, 10, 100, 1000]}
+
+param_grid = {&#39;C&#39;: [0.01,0.1, 1, 10, 100, 1000,],&#39;penalty&#39;: [ &#39;l1&#39;, &#39;l2&#39;]}
+grid_search = GridSearchCV(LogisticRegression(),  param_grid, cv=10)
+grid_search.fit(X_train_undersample, y_train_undersample)
+print(&quot;Best parameters: {}&quot;.format(grid_search.best_params_))
+print(&quot;Best cross-validation score: {:.5f}&quot;.format(grid_search.best_score_))
+y_pred = grid_search.predict(X_test)
+print(&quot;Test set accuracy score: {:.5f}&quot;.format(accuracy_score(y_test, y_pred)))
+labels = [&#39;Non-fraud&#39;,&#39;fraud&#39;]
+print(classification_report(y_test, y_pred,target_names=labels))
+print(confusion_matrix(y_test,y_pred))
+matrix=confusion_matrix(y_test,y_pred)
+
+-----------------------------------------
+Best parameters: {&#39;C&#39;: 10, &#39;penalty&#39;: &#39;l1&#39;}
+Best cross-validation score: 0.94477
+Test set accuracy score: 0.97795
+             precision    recall  f1-score   support
+
+  Non-fraud       1.00      0.98      0.99     85302
+      fraud       0.06      0.91      0.12       141
+
+avg / total       1.00      0.98      0.99     85443
+</code></pre>
 <div align="center"><br><img src="./q7.png" width="389" height="294" alt="图片名称" align="center"><br></div>
 
             </div>

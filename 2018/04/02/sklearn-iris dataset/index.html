@@ -71,7 +71,7 @@
 
 
 <!--  代码渲染  -->
-<link rel="stylesheet" href="/css/prism_coy.css" />
+<link rel="stylesheet" href="/css/prism_prism_okaidia.css" />
 <link rel="stylesheet" href="/css/typo.css" />
 <!-- 文章页 -->
 <body class="is-loading">
@@ -145,7 +145,10 @@
             <!-- Post -->
             <div class="typo" style="padding: 2rem 4rem 2rem 4rem ;">
                 <h2 id="1-基本介绍"><a href="#1-基本介绍" class="headerlink" title="1 基本介绍"></a>1 基本介绍</h2><p>本文的数据集是常见的官方数据集鸢尾花iris.csv<br>数据集：由3类不同的鸢尾花构成，每一类数量为50，共有150个观测值<br>数据集特征：sepal length（萼片长）, sepal width（萼片宽）, petal length（花瓣长）, petal width（花瓣宽）<br>数据集标签：setosa，versicolor，virginica<br><a id="more"></a></p>
-<h2 id="2-导入数据"><a href="#2-导入数据" class="headerlink" title="2 导入数据"></a>2 导入数据</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">from sklearn import datasets</span><br><span class="line">iris = datasets.load_iris()</span><br><span class="line"><span class="built_in">print</span>(iris.data)</span><br></pre></td></tr></table></figure>
+<h2 id="2-导入数据"><a href="#2-导入数据" class="headerlink" title="2 导入数据"></a>2 导入数据</h2><pre><code class="bash">from sklearn import datasets
+iris = datasets.load_iris()
+print(iris.data)
+</code></pre>
 <h2 id="3-观察数据结构"><a href="#3-观察数据结构" class="headerlink" title="3 观察数据结构"></a>3 观察数据结构</h2><table>
 <thead>
 <tr>
@@ -188,22 +191,61 @@
 <li>使用Sklearn,特征列和标签列的数据必须是数值的和Numpyarray形式</li>
 </ul>
 <h2 id="4-训练"><a href="#4-训练" class="headerlink" title="4 训练"></a>4 训练</h2><p>由于鸢尾花数据集的标签是按类别分的（categorical）所以是分类问题。这里用KNN近邻和逻辑回归两种模型来训练数据，来感受一下这两种模型对于准确率的影响。</p>
-<h3 id="4-1-方法一：K-nearest-neighbors-KNN-算法"><a href="#4-1-方法一：K-nearest-neighbors-KNN-算法" class="headerlink" title="4.1 方法一：K-nearest neighbors (KNN)算法"></a>4.1 方法一：K-nearest neighbors (KNN)算法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#1.将整个数据集拆分为两部分：训练集和测试集</span></span><br><span class="line">X = iris.data</span><br><span class="line">y = iris.target</span><br><span class="line">from sklearn.cross_validation import train_test_split</span><br><span class="line">X_train,X_test,y_train,y_test = train_test_split(X,y,test_size=0.4,random_state=4)</span><br><span class="line"></span><br><span class="line"><span class="comment">#2.配置Knn分类算法：K=5</span></span><br><span class="line">from sklearn.neighbors import KNeighborsClassifier</span><br><span class="line">Knn = KNeighborsClassifier(n_neighbors = 5)</span><br><span class="line"><span class="built_in">print</span>(knn)</span><br><span class="line"></span><br><span class="line">KNeighborsClassifier(algorithm=<span class="string">'auto'</span>, leaf_size=30, metric=<span class="string">'minkowski'</span>,</span><br><span class="line">           metric_params=None, n_jobs=1, n_neighbors=1, p=2,</span><br><span class="line">           weights=<span class="string">'uniform'</span>)</span><br><span class="line"><span class="comment">#3.训练</span></span><br><span class="line">knn.fit(X_train, y_train)</span><br><span class="line"></span><br><span class="line"><span class="comment">#4.分类</span></span><br><span class="line">y_pred = knn.predict(X_test)</span><br><span class="line"></span><br><span class="line"><span class="comment">#5.评估</span></span><br><span class="line">from sklearn import metrics</span><br><span class="line"><span class="built_in">print</span>(metrics.accuracy_score(y_test,y_pred))</span><br><span class="line">返回结果：0.9666666666666667</span><br></pre></td></tr></table></figure>
+<h3 id="4-1-方法一：K-nearest-neighbors-KNN-算法"><a href="#4-1-方法一：K-nearest-neighbors-KNN-算法" class="headerlink" title="4.1 方法一：K-nearest neighbors (KNN)算法"></a>4.1 方法一：K-nearest neighbors (KNN)算法</h3><pre><code class="bash">#1.将整个数据集拆分为两部分：训练集和测试集
+X = iris.data
+y = iris.target
+from sklearn.cross_validation import train_test_split
+X_train,X_test,y_train,y_test = train_test_split(X,y,test_size=0.4,random_state=4)
+
+#2.配置Knn分类算法：K=5
+from sklearn.neighbors import KNeighborsClassifier
+Knn = KNeighborsClassifier(n_neighbors = 5)
+print(knn)
+
+KNeighborsClassifier(algorithm=&#39;auto&#39;, leaf_size=30, metric=&#39;minkowski&#39;,
+           metric_params=None, n_jobs=1, n_neighbors=1, p=2,
+           weights=&#39;uniform&#39;)
+#3.训练
+knn.fit(X_train, y_train)
+
+#4.分类
+y_pred = knn.predict(X_test)
+
+#5.评估
+from sklearn import metrics
+print(metrics.accuracy_score(y_test,y_pred))
+返回结果：0.9666666666666667
+</code></pre>
 <ul>
-<li><p><strong>注意：K的取值会影响分类的结果，如当k=1时，分类的准确率就下降了</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">knn = KNeighborsClassifier(n_neighbors=1)</span><br><span class="line"></span><br><span class="line">knn.fit(X_train, y_train)</span><br><span class="line"></span><br><span class="line">y_pred = knn.predict(X_test)</span><br><span class="line"><span class="built_in">print</span>(metrics.accuracy_score(y_test,y_pred))</span><br><span class="line">返回结果：0.95</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>那么问题来了k应该取什么值才能让分类能更准确呢</strong></p>
-</li>
+<li><strong>注意：K的取值会影响分类的结果，如当k=1时，分类的准确率就下降了</strong><br><code>`</code> bash<br>knn = KNeighborsClassifier(n_neighbors=1)</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">k_range = list(range(1,26))</span><br><span class="line">scores = []</span><br><span class="line"><span class="keyword">for</span> k <span class="keyword">in</span> k_range:</span><br><span class="line">    knn = KNeighborsClassifier(n_neighbors=k)</span><br><span class="line">    knn.fit(X_train, y_train)</span><br><span class="line">    y_pred = knn.predict(X_test)</span><br><span class="line">    scores.append(metrics.accuracy_score(y_test, y_pred))</span><br></pre></td></tr></table></figure>
-<ul>
-<li><strong>k的取值对分类准确率的影响如下图</strong><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import matplotlib.pyplot as plt</span><br><span class="line"></span><br><span class="line">plt.plot(k_range, scores)</span><br><span class="line">plt.xlabel(<span class="string">'Value of K for KNN'</span>)</span><br><span class="line">plt.ylabel(<span class="string">'Testing Accuracy'</span>)</span><br></pre></td></tr></table></figure>
-</li>
+<p>knn.fit(X_train, y_train)</p>
+<p>y_pred = knn.predict(X_test)<br>print(metrics.accuracy_score(y_test,y_pred))<br>返回结果：0.95</p>
+<pre><code>- **那么问题来了k应该取什么值才能让分类能更准确呢**
+
+``` bash
+k_range = list(range(1,26))
+scores = []
+for k in k_range:
+    knn = KNeighborsClassifier(n_neighbors=k)
+    knn.fit(X_train, y_train)
+    y_pred = knn.predict(X_test)
+    scores.append(metrics.accuracy_score(y_test, y_pred))
+</code></pre><ul>
+<li><strong>k的取值对分类准确率的影响如下图</strong><br><code>`</code> bash<br>import matplotlib.pyplot as plt</li>
 </ul>
-<p><img src="k.png" alt=""></p>
-<h3 id="4-2方法二：LogisticRegression算法"><a href="#4-2方法二：LogisticRegression算法" class="headerlink" title="4.2方法二：LogisticRegression算法"></a>4.2方法二：LogisticRegression算法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">from sklearn.linear_model import LogisticRegression</span><br><span class="line">logreg = LogisticRegression()</span><br><span class="line">logreg.fit(X_train,y_train)</span><br><span class="line">y_pred = logreg.predict(X_test)</span><br><span class="line"><span class="built_in">print</span>(metrics.accuracy_score(y_test,y_pred))</span><br><span class="line">返回结果：0.95</span><br></pre></td></tr></table></figure>
-<h2 id="5-常见的SKlearn模块"><a href="#5-常见的SKlearn模块" class="headerlink" title="5 常见的SKlearn模块"></a>5 常见的SKlearn模块</h2><table>
+<p>plt.plot(k_range, scores)<br>plt.xlabel(‘Value of K for KNN’)<br>plt.ylabel(‘Testing Accuracy’)</p>
+<pre><code>![](k.png)
+
+### 4.2方法二：LogisticRegression算法
+``` bash
+from sklearn.linear_model import LogisticRegression
+logreg = LogisticRegression()
+logreg.fit(X_train,y_train)
+y_pred = logreg.predict(X_test)
+print(metrics.accuracy_score(y_test,y_pred))
+返回结果：0.95
+</code></pre><h2 id="5-常见的SKlearn模块"><a href="#5-常见的SKlearn模块" class="headerlink" title="5 常见的SKlearn模块"></a>5 常见的SKlearn模块</h2><table>
 <thead>
 <tr>
 <th>代码</th>

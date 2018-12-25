@@ -71,7 +71,7 @@
 
 
 <!--  代码渲染  -->
-<link rel="stylesheet" href="/css/prism_coy.css" />
+<link rel="stylesheet" href="/css/prism_prism_okaidia.css" />
 <link rel="stylesheet" href="/css/typo.css" />
 <!-- 文章页 -->
 <body class="is-loading">
@@ -186,11 +186,69 @@
 </ol>
 <p>我们都知道的是在sklearn中要用交叉验证需要从sklearn.model_selection中调用cross_val_score函数<br>而之前一直不太明白是为什么交叉验证是作为模型选择的，以前一直觉得是一种训练模型的方式。其实，它的本质是为了评估模型的稳定性。举个例子：在Dota世界杯之前，每个俱乐部都想了解自己队员的实力以便决定是不是要做人员调整，有的队伍会选择打10个小型比赛，而有的队伍会选择不参加平时的小比赛只在世界杯前参一场大赛来评估水平。而这时，像三冰这样发挥不太稳定的选手，他有可能因为对Majior的那个版本了解深刻，所以准备的特别好，从而拿到了冠军。然而却在TI时，发挥失力。而其它参加minor的队伍，由于有了10场比赛的数据，他们也心里有了B数知道自己的水平是稳定的，到时候只要正常发挥就好了。<br>这也就是为什么一般都会选交叉验证，毕竟是做工业的要得就是稳定的模型。如果用整个训练集训练然后直接用在测试集上，难保会有模型发挥失常。而交叉验证就相当于给模型多次证明自己的机会，然后取各自的平均分。所以用整个训练集来训练不仅对模型的选择来说是有风险的，而且也会有过拟的风险。</p>
 <p>从中还想到一个估计暂时也不会去碰的问题，比如对一个模型做5折交叉验证会产生5个分数，模型的分数可以做平均。而最终这个模型拿去用在测试集上的时候，它里面训练的一5组belta是怎么取的，算平均吗？</p>
-<h2 id="2-Titanic-Stacking-构建"><a href="#2-Titanic-Stacking-构建" class="headerlink" title="2 Titanic Stacking 构建"></a>2 Titanic Stacking 构建</h2><h3 id="一、设置训练集和测试集"><a href="#一、设置训练集和测试集" class="headerlink" title="一、设置训练集和测试集"></a>一、设置训练集和测试集</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">#训练集</span></span><br><span class="line">x_train = train.drop([<span class="string">'Survived'</span>], axis=1).values</span><br><span class="line">y_train = train[<span class="string">'Survived'</span>].ravel()</span><br><span class="line"><span class="comment"># 测试集</span></span><br><span class="line">x_test = test.values</span><br></pre></td></tr></table></figure>
-<h3 id="二、5折交叉验证"><a href="#二、5折交叉验证" class="headerlink" title="二、5折交叉验证"></a>二、5折交叉验证</h3><p>5个模型在训练集上预测标签（179，5） 以及测实集5次预测的平均（418，1）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">def get_oof(clf, x_train, y_train, x_test):</span><br><span class="line">      oof_train = np.zeros((ntrain,)) <span class="comment">#(891,)</span></span><br><span class="line">      oof_test = np.zeros((ntest,))   <span class="comment">#(418,)</span></span><br><span class="line">      oof_test_skf = np.empty((NFOLDS, ntest)) <span class="comment">#（5，418）</span></span><br><span class="line"></span><br><span class="line">     <span class="comment">#每个模型训练5次</span></span><br><span class="line">      <span class="keyword">for</span> i, (train_index, test_index) <span class="keyword">in</span> enumerate(kf):</span><br><span class="line">                              x_tr = x_train[train_index]<span class="comment">#(712, 5)</span></span><br><span class="line">                              y_tr = y_train[train_index]<span class="comment">#(712,)</span></span><br><span class="line">                              x_te = x_train[test_index]<span class="comment">#(179, 5)</span></span><br><span class="line">                           <span class="comment">#（训练集）训练其中4份数据</span></span><br><span class="line">                           clf.train(x_tr, y_tr)</span><br><span class="line"></span><br><span class="line">                            <span class="comment">#（训练集）预测剩下的第5份数据</span></span><br><span class="line">                           oof_train[test_index] = clf.predict(x_te)</span><br><span class="line"></span><br><span class="line">                            <span class="comment">#（测试集）预测5次测试集的数据</span></span><br><span class="line">                           oof_test_skf[i, :] = clf.predict(x_test)</span><br><span class="line">    <span class="comment">#将5次测试集的数据求平均</span></span><br><span class="line">    oof_test[:] = oof_test_skf.mean(axis=0)</span><br><span class="line"></span><br><span class="line">    <span class="built_in">return</span> oof_train.reshape(-1, 1), oof_test.reshape(-1, 1)</span><br></pre></td></tr></table></figure></p>
-<h3 id="三、每个模型5次叉验证得到预测标签合并为（891-1）"><a href="#三、每个模型5次叉验证得到预测标签合并为（891-1）" class="headerlink" title="三、每个模型5次叉验证得到预测标签合并为（891.1）"></a>三、每个模型5次叉验证得到预测标签合并为（891.1）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment"># Extra Trees：et_oof_train：(891, 1)， et_oof_test：(418, 1)</span></span><br><span class="line">et_oof_train, et_oof_test = get_oof(et, x_train, y_train, x_test)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Random Forest：rf_oof_train(891, 1) ，rf_oof_test(418, 1)</span></span><br><span class="line">rf_oof_train, rf_oof_test = get_oof(rf,x_train, y_train, x_test)</span><br><span class="line"></span><br><span class="line"> <span class="comment"># AdaBoost ada_oof_train：(891, 1) ，ada_oof_test(418, 1)</span></span><br><span class="line">ada_oof_train, ada_oof_test = get_oof(ada, x_train, y_train, x_test)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Gradient Boost：gb_oof_train(891, 1) ，gb_oof_test(418, 1)</span></span><br><span class="line">gb_oof_train, gb_oof_test = get_oof(gb,x_train, y_train, x_test)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Support Vector Classifier：svc_oof_train(891, 1)，svc_oof_test (418, 1)</span></span><br><span class="line">svc_oof_train, svc_oof_test = get_oof(svc,x_train, y_train, x_test)</span><br></pre></td></tr></table></figure>
-<h3 id="四、将5个模型的预测值和测试值合并：x-train（891，5），x-test（418，5）"><a href="#四、将5个模型的预测值和测试值合并：x-train（891，5），x-test（418，5）" class="headerlink" title="四、将5个模型的预测值和测试值合并：x_train（891，5），x_test（418，5）"></a>四、将5个模型的预测值和测试值合并：x_train（891，5），x_test（418，5）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x_train = np.concatenate(( et_oof_train, rf_oof_train, ada_oof_train, gb_oof_train, svc_oof_train), axis=1)</span><br><span class="line">x_test = np.concatenate(( et_oof_test, rf_oof_test, ada_oof_test, gb_oof_test, svc_oof_test), axis=1)</span><br></pre></td></tr></table></figure>
-<h3 id="五、将训练集的预测值（891，5）与真实值（891，1）作为输入，用XGB模型训练，预测测试集（418，5）"><a href="#五、将训练集的预测值（891，5）与真实值（891，1）作为输入，用XGB模型训练，预测测试集（418，5）" class="headerlink" title="五、将训练集的预测值（891，5）与真实值（891，1）作为输入，用XGB模型训练，预测测试集（418，5）"></a>五、将训练集的预测值（891，5）与真实值（891，1）作为输入，用XGB模型训练，预测测试集（418，5）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">gbm = xgb.XGBClassifier(</span><br><span class="line">    <span class="comment">#learning_rate = 0.02,</span></span><br><span class="line">    n_estimators= 2000,</span><br><span class="line">    max_depth= 4,</span><br><span class="line">    min_child_weight= 2,</span><br><span class="line">    <span class="comment">#gamma=1,</span></span><br><span class="line">    gamma=0.9,                        </span><br><span class="line">    subsample=0.8,</span><br><span class="line">    colsample_bytree=0.8,</span><br><span class="line">    objective= <span class="string">'binary:logistic'</span>,</span><br><span class="line">    nthread= -1,</span><br><span class="line">    scale_pos_weight=1).fit(x_train, y_train)</span><br><span class="line">predictions = gbm.predict(x_test)</span><br></pre></td></tr></table></figure>
+<h2 id="2-Titanic-Stacking-构建"><a href="#2-Titanic-Stacking-构建" class="headerlink" title="2 Titanic Stacking 构建"></a>2 Titanic Stacking 构建</h2><h3 id="一、设置训练集和测试集"><a href="#一、设置训练集和测试集" class="headerlink" title="一、设置训练集和测试集"></a>一、设置训练集和测试集</h3><pre><code class="bash">
+#训练集
+x_train = train.drop([&#39;Survived&#39;], axis=1).values
+y_train = train[&#39;Survived&#39;].ravel()
+# 测试集
+x_test = test.values
+</code></pre>
+<h3 id="二、5折交叉验证"><a href="#二、5折交叉验证" class="headerlink" title="二、5折交叉验证"></a>二、5折交叉验证</h3><p>5个模型在训练集上预测标签（179，5） 以及测实集5次预测的平均（418，1）</p>
+<pre><code class="bash">def get_oof(clf, x_train, y_train, x_test):
+      oof_train = np.zeros((ntrain,)) #(891,)
+      oof_test = np.zeros((ntest,))   #(418,)
+      oof_test_skf = np.empty((NFOLDS, ntest)) #（5，418）
+
+     #每个模型训练5次
+      for i, (train_index, test_index) in enumerate(kf):
+                              x_tr = x_train[train_index]#(712, 5)
+                              y_tr = y_train[train_index]#(712,)
+                              x_te = x_train[test_index]#(179, 5)
+                           #（训练集）训练其中4份数据
+                           clf.train(x_tr, y_tr)
+
+                            #（训练集）预测剩下的第5份数据
+                           oof_train[test_index] = clf.predict(x_te)
+
+                            #（测试集）预测5次测试集的数据
+                           oof_test_skf[i, :] = clf.predict(x_test)
+    #将5次测试集的数据求平均
+    oof_test[:] = oof_test_skf.mean(axis=0)
+
+    return oof_train.reshape(-1, 1), oof_test.reshape(-1, 1)
+</code></pre>
+<h3 id="三、每个模型5次叉验证得到预测标签合并为（891-1）"><a href="#三、每个模型5次叉验证得到预测标签合并为（891-1）" class="headerlink" title="三、每个模型5次叉验证得到预测标签合并为（891.1）"></a>三、每个模型5次叉验证得到预测标签合并为（891.1）</h3><pre><code class="bash"> # Extra Trees：et_oof_train：(891, 1)， et_oof_test：(418, 1)
+et_oof_train, et_oof_test = get_oof(et, x_train, y_train, x_test)
+
+# Random Forest：rf_oof_train(891, 1) ，rf_oof_test(418, 1)
+rf_oof_train, rf_oof_test = get_oof(rf,x_train, y_train, x_test)
+
+ # AdaBoost ada_oof_train：(891, 1) ，ada_oof_test(418, 1)
+ada_oof_train, ada_oof_test = get_oof(ada, x_train, y_train, x_test)
+
+# Gradient Boost：gb_oof_train(891, 1) ，gb_oof_test(418, 1)
+gb_oof_train, gb_oof_test = get_oof(gb,x_train, y_train, x_test)
+
+# Support Vector Classifier：svc_oof_train(891, 1)，svc_oof_test (418, 1)
+svc_oof_train, svc_oof_test = get_oof(svc,x_train, y_train, x_test)
+</code></pre>
+<h3 id="四、将5个模型的预测值和测试值合并：x-train（891，5），x-test（418，5）"><a href="#四、将5个模型的预测值和测试值合并：x-train（891，5），x-test（418，5）" class="headerlink" title="四、将5个模型的预测值和测试值合并：x_train（891，5），x_test（418，5）"></a>四、将5个模型的预测值和测试值合并：x_train（891，5），x_test（418，5）</h3><pre><code class="bash">x_train = np.concatenate(( et_oof_train, rf_oof_train, ada_oof_train, gb_oof_train, svc_oof_train), axis=1)
+x_test = np.concatenate(( et_oof_test, rf_oof_test, ada_oof_test, gb_oof_test, svc_oof_test), axis=1)
+</code></pre>
+<h3 id="五、将训练集的预测值（891，5）与真实值（891，1）作为输入，用XGB模型训练，预测测试集（418，5）"><a href="#五、将训练集的预测值（891，5）与真实值（891，1）作为输入，用XGB模型训练，预测测试集（418，5）" class="headerlink" title="五、将训练集的预测值（891，5）与真实值（891，1）作为输入，用XGB模型训练，预测测试集（418，5）"></a>五、将训练集的预测值（891，5）与真实值（891，1）作为输入，用XGB模型训练，预测测试集（418，5）</h3><pre><code class="bash">gbm = xgb.XGBClassifier(
+    #learning_rate = 0.02,
+    n_estimators= 2000,
+    max_depth= 4,
+    min_child_weight= 2,
+    #gamma=1,
+    gamma=0.9,                        
+    subsample=0.8,
+    colsample_bytree=0.8,
+    objective= &#39;binary:logistic&#39;,
+    nthread= -1,
+    scale_pos_weight=1).fit(x_train, y_train)
+predictions = gbm.predict(x_test)
+</code></pre>
 <p>Reference:<br><a href="https://zhuanlan.zhihu.com/p/25836678" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/25836678</a><br><a href="https://www.jiqizhixin.com/articles/2018-01-14-8" target="_blank" rel="noopener">https://www.jiqizhixin.com/articles/2018-01-14-8</a><br><a href="https://www.kaggle.com/arthurtok/introduction-to-ensembling-stacking-in-python/notebook" target="_blank" rel="noopener">https://www.kaggle.com/arthurtok/introduction-to-ensembling-stacking-in-python/notebook</a></p>
 
             </div>

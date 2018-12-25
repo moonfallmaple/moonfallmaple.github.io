@@ -71,7 +71,7 @@
 
 
 <!--  代码渲染  -->
-<link rel="stylesheet" href="/css/prism_coy.css" />
+<link rel="stylesheet" href="/css/prism_prism_okaidia.css" />
 <link rel="stylesheet" href="/css/typo.css" />
 <!-- 文章页 -->
 <body class="is-loading">
@@ -147,9 +147,30 @@
                 <p>Pandas主要有两个数据结构：Series和DataFrame</p>
 <h2 id="1-Series"><a href="#1-Series" class="headerlink" title="1.Series"></a>1.Series</h2><p>它是单一列。DataFrame 中包含一个或多个 Series，每个 Series 均有一个名称。<br>表现形式为：索引在左边，值在右边。</p>
 <a id="more"></a>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">city = pd.Series([<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>]) <span class="comment">#a,b,c是字符要带上‘’</span></span><br><span class="line">0    a</span><br><span class="line">1    b</span><br><span class="line">2    c</span><br><span class="line">dtype: object</span><br><span class="line"></span><br><span class="line">population = pd.Series([20,30,40])</span><br><span class="line">0    20</span><br><span class="line">1    30</span><br><span class="line">2    40</span><br><span class="line">dtype: int64</span><br></pre></td></tr></table></figure>
-<h2 id="2-DataFrame"><a href="#2-DataFrame" class="headerlink" title="2.DataFrame"></a>2.DataFrame</h2><p>是一个表格型的数据结构，它包含有一组有序的列，每列可以是不同的值类型（数值，字符串，布尔值等）。DataFrame既有行索引也有列索引， 它可以被看做由Series组成的大字典。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">pd.DataFrame(&#123;<span class="string">'City'</span>:city , <span class="string">'Population'</span>:pop&#125;)</span><br><span class="line"></span><br><span class="line">   City	Population</span><br><span class="line">0	a	20</span><br><span class="line">1	b	30</span><br><span class="line">2	c	40</span><br></pre></td></tr></table></figure></p>
-<h3 id="2-1选择元素"><a href="#2-1选择元素" class="headerlink" title="2.1选择元素"></a>2.1选择元素</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">df.loc[行名，列名]</span><br><span class="line">election.loc[<span class="string">'Bedford'</span>, <span class="string">'winner'</span>]<span class="comment">#选择行标签为'Bedford',列标签为'winner'的元素</span></span><br><span class="line">election.iloc[4, 4] == election.loc[<span class="string">'Bedford'</span>, <span class="string">'winner'</span>]</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">city = pd.Series([&#39;a&#39;,&#39;b&#39;,&#39;c&#39;]) #a,b,c是字符要带上‘’
+0    a
+1    b
+2    c
+dtype: object
+
+population = pd.Series([20,30,40])
+0    20
+1    30
+2    40
+dtype: int64
+</code></pre>
+<h2 id="2-DataFrame"><a href="#2-DataFrame" class="headerlink" title="2.DataFrame"></a>2.DataFrame</h2><p>是一个表格型的数据结构，它包含有一组有序的列，每列可以是不同的值类型（数值，字符串，布尔值等）。DataFrame既有行索引也有列索引， 它可以被看做由Series组成的大字典。</p>
+<pre><code class="bash">pd.DataFrame({&#39;City&#39;:city , &#39;Population&#39;:pop})
+
+   City    Population
+0    a    20
+1    b    30
+2    c    40
+</code></pre>
+<h3 id="2-1选择元素"><a href="#2-1选择元素" class="headerlink" title="2.1选择元素"></a>2.1选择元素</h3><pre><code class="bash">df.loc[行名，列名]
+election.loc[&#39;Bedford&#39;, &#39;winner&#39;]#选择行标签为&#39;Bedford&#39;,列标签为&#39;winner&#39;的元素
+election.iloc[4, 4] == election.loc[&#39;Bedford&#39;, &#39;winner&#39;]
+</code></pre>
 <h2 id="2-2选择行或列"><a href="#2-2选择行或列" class="headerlink" title="2.2选择行或列"></a>2.2选择行或列</h2><table>
 <thead>
 <tr>
@@ -192,24 +213,86 @@
 </tbody>
 </table>
 <p>这一步相当于sql中的SELECT</p>
-<h3 id="2-2-1-行："><a href="#2-2-1-行：" class="headerlink" title="2.2.1 行："></a>2.2.1 行：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#用label选择单行</span></span><br><span class="line">df.loc[label]</span><br><span class="line"></span><br><span class="line"><span class="comment">#用label选择多行</span></span><br><span class="line">election.loc[<span class="string">'Bedford'</span>： <span class="string">'winner'</span>]</span><br><span class="line">p_counties_rev = election.loc[<span class="string">'Potter'</span>:<span class="string">'Perry'</span>:-1]<span class="comment"># 选择的行倒序排列</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#用数字选择单行</span></span><br><span class="line">df.iloc[loc]</span><br><span class="line">election.iloc[2]<span class="comment"># 选择第2行，注意python的位置是从0开始</span></span><br></pre></td></tr></table></figure>
-<h3 id="2-2-2-列："><a href="#2-2-2-列：" class="headerlink" title="2.2.2 列："></a>2.2.2 列：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#选择单列：</span></span><br><span class="line">df[col]</span><br><span class="line">election[<span class="string">'winter'</span>]<span class="comment">#选择列标签为'winner'的整列</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## 选择连续的多列：</span></span><br><span class="line">left_columns = election.loc[:,<span class="string">'state'</span>:<span class="string">'Obama'</span>]</span><br><span class="line">middle_columns = election.loc[:,<span class="string">'Obama'</span>:<span class="string">'winner'</span>]</span><br><span class="line">right_columns = election.loc[:,<span class="string">'Romney'</span>:]</span><br><span class="line"></span><br><span class="line"><span class="comment">## 选择任意多列：</span></span><br><span class="line">election[[<span class="string">'winner'</span>, <span class="string">'total'</span>, <span class="string">'voters'</span>]]</span><br><span class="line">election.loc[:, [<span class="string">'A'</span>,<span class="string">'C'</span>]]</span><br></pre></td></tr></table></figure>
-<h3 id="2-2-3-选取行与列的交集"><a href="#2-2-3-选取行与列的交集" class="headerlink" title="2.2.3 选取行与列的交集"></a>2.2.3 选取行与列的交集</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">election.loc[[<span class="string">'Philadelphia'</span>, <span class="string">'Centre'</span>, <span class="string">'Fulton'</span>],[<span class="string">'winner'</span>, <span class="string">'Obama'</span>, <span class="string">'Romney'</span>]]</span><br></pre></td></tr></table></figure>
-<h2 id="2-3-索引"><a href="#2-3-索引" class="headerlink" title="2.3 索引"></a>2.3 索引</h2><h3 id="2-3-1-设置索引"><a href="#2-3-1-设置索引" class="headerlink" title="2.3.1 设置索引"></a>2.3.1 设置索引</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">df=pd.read_csv(<span class="string">'file.csv'</span>,index=[<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>, <span class="string">'e'</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment">#设置列表为索引</span></span><br><span class="line">sales= sales.set_index([<span class="string">'state'</span>, <span class="string">'month'</span>])</span><br></pre></td></tr></table></figure>
-<h3 id="2-3-2索引排序"><a href="#2-3-2索引排序" class="headerlink" title="2.3.2索引排序"></a>2.3.2索引排序</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df = df.sort_index()</span><br></pre></td></tr></table></figure>
-<h2 id="2-3-3-改变索引标签"><a href="#2-3-3-改变索引标签" class="headerlink" title="2.3.3 改变索引标签"></a>2.3.3 改变索引标签</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sales.index.name=<span class="string">'MONTH'</span></span><br></pre></td></tr></table></figure>
-<h3 id="2-3-4-改变索引"><a href="#2-3-4-改变索引" class="headerlink" title="2.3.4 改变索引"></a>2.3.4 改变索引</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">months = [<span class="string">'Jan'</span>, <span class="string">'Feb'</span>, <span class="string">'Mar'</span>, <span class="string">'Apr'</span>, <span class="string">'May'</span>, <span class="string">'Jun'</span>]</span><br><span class="line">sales.index=months</span><br><span class="line"></span><br><span class="line">new_idx = [i.upper() <span class="keyword">for</span> i <span class="keyword">in</span> sales.index]<span class="comment"># Create the list of new indexes: new_idx</span></span><br><span class="line">sales.index = new_idx</span><br></pre></td></tr></table></figure>
-<h3 id="2-3-5-查找1级索引"><a href="#2-3-5-查找1级索引" class="headerlink" title="2.3.5 查找1级索引"></a>2.3.5 查找1级索引</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sales.loc[<span class="string">'NY'</span>]</span><br><span class="line">sales.loc[<span class="string">'NY'</span>：<span class="string">'TX'</span>]</span><br></pre></td></tr></table></figure>
-<h3 id="2-3-6-查找2级索引"><a href="#2-3-6-查找2级索引" class="headerlink" title="2.3.6 查找2级索引"></a>2.3.6 查找2级索引</h3><p>这一步相当于sql中的WHERE<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">NY_month1 = sales.loc[(<span class="string">'NY'</span>,1)] <span class="comment"># Look up data for NY in month 1: NY_month1</span></span><br><span class="line">CA_TX_month2 = sales.loc[([<span class="string">'CA'</span>,<span class="string">'TX'</span>],2),:]<span class="comment"># Look up data for CA and TX in month 2: CA_TX_month2</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="2-4-筛选"><a href="#2-4-筛选" class="headerlink" title="2.4 筛选"></a>2.4 筛选</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">high_turnout = election.turnout&gt;70 <span class="comment"># Create the boolean array: high_turnout</span></span><br><span class="line">high_turnout_df = election[high_turnout]<span class="comment"># Filter the election DataFrame with the high_turnout</span></span><br></pre></td></tr></table></figure>
-<h2 id="2-5删除数据"><a href="#2-5删除数据" class="headerlink" title="2.5删除数据"></a>2.5删除数据</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">data.drop(columns=[<span class="string">'target'</span>, <span class="string">'ID'</span>]).values</span><br><span class="line">df.dropna(how=<span class="string">'any'</span>)<span class="comment">#若一列有任一缺失值，则去掉</span></span><br><span class="line">df.dropna(how=<span class="string">'all'</span>)<span class="comment">#缺失值为整行</span></span><br><span class="line">axis=0 为行</span><br><span class="line">axis=1 为列</span><br></pre></td></tr></table></figure>
-<h2 id="2-6-变换"><a href="#2-6-变换" class="headerlink" title="2.6 变换"></a>2.6 变换</h2><h3 id="2-6-1-apply"><a href="#2-6-1-apply" class="headerlink" title="2.6.1 .apply()"></a>2.6.1 .apply()</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df_celsius = weather[[<span class="string">'Mean TemperatureF'</span> ,<span class="string">'Mean Dew PointF'</span>]].apply(to_celsius)</span><br></pre></td></tr></table></figure>
-<h3 id="2-6-2-map"><a href="#2-6-2-map" class="headerlink" title="2.6.2 .map()"></a>2.6.2 .map()</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Create the dictionary: red_vs_blue</span></span><br><span class="line">red_vs_blue = &#123;<span class="string">'Obama'</span>:<span class="string">'blue'</span> , <span class="string">'Romney'</span>:<span class="string">'red'</span>&#125;</span><br><span class="line"><span class="comment"># Use the dictionary to map the 'winner' column to the new column: election['color']</span></span><br><span class="line">election[<span class="string">'color'</span>] = election[<span class="string">'winner'</span>].map(red_vs_blue)</span><br></pre></td></tr></table></figure>
-<h3 id="2-6-3-zscore"><a href="#2-6-3-zscore" class="headerlink" title="2.6.3 zscore()"></a>2.6.3 zscore()</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">from scipy.stats import zscore</span><br><span class="line"><span class="comment"># Call zscore with election['turnout'] as input: turnout_zscore</span></span><br><span class="line">turnout_zscore = zscore(election[<span class="string">'turnout'</span>])</span><br><span class="line"><span class="comment"># Print the type of turnout_zscore</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(turnout_zscore))</span><br><span class="line">election[<span class="string">'turnout_zscore'</span>]=turnout_zscore<span class="comment"># Assign turnout_zscore to a new column: election['turnout_zscore']</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-2-1-行："><a href="#2-2-1-行：" class="headerlink" title="2.2.1 行："></a>2.2.1 行：</h3><pre><code class="bash">#用label选择单行
+df.loc[label]
+
+#用label选择多行
+election.loc[&#39;Bedford&#39;： &#39;winner&#39;]
+p_counties_rev = election.loc[&#39;Potter&#39;:&#39;Perry&#39;:-1]# 选择的行倒序排列
+
+#用数字选择单行
+df.iloc[loc]
+election.iloc[2]# 选择第2行，注意python的位置是从0开始
+</code></pre>
+<h3 id="2-2-2-列："><a href="#2-2-2-列：" class="headerlink" title="2.2.2 列："></a>2.2.2 列：</h3><pre><code class="bash">#选择单列：
+df[col]
+election[&#39;winter&#39;]#选择列标签为&#39;winner&#39;的整列
+
+## 选择连续的多列：
+left_columns = election.loc[:,&#39;state&#39;:&#39;Obama&#39;]
+middle_columns = election.loc[:,&#39;Obama&#39;:&#39;winner&#39;]
+right_columns = election.loc[:,&#39;Romney&#39;:]
+
+## 选择任意多列：
+election[[&#39;winner&#39;, &#39;total&#39;, &#39;voters&#39;]]
+election.loc[:, [&#39;A&#39;,&#39;C&#39;]]
+</code></pre>
+<h3 id="2-2-3-选取行与列的交集"><a href="#2-2-3-选取行与列的交集" class="headerlink" title="2.2.3 选取行与列的交集"></a>2.2.3 选取行与列的交集</h3><pre><code class="bash">election.loc[[&#39;Philadelphia&#39;, &#39;Centre&#39;, &#39;Fulton&#39;],[&#39;winner&#39;, &#39;Obama&#39;, &#39;Romney&#39;]]
+</code></pre>
+<h2 id="2-3-索引"><a href="#2-3-索引" class="headerlink" title="2.3 索引"></a>2.3 索引</h2><h3 id="2-3-1-设置索引"><a href="#2-3-1-设置索引" class="headerlink" title="2.3.1 设置索引"></a>2.3.1 设置索引</h3><pre><code class="bash">df=pd.read_csv(&#39;file.csv&#39;,index=[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;])
+
+#设置列表为索引
+sales= sales.set_index([&#39;state&#39;, &#39;month&#39;])
+</code></pre>
+<h3 id="2-3-2索引排序"><a href="#2-3-2索引排序" class="headerlink" title="2.3.2索引排序"></a>2.3.2索引排序</h3><pre><code class="bash">df = df.sort_index()
+</code></pre>
+<h2 id="2-3-3-改变索引标签"><a href="#2-3-3-改变索引标签" class="headerlink" title="2.3.3 改变索引标签"></a>2.3.3 改变索引标签</h2><pre><code class="bash">sales.index.name=&#39;MONTH&#39;
+</code></pre>
+<h3 id="2-3-4-改变索引"><a href="#2-3-4-改变索引" class="headerlink" title="2.3.4 改变索引"></a>2.3.4 改变索引</h3><pre><code class="bash">months = [&#39;Jan&#39;, &#39;Feb&#39;, &#39;Mar&#39;, &#39;Apr&#39;, &#39;May&#39;, &#39;Jun&#39;]
+sales.index=months
+
+new_idx = [i.upper() for i in sales.index]# Create the list of new indexes: new_idx
+sales.index = new_idx
+</code></pre>
+<h3 id="2-3-5-查找1级索引"><a href="#2-3-5-查找1级索引" class="headerlink" title="2.3.5 查找1级索引"></a>2.3.5 查找1级索引</h3><pre><code class="bash">sales.loc[&#39;NY&#39;]
+sales.loc[&#39;NY&#39;：&#39;TX&#39;]
+</code></pre>
+<h3 id="2-3-6-查找2级索引"><a href="#2-3-6-查找2级索引" class="headerlink" title="2.3.6 查找2级索引"></a>2.3.6 查找2级索引</h3><p>这一步相当于sql中的WHERE</p>
+<pre><code class="bash">NY_month1 = sales.loc[(&#39;NY&#39;,1)] # Look up data for NY in month 1: NY_month1
+CA_TX_month2 = sales.loc[([&#39;CA&#39;,&#39;TX&#39;],2),:]# Look up data for CA and TX in month 2: CA_TX_month2
+</code></pre>
+<h2 id="2-4-筛选"><a href="#2-4-筛选" class="headerlink" title="2.4 筛选"></a>2.4 筛选</h2><pre><code class="bash">high_turnout = election.turnout&gt;70 # Create the boolean array: high_turnout
+high_turnout_df = election[high_turnout]# Filter the election DataFrame with the high_turnout
+</code></pre>
+<h2 id="2-5删除数据"><a href="#2-5删除数据" class="headerlink" title="2.5删除数据"></a>2.5删除数据</h2><pre><code class="bash">data.drop(columns=[&#39;target&#39;, &#39;ID&#39;]).values
+df.dropna(how=&#39;any&#39;)#若一列有任一缺失值，则去掉
+df.dropna(how=&#39;all&#39;)#缺失值为整行
+axis=0 为行
+axis=1 为列
+</code></pre>
+<h2 id="2-6-变换"><a href="#2-6-变换" class="headerlink" title="2.6 变换"></a>2.6 变换</h2><h3 id="2-6-1-apply"><a href="#2-6-1-apply" class="headerlink" title="2.6.1 .apply()"></a>2.6.1 .apply()</h3><pre><code class="bash">df_celsius = weather[[&#39;Mean TemperatureF&#39; ,&#39;Mean Dew PointF&#39;]].apply(to_celsius)
+</code></pre>
+<h3 id="2-6-2-map"><a href="#2-6-2-map" class="headerlink" title="2.6.2 .map()"></a>2.6.2 .map()</h3><pre><code class="bash"># Create the dictionary: red_vs_blue
+red_vs_blue = {&#39;Obama&#39;:&#39;blue&#39; , &#39;Romney&#39;:&#39;red&#39;}
+# Use the dictionary to map the &#39;winner&#39; column to the new column: election[&#39;color&#39;]
+election[&#39;color&#39;] = election[&#39;winner&#39;].map(red_vs_blue)
+</code></pre>
+<h3 id="2-6-3-zscore"><a href="#2-6-3-zscore" class="headerlink" title="2.6.3 zscore()"></a>2.6.3 zscore()</h3><pre><code class="bash">from scipy.stats import zscore
+# Call zscore with election[&#39;turnout&#39;] as input: turnout_zscore
+turnout_zscore = zscore(election[&#39;turnout&#39;])
+# Print the type of turnout_zscore
+print(type(turnout_zscore))
+election[&#39;turnout_zscore&#39;]=turnout_zscore# Assign turnout_zscore to a new column: election[&#39;turnout_zscore&#39;]
+</code></pre>
 <p>#cut将根据值本身来选择箱子均匀间隔，qcut是根据这些值的频率来选择箱子的均匀间隔。<br>pd.qcut(train[‘Fare’], 4)</p>
-<h2 id="2-7-其它"><a href="#2-7-其它" class="headerlink" title="2.7 其它"></a>2.7 其它</h2><h3 id="2-7-1-list转字典"><a href="#2-7-1-list转字典" class="headerlink" title="2.7.1 list转字典"></a>2.7.1 list转字典</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">zip(name_list,cv_scores_mean)</span><br><span class="line">d = dict(zip(name_list,cv_scores_mean))</span><br></pre></td></tr></table></figure>
-<h3 id="2-7-2-list转dataframe"><a href="#2-7-2-list转dataframe" class="headerlink" title="2.7.2 list转dataframe"></a>2.7.2 list转dataframe</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># name_list 和cv_scores_mean是list</span></span><br><span class="line">pd.DataFrame(&#123;<span class="string">"Classifier"</span> : name_list,<span class="string">"cv_scores_mean"</span> : cv_scores_mean&#125;)</span><br></pre></td></tr></table></figure>
-<h3 id="2-7-3-dataframe排序"><a href="#2-7-3-dataframe排序" class="headerlink" title="2.7.3 dataframe排序"></a>2.7.3 dataframe排序</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.sort_values(by=<span class="string">'cv_scores_mean'</span>,ascending=False)</span><br></pre></td></tr></table></figure>
+<h2 id="2-7-其它"><a href="#2-7-其它" class="headerlink" title="2.7 其它"></a>2.7 其它</h2><h3 id="2-7-1-list转字典"><a href="#2-7-1-list转字典" class="headerlink" title="2.7.1 list转字典"></a>2.7.1 list转字典</h3><pre><code class="bash">zip(name_list,cv_scores_mean)
+d = dict(zip(name_list,cv_scores_mean))
+</code></pre>
+<h3 id="2-7-2-list转dataframe"><a href="#2-7-2-list转dataframe" class="headerlink" title="2.7.2 list转dataframe"></a>2.7.2 list转dataframe</h3><pre><code class="bash"># name_list 和cv_scores_mean是list
+pd.DataFrame({&quot;Classifier&quot; : name_list,&quot;cv_scores_mean&quot; : cv_scores_mean})
+</code></pre>
+<h3 id="2-7-3-dataframe排序"><a href="#2-7-3-dataframe排序" class="headerlink" title="2.7.3 dataframe排序"></a>2.7.3 dataframe排序</h3><pre><code class="bash">df.sort_values(by=&#39;cv_scores_mean&#39;,ascending=False)
+</code></pre>
 
             </div>
 

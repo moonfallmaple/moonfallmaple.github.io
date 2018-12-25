@@ -71,7 +71,7 @@
 
 
 <!--  代码渲染  -->
-<link rel="stylesheet" href="/css/prism_coy.css" />
+<link rel="stylesheet" href="/css/prism_prism_okaidia.css" />
 <link rel="stylesheet" href="/css/typo.css" />
 <!-- 文章页 -->
 <body class="is-loading">
@@ -145,7 +145,14 @@
             <!-- Post -->
             <div class="typo" style="padding: 2rem 4rem 2rem 4rem ;">
                 <h2 id="1-系统环境配置"><a href="#1-系统环境配置" class="headerlink" title="1.系统环境配置"></a>1.系统环境配置</h2><p>要使用Hexo，需要在你的系统中支持Nodejs以及Git，如果还没有，那就先安装吧<br><a id="more"></a></p>
-<h2 id="2-本地搭建Hexo静态博客"><a href="#2-本地搭建Hexo静态博客" class="headerlink" title="2.本地搭建Hexo静态博客"></a>2.本地搭建Hexo静态博客</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> d:/hexo  </span><br><span class="line">npm install hexo-cli -g</span><br><span class="line">hexo init blog</span><br><span class="line"><span class="built_in">cd</span> blog</span><br><span class="line">npm install</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+<h2 id="2-本地搭建Hexo静态博客"><a href="#2-本地搭建Hexo静态博客" class="headerlink" title="2.本地搭建Hexo静态博客"></a>2.本地搭建Hexo静态博客</h2><pre><code class="bash"> cd d:/hexo  
+ npm install hexo-cli -g
+ hexo init blog
+ cd blog
+ npm install
+ hexo g
+ hexo s
+</code></pre>
 <ul>
 <li>新建一个文件夹Hexo</li>
 <li>全局安装hexo-cli模块（由此可以在cmd命令行中使用hexo命令）</li>
@@ -165,11 +172,16 @@
 <h3 id="修改-config-yml配置文件"><a href="#修改-config-yml配置文件" class="headerlink" title="修改_config.yml配置文件"></a>修改_config.yml配置文件</h3><ul>
 <li>将Hexo部署到github需修改_config.yml配置文件。打开本地的blog文件夹项目内的_config.yml配置文件，将deploy的内容修改为以下：</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo: git@github.com:yourname/yourname.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">deploy:
+  type: git
+  repo: git@github.com:yourname/yourname.github.io.git
+  branch: master
+</code></pre>
 <ul>
 <li>然后回到Powershell在命令行中执行</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deploy d （将本地静态文件推送至Github）</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">deploy d （将本地静态文件推送至Github）
+</code></pre>
 <p>参考：<br>关于npm install和package.json文件可参考:<br><a href="http://www.ruanyifeng.com/blog/2016/01/npm-install.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2016/01/npm-install.html</a><br><a href="http://javascript.ruanyifeng.com/nodejs/packagejson.html" target="_blank" rel="noopener">http://javascript.ruanyifeng.com/nodejs/packagejson.html</a><br>关于hexo-cli命令可参考:<br>Hexo命令行入口：<a href="http://linest.github.io/2016/12/15/hexo-cli/" target="_blank" rel="noopener">http://linest.github.io/2016/12/15/hexo-cli/</a></p>
 
             </div>
