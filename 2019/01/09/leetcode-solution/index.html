@@ -1,0 +1,277 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<link rel="bookmark"  type="image/x-icon"  href="/img/logo.png"/>
+	<link rel="shortcut icon" href="/img/logo.png">
+	
+			    <title>
+    月落丹枫
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/css/mic_main.css" />
+    <link rel="stylesheet" href="/css/dropdownMenu.css" />
+    <meta name="keywords" content="" />
+    
+    	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	 
+    <noscript>
+        <link rel="stylesheet" href="/css/noscript.css" />
+    </noscript>
+    <style type="text/css">
+        body:before {
+          content: ' ';
+          position: fixed;
+          top: 0;
+          background: url('/img/bg.jpg') center 0 no-repeat;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background-size: cover; 
+        }
+    </style>
+
+			    
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script async type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.scrollex.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+    <script src="/js/main.js"></script>
+	
+</head>
+    
+		
+<!-- Layouts -->
+
+
+
+<!--  代码渲染  -->
+<link rel="stylesheet" href="/css/prism_prism_okaidia.css" />
+<link rel="stylesheet" href="/css/typo.css" />
+<!-- 文章页 -->
+<body class="is-loading">
+    <!-- Wrapper 外包 s-->
+    <div id="wrapper" class="fade-in">
+        <!-- Intro 头部显示 s -->
+        <!-- Intro 头部显示 e -->
+        <!-- Header 头部logo start -->
+        <header id="header">
+    <a href="/" class="logo">月落丹枫</a>
+</header>
+        <!-- Nav 导航条 start -->
+        <nav id="nav" class="special" >
+            <ul class="menu links" >
+			<!-- Homepage  主页  --> 
+			<li >
+	            <a href="/" rel="nofollow">Home</a>
+	        </li>
+			<!-- categories_name  分类   --> 
+	        
+	        <li class="active">
+	            <a href="#s1">Category</a>
+	                    <ul class="submenu">
+	                        <li>
+	                        <a class="category-link" href="/categories/Data-Analysis/">Data-Analysis</a>
+	                    </ul>
+	        </li>
+	        
+	        <!-- archives  归档   --> 
+	        
+	        
+		        <!-- Pages 自定义   -->
+		        
+		        <li>
+		            <a href="/tags/" title="Tag">
+		                Tag
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/demo/" title="Demo">
+		                Demo
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="https://www.linkedin.com/in/jane-shan/" title="Resume">
+		                Resume
+		            </a>
+		        </li>
+		        
+
+
+            </ul>
+            <!-- icons 图标   -->
+			<ul class="icons">
+                    
+                    <li>
+                        <a title="github" href="https://github.com/moonfallmaple" target="_blank" rel="noopener">
+                            <i class="icon fa fa-github"></i>
+                        </a>
+                    </li>
+                    
+			</ul>
+</nav>
+
+        <div id="main" >
+            <div class ="post_page_title_img" style="height:8rem;background-image: url();background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+                <a href="#" style="padding: 2rem 4rem 2rem 4rem ;"><h2 >leetcode-solution</h2></a>
+            </div>
+            <!-- Post -->
+            <div class="typo" style="padding: 2rem 4rem 2rem 4rem ;">
+                <h2 id="1-Two-Sum"><a href="#1-Two-Sum" class="headerlink" title="1.Two Sum"></a>1.Two Sum</h2><p>Given an array of integers, return indices of the two numbers such that they add up to a specific target.</p>
+<p>You may assume that each input would have exactly one solution, and you may not use the same element twice.</p>
+<p>Example:</p>
+<pre><code>Given nums = [2, 7, 4, 5], target = 9,
+
+Because nums[0] + nums[1] = 2 + 7 = 9,
+return [0, 1].
+</code></pre><p>题解：</p>
+<p>如果我们有一个字典,它的key是[2, 7, 4, 5]，它的value包含了它在序列中的位置和它所要找到那个数。则通过这个字典可以观察到整个序列中相加为9的所有组合。若这个序列比较长，则可能出现多个相加为9的组合。这样的方法虽然可以找出你要的所有组合，但是做这样的一个字典本身需要n次计算，而搜索又需要(n-1)*n次。而题目只要求返回一组就可以。所以这种方法的虽然可以做到全面搜索，但是较复杂</p>
+<table>
+<thead>
+<tr>
+<th>nums[i]</th>
+<th>2</th>
+<th>7</th>
+<th>4</th>
+<th>5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>index</td>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr>
+<td>lookUp</td>
+<td>7</td>
+<td>2</td>
+<td>5</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<p>换个思路，还是需要一本字典，但这次是边搜索边更新字典,这种方法最多只需n次</p>
+<h3 id="Step-0"><a href="#Step-0" class="headerlink" title="Step 0:"></a>Step 0:</h3><p>序列nums的第0项是2，若要相加为9，则另一项是7。lookUp=9-2=7<br>在dic中找key为7的项。</p>
+<table>
+<thead>
+<tr>
+<th>key</th>
+<th>value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>若无此项，则将第0项更新到字典后,i++</p>
+<table>
+<thead>
+<tr>
+<th>key</th>
+<th>value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Step-1"><a href="#Step-1" class="headerlink" title="Step 1:"></a>Step 1:</h3><p>序列nums的第1项是7，若要相加为9，则另一项是2。lookUp=9-7=2<br>由于在dic有key为2的项，则不用继续搜索返回它们对应的index就可以</p>
+<p>Code:</p>
+<pre><code>let twoSum = function(nums, target) {
+    let i
+    let lookUp
+    let len = nums.length;
+    let dic = {};
+
+    for (i=0; i&lt;len; i++) {
+        lookUp = target-nums[i];
+        if (dic[lookUp] !== undefined){
+           return [dic[lookUp],i];   
+        }
+        dic[nums[i]] = i;
+    }
+};
+
+</code></pre>
+            </div>
+
+            <!-- Post Comments -->
+            
+    <!-- 使用 valine -->
+<div id="comment">
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#comment' ,
+        notify: true,
+        verify: false,
+        app_id: '5ieD2qBIigoLuVa78tzFJ22P-gzGzoHsz',
+        app_key: '6TREdEvvBJpk2ElJDUL27w5U',
+        placeholder: 'Please leave your footprints',
+        pageSize: '10',
+        avatar: '',
+        avatar_cdn: 'https://gravatar.loli.net/avatar/'
+    });
+</script>
+</div>
+<style>
+   #comment{
+        padding: 2pc;
+    }
+</style>
+
+
+        </div>
+        <!-- Copyright 版权 start -->
+                <div id="copyright">
+            <ul>
+                <li>&copy;Powered By <a href="https://hexo.io/zh-cn/" style="border-bottom: none;">hexo</a></li>
+            </ul>
+            
+            	<span id="busuanzi_container_site_pv">2019总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+			
+        </div>
+    </div>
+</body>
+
+
+
+ 	
+</html>
