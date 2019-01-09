@@ -144,44 +144,78 @@
             </div>
             <!-- Post -->
             <div class="typo" style="padding: 2rem 4rem 2rem 4rem ;">
-                <h2 id="1-Two-Sum"><a href="#1-Two-Sum" class="headerlink" title="1.Two Sum"></a>1.Two Sum</h2><p>Given an array of integers, return indices of the two numbers such that they add up to a specific target.</p>
+                <h1 id="1-Two-Sum"><a href="#1-Two-Sum" class="headerlink" title="1.Two Sum"></a>1.Two Sum</h1><p>Given an array of integers, return indices of the two numbers such that they add up to a specific target.</p>
 <p>You may assume that each input would have exactly one solution, and you may not use the same element twice.</p>
 <p>Example:</p>
 <pre><code>Given nums = [2, 7, 4, 5], target = 9,
 
 Because nums[0] + nums[1] = 2 + 7 = 9,
 return [0, 1].
-</code></pre><p>题解：</p>
-<p>如果我们有一个字典,它的key是[2, 7, 4, 5]，它的value包含了它在序列中的位置和它所要找到那个数。则通过这个字典可以观察到整个序列中相加为9的所有组合。若这个序列比较长，则可能出现多个相加为9的组合。这样的方法虽然可以找出你要的所有组合，但是做这样的一个字典本身需要n次计算，而搜索又需要(n-1)*n次。而题目只要求返回一组就可以。所以这种方法的虽然可以做到全面搜索，但是较复杂</p>
-<table>
+</code></pre><h2 id="题解一：穷举"><a href="#题解一：穷举" class="headerlink" title="题解一：穷举"></a>题解一：穷举</h2><p>Code:</p>
+<pre><code>let twoSum = function(nums, target) {
+    for(let i=0;i&lt;nums.length;i++){
+        for(let j=0;j&lt;nums.length;j++){
+            if(nums[i]+nums[j]===target &amp;&amp; i!==j){
+                return [i,j]
+
+            }
+        } 
+    }
+
+};
+</code></pre><h2 id="题解二：搜索全字典"><a href="#题解二：搜索全字典" class="headerlink" title="题解二：搜索全字典"></a>题解二：搜索全字典</h2><h3 id="Step-0：新建一个字典dic，以序列nums的值-2-7-4-5-为key，以nums的index为value"><a href="#Step-0：新建一个字典dic，以序列nums的值-2-7-4-5-为key，以nums的index为value" class="headerlink" title="Step 0：新建一个字典dic，以序列nums的值[2, 7, 4, 5]为key，以nums的index为value"></a>Step 0：新建一个字典dic，以序列nums的值[2, 7, 4, 5]为key，以nums的index为value</h3><table>
 <thead>
 <tr>
-<th>nums[i]</th>
-<th>2</th>
-<th>7</th>
-<th>4</th>
-<th>5</th>
+<th>key</th>
+<th>value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>index</td>
-<td>0</td>
-<td>1</td>
 <td>2</td>
-<td>3</td>
+<td>0</td>
+<td></td>
 </tr>
 <tr>
-<td>lookUp</td>
 <td>7</td>
-<td>2</td>
-<td>5</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
 <td>4</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td>3</td>
 </tr>
 </tbody>
 </table>
-<p>换个思路，还是需要一本字典，但这次是边搜索边更新字典,这种方法最多只需n次</p>
-<h3 id="Step-0"><a href="#Step-0" class="headerlink" title="Step 0:"></a>Step 0:</h3><p>序列nums的第0项是2，若要相加为9，则另一项是7。lookUp=9-2=7<br>在dic中找key为7的项。</p>
+<h3 id="Step-1：对nums中的每一项，在字典的key中，搜索相加为9所需的数"><a href="#Step-1：对nums中的每一项，在字典的key中，搜索相加为9所需的数" class="headerlink" title="Step 1：对nums中的每一项，在字典的key中，搜索相加为9所需的数"></a>Step 1：对nums中的每一项，在字典的key中，搜索相加为9所需的数</h3><p>例：nums中的第一项为2，若要相加为9，则另一项是7。lookUp=9-2=7<br>在字典的key中搜索7，如果有就返回这两个数的index</p>
+<p>Code:</p>
+<pre><code>twoSum = function(nums, target) {
+    let i
+    let len = nums.length;
+    let dic={}
+
+    for (i=0; i&lt;len; i++) {
+        dic[nums[i]]=i  
+    }
+
+    for (i=0; i&lt;len; i++) {
+        let lookUp;
+        look=target-nums[i];
+        if(dic.hasOwnProperty(lookUp) &amp;&amp; dic[lookUp] !== i){
+            return [i,dic[lookUp]]
+        }
+
+    }
+
+
+};
+</code></pre><h2 id="题解三：边搜索边更新字典"><a href="#题解三：边搜索边更新字典" class="headerlink" title="题解三：边搜索边更新字典"></a>题解三：边搜索边更新字典</h2><p>新建一个空字典。对nums中的每一项，先在字典的key中，搜索相加为9所需的数，如果没有这样的key，就将nums[i]和i更新到字典的key和value中，如果有这样的key，则不用继续搜索而是返回它们对应的index就可以</p>
+<p>例：序列nums的第0项是2，若要相加为9，则另一项是7。lookUp=9-2=7<br>在dic中找key为7的项。</p>
 <table>
 <thead>
 <tr>
@@ -190,6 +224,11 @@ return [0, 1].
 </tr>
 </thead>
 <tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
 <tr>
 <td></td>
 <td></td>
@@ -211,7 +250,7 @@ return [0, 1].
 </tr>
 </tbody>
 </table>
-<h3 id="Step-1"><a href="#Step-1" class="headerlink" title="Step 1:"></a>Step 1:</h3><p>序列nums的第1项是7，若要相加为9，则另一项是2。lookUp=9-7=2<br>由于在dic有key为2的项，则不用继续搜索返回它们对应的index就可以</p>
+<p>序列nums的第1项是7，若要相加为9，则另一项是2。lookUp=9-7=2<br>由于在dic有key为2的项，则不用继续搜索返回它们对应的index就可以</p>
 <p>Code:</p>
 <pre><code>let twoSum = function(nums, target) {
     let i
