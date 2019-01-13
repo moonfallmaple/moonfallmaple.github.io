@@ -68,18 +68,12 @@
 		
 <!-- Layouts -->
 
-    <!-- Tags Cloud -->
-    
-<link rel="stylesheet" href="/css/item.css" />
-<style >
-    .row a{
-        border-bottom: none;
-    }
-    .special{
-        padding: 0;
-        padding: 2rem;
-    }
-</style>
+
+
+<!--  代码渲染  -->
+<link rel="stylesheet" href="/css/prism_prism_okaidia.css" />
+<link rel="stylesheet" href="/css/typo.css" />
+<!-- 文章页 -->
 <body class="is-loading">
     <!-- Wrapper 外包 s-->
     <div id="wrapper" class="fade-in">
@@ -145,9 +139,110 @@
 </nav>
 
         <div id="main" >
-            <div class="row" style="border-bottom: none;">
-                <a href="/tags/Leetcode/" style="font-size: 35px;">Leetcode</a> <a href="/tags/Nodejs/" style="font-size: 16px;">Nodejs</a> <a href="/tags/Pandas/" style="font-size: 16px;">Pandas</a> <a href="/tags/React/" style="font-size: 16px;">React</a> <a href="/tags/Tensorflow/" style="font-size: 16px;">Tensorflow</a> <a href="/tags/hexo/" style="font-size: 16px;">hexo</a> <a href="/tags/kaggle/" style="font-size: 16px;">kaggle</a> <a href="/tags/markdown/" style="font-size: 16px;">markdown</a> <a href="/tags/sklearn/" style="font-size: 16px;">sklearn</a>
-            </div>   
+            <div class ="post_page_title_img" style="height:8rem;background-image: url();background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+                <a href="#" style="padding: 2rem 4rem 2rem 4rem ;"><h2 >Leetcode-9-PalindromeNumber</h2></a>
+            </div>
+            <!-- Post -->
+            <div class="typo" style="padding: 2rem 4rem 2rem 4rem ;">
+                <h1 id="9-Palindrome-Number"><a href="#9-Palindrome-Number" class="headerlink" title="9.Palindrome Number"></a>9.Palindrome Number</h1><p>Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward.</p>
+<p>Example 1:</p>
+<pre><code>Input: 121
+Output: true
+</code></pre><p>Example 2:</p>
+<pre><code>Input: -121
+Output: false
+Explanation: From left to right, it reads -121. From right to left, it becomes 121-. Therefore it is not a palindrome.
+</code></pre><p>Example 3:</p>
+<pre><code>Input: 10
+Output: false
+Explanation: Reads 01 from right to left. Therefore it is not a palindrome.
+</code></pre><p>Follow up:</p>
+<p>Coud you solve it without converting the integer to a string?</p>
+<h3 id="题解一："><a href="#题解一：" class="headerlink" title="题解一："></a>题解一：</h3><p>每取原数字的最后1位，都储存到变量r中，以便调用为回文的第1位。<br>去掉原数字的最后1位，形成新的数字。</p>
+<p>小技巧</p>
+<blockquote>
+<p>x%10:得到数字的最后1位</p>
+</blockquote>
+<blockquote>
+<p>parseInt(x/10):得去掉最后1位的新整数</p>
+</blockquote>
+<p>Code:</p>
+<pre><code>let isPalindrome = function(x) {
+    let l=x
+    let y=x
+    let z=0
+    let c=0
+    let r=0 
+    let i=1
+
+
+    //计算数字的长度
+    while(l!==0){   
+        l=Math.floor(l/10)
+        c++
+    }
+
+    //r:除10后得到的余数
+    //y:除10后得到的少1位的新整数
+    //z：原数倒序后的新数
+    while(y!==0){ 
+        r=y%10        
+        y=parseInt(y/10)        
+        z=z+r*10**(c-i)  
+        i++             
+    }
+    if(x&lt;0){
+        return false;
+    }
+
+    return x==z    
+};
+</code></pre><h3 id="题解二："><a href="#题解二：" class="headerlink" title="题解二："></a>题解二：</h3><pre><code>let isPalindrome = function(x) {
+
+    let y=x;
+    let z=0;
+
+    if(x&lt;0){
+        return false     
+    }
+
+    while(y !==0){
+        z=z*10+y%10
+        y=parseInt(y/10);  
+    }
+    return x==z    
+};
+
+</code></pre>
+            </div>
+
+            <!-- Post Comments -->
+            
+    <!-- 使用 valine -->
+<div id="comment">
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#comment' ,
+        notify: true,
+        verify: false,
+        app_id: '5ieD2qBIigoLuVa78tzFJ22P-gzGzoHsz',
+        app_key: '6TREdEvvBJpk2ElJDUL27w5U',
+        placeholder: 'Please leave your footprints',
+        pageSize: '10',
+        avatar: '',
+        avatar_cdn: 'https://gravatar.loli.net/avatar/'
+    });
+</script>
+</div>
+<style>
+   #comment{
+        padding: 2pc;
+    }
+</style>
+
+
         </div>
         <!-- Copyright 版权 start -->
                 <div id="copyright">
@@ -160,6 +255,7 @@
         </div>
     </div>
 </body>
+
 
 
  	
