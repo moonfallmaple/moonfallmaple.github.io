@@ -1,0 +1,593 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<link rel="bookmark"  type="image/x-icon"  href="/img/logo.png"/>
+	<link rel="shortcut icon" href="/img/logo.png">
+	
+			    <title>
+    月落丹枫
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/css/mic_main.css" />
+    <link rel="stylesheet" href="/css/dropdownMenu.css" />
+    <meta name="keywords" content="" />
+    
+    	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	 
+    <noscript>
+        <link rel="stylesheet" href="/css/noscript.css" />
+    </noscript>
+    <style type="text/css">
+        body:before {
+          content: ' ';
+          position: fixed;
+          top: 0;
+          background: url('/img/bg.jpg') center 0 no-repeat;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background-size: cover; 
+        }
+    </style>
+
+			    
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script async type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.scrollex.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+    <script src="/js/main.js"></script>
+	
+</head>
+    
+		
+<!-- Layouts -->
+
+
+
+<!--  代码渲染  -->
+<link rel="stylesheet" href="/css/prism_prism_okaidia.css" />
+<link rel="stylesheet" href="/css/typo.css" />
+<!-- 文章页 -->
+<body class="is-loading">
+    <!-- Wrapper 外包 s-->
+    <div id="wrapper" class="fade-in">
+        <!-- Intro 头部显示 s -->
+        <!-- Intro 头部显示 e -->
+        <!-- Header 头部logo start -->
+        <header id="header">
+    <a href="/" class="logo">月落丹枫</a>
+</header>
+        <!-- Nav 导航条 start -->
+        <nav id="nav" class="special" >
+            <ul class="menu links" >
+			<!-- Homepage  主页  --> 
+			<li >
+	            <a href="/" rel="nofollow">Home</a>
+	        </li>
+			<!-- categories_name  分类   --> 
+	        
+	        <li class="active">
+	            <a href="#s1">Category</a>
+	                    <ul class="submenu">
+	                        <li>
+	                        <a class="category-link" href="/categories/Data-Analysis/">Data-Analysis</a>
+	                    </ul>
+	        </li>
+	        
+	        <!-- archives  归档   --> 
+	        
+	        
+		        <!-- Pages 自定义   -->
+		        
+		        <li>
+		            <a href="/tags/" title="Tag">
+		                Tag
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/demo/" title="Demo">
+		                Demo
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="https://www.linkedin.com/in/jane-shan/" title="Resume">
+		                Resume
+		            </a>
+		        </li>
+		        
+
+
+            </ul>
+            <!-- icons 图标   -->
+			<ul class="icons">
+                    
+                    <li>
+                        <a title="github" href="https://github.com/moonfallmaple" target="_blank" rel="noopener">
+                            <i class="icon fa fa-github"></i>
+                        </a>
+                    </li>
+                    
+			</ul>
+</nav>
+
+        <div id="main" >
+            <div class ="post_page_title_img" style="height:8rem;background-image: url();background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+                <a href="#" style="padding: 2rem 4rem 2rem 4rem ;"><h2 >myreads-app</h2></a>
+            </div>
+            <!-- Post -->
+            <div class="typo" style="padding: 2rem 4rem 2rem 4rem ;">
+                <h2 id="Project-书架应用程序"><a href="#Project-书架应用程序" class="headerlink" title="Project: 书架应用程序"></a>Project: 书架应用程序</h2><p>本项目目标是创建一个书架应用程序，允许您选择和分类您已阅读，正在阅读或想要阅读的书籍。 该项目强调使用React构建应用程序，并提供API服务器和客户端库，用于在与应用程序交互时保留信息。</p>
+<p><a href="https://github.com/moonfallmaple/myreads" target="_blank" rel="noopener">完整代码</a></p>
+<p>效果如下：</p>
+<div align="center"><br>Homepage<br><img src="./demo1.png" width="900" height="350" alt="图片名称" align="center"><br><br>SearchBooks<br><img src="./demo2.png" width="900" height="450" alt="图片名称" align="center"><br></div>
+
+
+
+<h2 id="组件划分"><a href="#组件划分" class="headerlink" title="组件划分"></a>组件划分</h2><p>React.js 中一切都是组件，用 React.js 构建的功能其实也就是由各种组件组合而成。所以拿到一个需求以后，我们要做的第一件事情就是理解需求、分析需求、划分这个需求由哪些组件构成。<br>对于上面这个阅读app，可以粗略地划分成以下几部分：</p>
+<p><code>BooksApp</code>：阅读app整体用一个叫 BooksApp 的组件包含起来。BooksApp 包含两个页面。</p>
+<p><code>HomePage</code>：第一个是主页展示用户的书架和搜索按钮。包括显示书架、显示书本和调整书本的书架位置功能，这一部分功能划分到单独的组件 BookShelf 和 Book 中。</p>
+<p><code>SearchBooks</code>：第二个是搜索页面，用一个叫 SearchBooks 的组件负责列表的展示。</p>
+<p><code>BookShelf</code>：负责书架的展示。</p>
+<p><code>Book</code>：每本书的列表项由独立的组件 Book 负责显示。并且可以调整书本的书架位置，这个组件被 Bookshelf 所使用。</p>
+<p>所以这个阅读app分成五种组件，BooksApp、HomePage、BookShelf、Book、SearchBooks。</p>
+<p>现在就可以尝试编写代码了。</p>
+<h2 id="组件实现"><a href="#组件实现" class="headerlink" title="组件实现"></a>组件实现</h2><p>在写代码之前，我们先用 create-react-app 构建一个新的工程目录。所有的功能在这个工程内完成：</p>
+<pre><code>create-react-app myreads
+</code></pre><p>然后在工程目录下的 src/ 目录下新建1个 BookApp.js 文件和 1个component 文件夹，在component下新建上述其它四个组件。</p>
+<pre><code>src/
+  BookApp.js
+
+src/component/
+  HomePage.js
+  BookShelf.js
+  Book.js
+  SearchBooks.js
+</code></pre><p>这里遵循一个原则：如果一个文件导出的是一个类，那么这个文件名就用大写开头。</p>
+<h2 id="BookApp组建"><a href="#BookApp组建" class="headerlink" title="BookApp组建"></a>BookApp组建</h2><blockquote>
+<p>主要任务是建立主页面和搜索页面的路由。</p>
+</blockquote>
+<p>安装 React router</p>
+<pre><code>npm install --save react-router-dom
+
+</code></pre><blockquote>
+<p>BrowserRouter</p>
+</blockquote>
+<p>在index.js文件中，BrowserRouter 创建一个history对象，用于监听url的变动</p>
+<pre><code>import React from &#39;react&#39;
+import ReactDOM from &#39;react-dom&#39;
+import { BrowserRouter } from &#39;react-router-dom&#39;
+import BooksApp from &#39;./BooksApp&#39;
+import &#39;./index.css&#39;
+
+ReactDOM.render(
+    &lt;BrowserRouter&gt;
+        &lt;BooksApp /&gt;                                                                                          
+    &lt;/BrowserRouter&gt;, document.getElementById(&#39;root&#39;))
+</code></pre><blockquote>
+<p>Route</p>
+</blockquote>
+<p>Route 组建会根据url渲染页面</p>
+<pre><code>import {Switch, Route} from &#39;react-router&#39;
+
+class BooksApp extends React.Component {
+
+  render() {
+    return (
+    &lt;div className=&#39;app&#39;&gt;
+      &lt;Switch&gt;
+        &lt;Route 
+            exact 
+            path=&#39;/&#39;
+            component={HomePage}
+        /&gt; 
+
+        &lt;Route exact 
+            path=&#39;/search&#39; 
+            component={SearchBooks} 
+        /&gt; 
+      &lt;/Switch&gt;
+    &lt;/div&gt;     
+    )
+  }
+}
+
+</code></pre><h2 id="HomePage-组建"><a href="#HomePage-组建" class="headerlink" title="HomePage 组建"></a>HomePage 组建</h2><blockquote>
+<p>结构：书架和搜索按钮</p>
+</blockquote>
+<blockquote>
+<p>要做的事1：获取用户的图书数据</p>
+</blockquote>
+<blockquote>
+<p>要做的事2：准备书架内容数据</p>
+</blockquote>
+<blockquote>
+<p>要做的事3：准备归类好的书籍</p>
+</blockquote>
+<p>我们先铺垫一些基础代码，让组件之间的关系清晰起来。先写一个空的书架组建和搜索按钮。浏览器上显示标题 MyReads。</p>
+<pre><code>class HomePage extends React.Component {
+
+    render=()=&gt;{
+
+        return(
+            &lt;div className=&quot;list-books&quot;&gt;
+                &lt;div className=&quot;list-books-title&quot;&gt;
+                    &lt;h1&gt;MyReads&lt;/h1&gt;
+                &lt;/div&gt;
+
+                &lt;BookShelf /&gt;
+
+                &lt;div className=&quot;open-search&quot;&gt;
+                    &lt;button onClick={() =&gt; { this.props.history.push(&#39;/search&#39;) }}&gt;Add a book&lt;/button&gt;
+                &lt;/div&gt;    
+
+            &lt;/div&gt;
+        )
+    }
+}
+
+export default HomePage
+</code></pre><blockquote>
+<p>要做的事1：获取用户的图书数据存放到state</p>
+</blockquote>
+<p>使用getAll API获取用户的所有图书,先打印图书看下</p>
+<div align="left"><br>用户的书架上一共有8本书，整体是数组，其中每一本书是一个对象。<br><img src="./UserBook.png" width="800" height="300" alt="图片名称" align="center"><br><br>第一本书的详情：<br><img src="./UserBookInfo.png" width="800" height="300" alt="图片名称" align="center"><br></div>
+
+<p>将获取到的图书通过 setState 更新到 state 中</p>
+<pre><code>class HomePage extends React.Component {
+    state = {
+        books: []
+    }
+
+    componentDidMount = () =&gt; {
+        this.refreshBooks()
+    }
+
+    /*get all user&#39;s book,here books is an array */
+    refreshBooks = () =&gt; {
+        getAll().then(books =&gt; {
+         this.setState(() =&gt; {
+        return {books: books}
+        })     
+    })}
+
+    render=()=&gt;{
+
+        return(
+            &lt;div className=&quot;list-books&quot;&gt;
+                &lt;div className=&quot;list-books-title&quot;&gt;
+                    &lt;h1&gt;MyReads&lt;/h1&gt;
+                &lt;/div&gt;
+
+                &lt;BookShelf /&gt;
+
+                &lt;div className=&quot;open-search&quot;&gt;
+                    &lt;button onClick={() =&gt; { this.props.history.push(&#39;/search&#39;) }}&gt;Add a book&lt;/button&gt;
+                &lt;/div&gt;    
+
+            &lt;/div&gt;
+        )
+    }
+}
+
+export default HomePage
+</code></pre><blockquote>
+<p>要做的事2：准备书架内容数据</p>
+</blockquote>
+<pre><code>&lt;div&gt;
+    {
+        Object.entries(shelves).map(([key, title])=&gt;(
+            &lt;BookShelf 
+                key={key}
+                title={title}
+            /&gt;
+        ))
+    }
+&lt;/div&gt;
+
+</code></pre><p>将书架的内容传递到书架组建</p>
+<pre><code>class BookShelf extends React.Component {
+
+  render = () =&gt; {
+    return (
+      &lt;div className=&quot;bookshelf&quot;&gt;
+        &lt;h2 className=&quot;bookshelf-title&quot;&gt;{this.props.title}&lt;/h2&gt;
+      &lt;/div&gt;
+    )
+  }
+}
+export default BookShelf
+</code></pre><p>现在可以把这个简单的结构渲染到页面上看看什么效果</p>
+<div align="center"><br><img src="./BookShelf.png" width="900" height="500" alt="图片名称" align="center"><br></div>
+
+<blockquote>
+<p>要做的事3：准备归类好的书籍</p>
+</blockquote>
+<p>将books数组按书架分类变成一个对象</p>
+<div align="left"><br><img src="./GroupByShelf.png" width="900" height="435" alt="图片名称" align="center"><br></div>
+
+<pre><code>class HomePage extends React.Component {
+      state={
+        books:[]
+    }
+
+    componentDidMount = () =&gt; {
+        this.refreshBooks()
+    }
+    ## 使用getAll API获取用户的所有图书
+    refreshBooks = () =&gt; {
+        getAll().then(books =&gt; {
+            this.setState(() =&gt; {
+                return {books: books}
+        })     
+    })}
+
+    onShelfChange = () =&gt; {
+        this.refreshBooks()
+    }
+
+    render=()=&gt;{
+
+        ## 将state中的书籍按书架归类
+        const books=this.state.books.reduce((books,book)=&gt;{ 
+            if(book.shelf){
+                books[book.shelf]= (books[book.shelf]||[]).contact([book])
+            }
+            return books
+        }, {})
+
+        return(
+            &lt;div className=&quot;list-books&quot;&gt;
+                &lt;div className=&quot;list-books-title&quot;&gt;
+                    &lt;h1&gt;MyReads&lt;/h1&gt;
+                &lt;/div&gt;
+
+                ## 准备好的书架内容和书籍会往下一层一层传递下去。先传给 BookShelf 组建渲染书架的内容
+                （正在读，已读和未读），再往下传到 Book 组建开始渲染每本书的封面和作者名字
+                &lt;div&gt;
+                {
+                    Object.entries(shelves).map(([key, title])=&gt;(
+                        &lt;BookShelf 
+                            key={key}
+                            title={title}
+                            books={books[key]}
+                            onShelfChange={onShelfChange}
+                        /&gt;
+                    ))
+                }
+                &lt;/div&gt;
+
+                &lt;div className=&quot;open-search&quot;&gt;
+                    &lt;button onClick={() =&gt; { this.props.history.push(&#39;/search&#39;) }}&gt;Add a book&lt;/button&gt;
+                &lt;/div&gt;    
+
+            &lt;/div&gt;
+        )
+    }
+}
+
+export default HomePage
+</code></pre><h2 id="BookShelf-组建"><a href="#BookShelf-组建" class="headerlink" title="BookShelf 组建"></a>BookShelf 组建</h2><pre><code>class BookShelf extends React.Component {
+
+  render = () =&gt; {
+    const { title, books } = this.props
+    return (
+      &lt;div className=&quot;bookshelf&quot;&gt;
+        &lt;h2 className=&quot;bookshelf-title&quot;&gt;{title}&lt;/h2&gt;
+        &lt;div className=&quot;bookshelf-books&quot;&gt;
+          &lt;ol className=&quot;books-grid&quot;&gt;
+            {books.map((book, index) =&gt; (
+              &lt;li key={index}&gt;
+                &lt;Book
+                  book={book}
+                  onShelfChange={this.props.onShelfChange}
+                /&gt;
+              &lt;/li&gt;
+            ))}
+          &lt;/ol&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    )
+  }
+}
+
+export default BookShelf
+</code></pre><h2 id="Book-组建"><a href="#Book-组建" class="headerlink" title="Book 组建"></a>Book 组建</h2><blockquote>
+<p>负责显示每本书的列表项</p>
+</blockquote>
+<blockquote>
+<p>调整书本的书架位置<br>用户一改书架位置就会通过API方法 update 更新 udacity 服务器上的书架数据,然后再重新 getAll 获取全部书籍到最外层的 state 里的books，再按书架整理进行渲染</p>
+</blockquote>
+<pre><code>class Book extends React.Component {
+  handleShelfChange = event =&gt; {
+    const toShelf = event.target.value
+    update(this.props.book, toShelf).then(() =&gt; {
+      if (this.props.onShelfChange) {
+        this.props.onShelfChange()
+      }
+    })
+  }
+
+  render(){
+    return(
+       &lt;div className=&quot;book&quot;&gt;
+        &lt;div className=&quot;book-top&quot;&gt;
+          &lt;div
+             className=&quot;book-cover&quot;
+             style={{
+               width: 128,
+               height: 193,
+               backgroundImage:`url( ${book.imageLinks? book.imageLinks.thumbnail : '' })`
+             }}
+
+           &gt;&lt;/div&gt;
+
+          &lt;div className=&quot;book-shelf-changer&quot;&gt;
+            &lt;select
+              defaultValue={book.shelf || &#39;none&#39;}
+              onChange={this.handleShelfChange}
+            &gt;
+              &lt;option value=&quot;move&quot; disabled&gt;Move to...&lt;/option&gt;
+              {Object.entries(shelves).map(([key, title]) =&gt; (
+                &lt;option
+                  key={key}
+                  value={key}
+                &gt;{title}&lt;/option&gt;
+              ))}
+              &lt;option value=&quot;none&quot;&gt;None&lt;/option&gt;
+            &lt;/select&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div className=&quot;book-title&quot;&gt;{book.title}&lt;/div&gt;
+        {book.authors &amp;&amp;
+          &lt;div className=&quot;book-authors&quot;&gt;{book.authors ? book.authors.join(&#39;, &#39;) : &#39;None&#39;}&lt;/div&gt;
+        }
+      &lt;/div&gt;
+    )
+  }
+}
+</code></pre><h2 id="SearchBooks-组建"><a href="#SearchBooks-组建" class="headerlink" title="SearchBooks 组建"></a>SearchBooks 组建</h2><blockquote>
+<p>SearchBook-query</p>
+</blockquote>
+<p>input是受控组建，它的值由state里的query控制，query开始设置为空字符，然后通过监控输入框，一旦输入框有变化就调用函数handleQueryChange将query的值通过setState更新后，再传给输入框显示出来</p>
+<pre><code>state={
+   query: &#39;&#39;,
+    books: [],
+    myBooks: {}
+}
+
+handleQueryChange= event =&gt;{
+  const query = event.target.value
+  this.setState(()=&gt;{
+    return{query:query}
+  })
+  if (query.length &gt; 0) {
+      search(query).then(books =&gt; {
+        this.setState(() =&gt; {
+          return{
+            books: books.length ? books : []
+          }})
+      })
+    }
+    if (query.length === 0) {
+        this.setState({
+          books: [],
+      })
+    }
+}
+
+&lt;input 
+ type=&quot;text&quot;
+  placeholder=&quot;Search by title or author&quot;
+  onChange={this.handleQueryChange}
+  value={query}
+
+  /&gt;
+
+</code></pre><blockquote>
+<p>SearchBook-searchResult</p>
+</blockquote>
+<p>books：由搜索到的书构成的数组，里面的每一本书都是一个对象。书里面没有shelf属性<br>myBooks:通过 getAll API 获取服务器上用户自己的书架数据，将其转化成一个以书的 id 为 key，书的信息为 value 的 Map。书里面有shelf属性。</p>
+<pre><code> componentDidMount() {
+    getAll().then(books =&gt; {
+      const myBooks = new Map(
+        books.length
+          ? books.map(book =&gt; [book.id, book])
+          : []
+      )
+      this.setState({
+        myBooks:myBooks
+      })
+    })
+  }
+</code></pre><div align="center"><br><img src="./mybooks.png" width="900" height="350" alt="图片名称" align="center"><br></div>
+
+<p>根据query的值去远程数据库搜索返回的书籍以数组的形式存放在state中的books里<br>搜索的关键字里可能有些书已经存在与用户自己的远程书架上了，可以通过id在myBooks查找，是用户的书则放到myBook里<br>然后将每一本books里的书传给Book组建，每本书都填上shelf属性</p>
+<pre><code>          &lt;ol className=&quot;books-grid&quot;&gt;
+            {books.map((book, index) =&gt; {
+              const myBook = myBooks.get(book.id) || {}
+              return (
+                &lt;Book
+                  key={index}
+                  book={{
+                    ...book,
+                    shelf: myBook.shelf || 'none',
+                  }}
+                /&gt;
+              )
+            })}
+          &lt;/ol&gt;
+</code></pre>
+            </div>
+
+            <!-- Post Comments -->
+            
+    <!-- 使用 valine -->
+<div id="comment">
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#comment' ,
+        notify: true,
+        verify: false,
+        app_id: '5ieD2qBIigoLuVa78tzFJ22P-gzGzoHsz',
+        app_key: '6TREdEvvBJpk2ElJDUL27w5U',
+        placeholder: 'Please leave your footprints',
+        pageSize: '10',
+        avatar: '',
+        avatar_cdn: 'https://gravatar.loli.net/avatar/'
+    });
+</script>
+</div>
+<style>
+   #comment{
+        padding: 2pc;
+    }
+</style>
+
+
+        </div>
+        <!-- Copyright 版权 start -->
+                <div id="copyright">
+            <ul>
+                <li>&copy;Powered By <a href="https://hexo.io/zh-cn/" style="border-bottom: none;">hexo</a></li>
+            </ul>
+            
+            	<span id="busuanzi_container_site_pv">2019总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+			
+        </div>
+    </div>
+</body>
+
+
+
+ 	
+</html>
