@@ -96,7 +96,7 @@
 	            <a href="#s1">Category</a>
 	                    <ul class="submenu">
 	                        <li>
-	                        <a class="category-link" href="/categories/Data-Analysis/">Data-Analysis</a>
+	                        <a class="category-link" href="/categories/Data-Analysis/">Data-Analysis</a></li><li><a class="category-link" href="/categories/Front-End/">Front-End</a>
 	                    </ul>
 	        </li>
 	        
@@ -150,7 +150,7 @@
 <li><p>Create a new react app named YYY. </p>
 <pre><code>create-react-app YYY
 </code></pre></li>
-<li>open the YYY file, then install gh-pages package there <pre><code>npm install gh-pages –save-dev
+<li>open the YYY file, then install gh-pages package there <pre><code>npm install gh-pages --save-dev
 </code></pre></li>
 <li>Edit package.json file (XXX is your Github username, YYY is your repo name)</li>
 </ol>
@@ -174,12 +174,22 @@
 </code></pre></li>
 <li><p>Set your remote git repo location</p>
 <pre><code>git remote add origin https://github.com/XXX/YYY.git
+</code></pre><p>if remote repo already exists </p>
+<pre><code>git remote rm origin
 </code></pre></li>
 <li><p>Deploy</p>
 <pre><code>npm run deploy
 </code></pre></li>
 </ol>
-
+<p>If you want to deploy react &amp; react router to gitpage: need to add basename={process.env.PUBLIC_URL} to BrowserRouter</p>
+<pre><code>ReactDOM.render(
+  &lt;Provider store={store}&gt;
+    &lt;BrowserRouter basename={process.env.PUBLIC_URL}&gt;
+      &lt;App /&gt;
+    &lt;/BrowserRouter&gt;
+  &lt;/Provider&gt;
+  ,document.getElementById(&#39;root&#39;));
+</code></pre>
             </div>
 
             <!-- Post Comments -->
